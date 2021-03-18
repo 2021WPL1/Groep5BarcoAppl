@@ -107,7 +107,6 @@ namespace BarcoApplicatie
 
         private void btnSendJob_Click(object sender, RoutedEventArgs e)
         {
-
             checkFilled();
 
             if (cbEmcEut.IsChecked == true)

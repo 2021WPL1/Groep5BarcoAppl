@@ -40,29 +40,24 @@ namespace BarcoApplicatie
         }
 
         //Koen
-        //private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
-        //{
-        //    listBox.DisplayMemberPath = display;
-        //    listBox.SelectedValuePath = value;
-        //    listBox.ItemsSource = source;
-        //}
+        private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
+        {
+            listBox.DisplayMemberPath = display;
+            listBox.SelectedValuePath = value;
+            listBox.ItemsSource = source;
+        }
 
         //Koen
         private void loadAllRequest()
         {
             List<RqRequest> requests = dao.getAllRequests();
-            //updateListBox(lbViewRequest, "expectedEnddate", "id_request", requests);
-
-            foreach (var request in requests)
-            {
-                lbViewRequest.Items.Add(request.ExpectedEnddate);
-            }
+            updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
         }
 
         //Koen
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            dao.removeJobRequest(Convert.ToDateTime(lbViewRequest.SelectedValue));
+            dao.removeJobRequest(Convert.ToInt32(lbViewRequest.SelectedValue));
             loadAllRequest();
         }
 
