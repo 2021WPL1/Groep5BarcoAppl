@@ -96,6 +96,7 @@ namespace BarcoApplicatie
             }
             else
             {
+                //////////////////this must be cleaned in one request//////////////////
                 if (cbEmcEut.IsChecked == true)
                 {
                     dao.Request(txtRequesterInitials.Text, cmbDivision.Text, cmbJobNature.Text,
@@ -620,9 +621,5 @@ namespace BarcoApplicatie
         {
             errorHandling.ControlInput("[^0-9]", txtGrossWeight5, numbersErrorLabel, "Please enter numbers only.");
         }
-
     }
-
 }
-
-
