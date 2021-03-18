@@ -69,7 +69,9 @@ namespace BarcoApplicatie
         //Koen
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+            acceptJobrequest.Closed += (s, args) => this.Close();
             acceptJobrequest.Show();
         }
     }

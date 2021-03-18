@@ -78,7 +78,9 @@ namespace BarcoApplicatie
         //Koen
         private void openViewJobRequestScreen()
         {
+            this.Hide();
             ViewJobrequest viewJR = new ViewJobrequest();
+            viewJR.Closed += (s, args) => this.Close();
             viewJR.Show();
         }
 
@@ -279,6 +281,9 @@ namespace BarcoApplicatie
         ///////////////////////////////////////////logoHomeScreen///////////////////////////////////////////
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            HomeScreen HomeScreen = new HomeScreen();
+            HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
         }
 
@@ -558,7 +563,7 @@ namespace BarcoApplicatie
 
         private void txtEutPartnumber4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            errorHandling.ControlInput("[^0-9]", txtEutPartnumber4, numbersErrorLabel,  "Please enter numbers only.");
+            errorHandling.ControlInput("[^0-9]", txtEutPartnumber4);
         }
 
         private void txtEutPartnumber5_TextChanged(object sender, TextChangedEventArgs e)

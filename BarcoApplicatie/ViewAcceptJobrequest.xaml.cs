@@ -27,7 +27,9 @@ namespace BarcoApplicatie
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             HomeScreen HomeScreen = new HomeScreen();
+            HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
         }
         

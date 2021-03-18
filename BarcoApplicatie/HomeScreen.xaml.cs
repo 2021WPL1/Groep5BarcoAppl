@@ -30,17 +30,23 @@ namespace BarcoApplicatie
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             MainWindow MainWindow = new MainWindow();
+            MainWindow.Closed += (s, args) => this.Close();
             MainWindow.Show();
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ViewAcceptJobrequest.Closed += (s, args) => this.Close();
             ViewAcceptJobrequest.Show();
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
         }
     }
