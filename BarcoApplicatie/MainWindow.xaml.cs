@@ -88,7 +88,7 @@ namespace BarcoApplicatie
         {
             if (txtRequesterInitials.Text.Length == 0 || cmbDivision.SelectedIndex == 0 || cmbJobNature.SelectedIndex == 0 || txtProjectNumber.Text.Length == 0 || txtProjectName.Text.Length == 0)
             {
-                errorHandling.EmptyTextBox(txtRequesterInitials, "Project Number", initialsErrorLabel);
+                errorHandling.EmptyTextBox(txtRequesterInitials, "Initials", initialsErrorLabel);
                 errorHandling.EmptyComboBox(cmbDivision, "Division", DivisionErrorLabel);
                 errorHandling.EmptyComboBox(cmbJobNature, "Job Nature", JobNatureErrorLabel);
                 errorHandling.EmptyTextBox(txtProjectNumber, "Project Number", projectNumberErrorLabel);
