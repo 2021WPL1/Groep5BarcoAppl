@@ -41,19 +41,20 @@ namespace BarcoApplicatie
         {
             return context.RqRequest.ToList();
         }
+
         public void saveChanges()
         {
             context.SaveChanges();
         }
 
-        public RqRequest getRequestWithDate(DateTime? date)
+        public RqRequest getRequestWithId(int id)
         {
-            return context.RqRequest.FirstOrDefault(r => r.ExpectedEnddate == date);
+            return context.RqRequest.FirstOrDefault(r => r.IdRequest == id);
         }
 
-        public void removeJobRequest(DateTime? date)
+        public void removeJobRequest(int id)
         {
-            context.RqRequest.Remove(getRequestWithDate(date));
+            context.RqRequest.Remove(getRequestWithId(id));
             saveChanges();
         }
 
