@@ -15,6 +15,7 @@ namespace BarcoApplicatie
             {
                 label.Content = content;
                 box.Text = box.Text.Remove(box.Text.Length - 1);
+            
             }
         }
 
