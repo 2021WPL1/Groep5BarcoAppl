@@ -52,30 +52,6 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
-        ///////////////////////////////////////////functionNoEmptyData///////////////////////////////////////////
-
-        public void checkFilled()
-        {
-
-            if (txtRequesterInitials.Text.Length > 0 && 
-                cmbDivision.SelectedIndex > -1 && 
-                cmbJobNature.SelectedIndex > -1 && 
-                txtProjectNumber.Text.Length > 0 && 
-                txtProjectName.Text.Length > 0 && 
-                txtEutPartnumber1.Text.Length > 0 && 
-                txtNetWeight1.Text.Length > 0 && 
-                txtGrossWeight1.Text.Length > 0 && 
-                ExpectedEndDate.Text.Length > 0 && 
-                txtLinkToTestplan.Text.Length > 0)
-            {
-
-            }
-            else
-            {
-                MessageBox.Show("Fill in all fields please.");
-            }
-        }
-
         ///////////////////////////////////////////loadDataIntoGUI///////////////////////////////////////////
         //Koen
         private void insertDivisionIntoComboBox()
