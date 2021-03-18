@@ -30,5 +30,23 @@ namespace BarcoApplicatie
                 DateEut.IsEnabled = true;
             }
         }
+
+        //Check if text is empty
+        public void EmptyTextBox(TextBox txtname, string text, Label label)
+        {
+            if (txtname.Text.Length == 0)
+            {
+                label.Content = "Please fill in " + text;
+            }
+            
+        }
+        public void EmptyComboBox(ComboBox cmbname, string text, Label label)
+        {
+            if (cmbname.SelectedIndex == -1)
+            {
+                label.Content = "Please fill in " + text;
+            }
+        }
+
     }
 }

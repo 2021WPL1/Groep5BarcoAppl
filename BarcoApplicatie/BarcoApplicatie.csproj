@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="GUI\**" />
+    <EmbeddedResource Remove="GUI\**" />
+    <None Remove="GUI\**" />
+    <Page Remove="GUI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
@@ -20,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="GUI\" />
     <Folder Include="Images\" />
   </ItemGroup>
 

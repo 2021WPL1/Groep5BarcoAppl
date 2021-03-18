@@ -56,6 +56,7 @@ namespace BarcoApplicatie
 
         public void checkFilled()
         {
+
             if (txtRequesterInitials.Text.Length > 0 && 
                 cmbDivision.SelectedIndex > -1 && 
                 cmbJobNature.SelectedIndex > -1 && 
@@ -107,8 +108,14 @@ namespace BarcoApplicatie
 
         private void btnSendJob_Click(object sender, RoutedEventArgs e)
         {
+            errorHandling.EmptyTextBox(txtRequesterInitials, "Initials", initialsErrorLabel);
+            errorHandling.EmptyComboBox(cmbDivision, "Division", DivisionErrorLabel);
+            errorHandling.EmptyComboBox(cmbJobNature, "Job Nature", JobNatureErrorLabel);
+            errorHandling.EmptyTextBox(txtProjectName, "Project Name", projectNumberErrorLabel);
+            errorHandling.EmptyTextBox(txtProjectNumber, "Project Number", projectNumberErrorLabel);
+            
 
-            checkFilled();
+            //checkFilled();
 
             if (cbEmcEut.IsChecked == true)
             {
