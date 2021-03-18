@@ -9,12 +9,12 @@ namespace BarcoApplicatie
 {
     class ErrorHandling
     {
-        public void ControlInput(string canBe, TextBox box)
+        public void ControlInput(string canBe, TextBox box, Label label, string content)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(box.Text, canBe))
             {
+                label.Content = content;
                 box.Text = box.Text.Remove(box.Text.Length - 1);
-            
             }
         }
 
