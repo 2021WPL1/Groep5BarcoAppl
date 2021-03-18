@@ -39,6 +39,10 @@ namespace BarcoApplicatie
             {
                 label.Content = "Please fill in " + text;
             }
+            else
+            {
+                label.Content = "";
+            }
             
         }
         public void EmptyComboBox(ComboBox cmbname, string text, Label label)
@@ -46,6 +50,10 @@ namespace BarcoApplicatie
             if (cmbname.SelectedIndex == -1)
             {
                 label.Content = "Please fill in " + text;
+            }
+            else
+            {
+                label.Content = "";
             }
         }
 
