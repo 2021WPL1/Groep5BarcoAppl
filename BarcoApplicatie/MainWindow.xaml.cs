@@ -40,27 +40,16 @@ namespace BarcoApplicatie
             capturedPhoto.Source = bitmapImage;
         }
         ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
-        public void yesOrNo()
-        {
-            if (Checkbox_No.IsChecked == true)
-            {
-                Checkbox_Yes.IsChecked = false;
-            }
-
-            else if (Checkbox_Yes.IsChecked == true)
-            {
-                Checkbox_No.IsChecked = false;
-            }
-        }
-
         private void Checkbox_No_Click(object sender, RoutedEventArgs e)
         {
-            yesOrNo();
+            Checkbox_No.IsChecked = true;
+            Checkbox_Yes.IsChecked = false;
         }
 
         private void Checkbox_Yes_Click(object sender, RoutedEventArgs e)
         {
-            yesOrNo();
+            Checkbox_Yes.IsChecked = true;
+            Checkbox_No.IsChecked = false;
         }
 
         ///////////////////////////////////////////functionNoEmptyData///////////////////////////////////////////
