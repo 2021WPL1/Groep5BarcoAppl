@@ -133,6 +133,8 @@ namespace BarcoApplicatie
                 eut.AvailableDate = dateEUT4;
                 eut.OmschrijvingEut = omschrijving;
             }
+
+             
             if (checkBoxEUT5.IsChecked == true)
             {
                 omschrijving += "EUT5, ";
