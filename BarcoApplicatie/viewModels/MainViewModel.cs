@@ -48,11 +48,26 @@ namespace BarcoApplicatie.viewModels
 
         private DateTime _expectedEndDate = DateTime.Now;
 
+        private DateTime _EUT1Date = DateTime.Now;
+        private DateTime _EUT2Date = DateTime.Now;
+        private DateTime _EUT3Date = DateTime.Now;
+        private DateTime _EUT4Date = DateTime.Now;
+        private DateTime _EUT5Date = DateTime.Now;
+
         private bool _batteries_No;
         private bool _batteries_Yes;
-        private const string NoBatteries = "No batteries inside";
-        private const string YesBatteries = "batteries inside";
-        public string MyBoundMessage {get;set;}
+        public string batteryMessage {get;set;}
+
+        private bool _EUT1;
+        public string EUT1Message {get;set;}
+        private bool _EUT2;
+        public string EUT2Message {get;set;}
+        private bool _EUT3;
+        public string EUT3Message {get;set;}
+        private bool _EUT4;
+        public string EUT4Message {get;set;}
+        private bool _EUT5;
+        public string EUT5Message {get;set;}
 
         public string RequesterInitials
         {
@@ -278,7 +293,6 @@ namespace BarcoApplicatie.viewModels
 
         public bool Batteries_No
         {
-
             get
             {
                 return _batteries_No;
@@ -288,7 +302,7 @@ namespace BarcoApplicatie.viewModels
                 if(_batteries_No == value) return;
 
                 _batteries_No = value;
-                MyBoundMessage = _batteries_No ? NoBatteries : YesBatteries;
+                batteryMessage = _batteries_No ? "No Batteries Inside" : "Batteries Inside";
 
                 OnPropertyChanged();
             }
@@ -304,11 +318,93 @@ namespace BarcoApplicatie.viewModels
                 if(_batteries_Yes == value) return;
 
                 _batteries_Yes = value;
-                MyBoundMessage = _batteries_Yes ? YesBatteries : NoBatteries;
+                batteryMessage = _batteries_Yes ? "Batteries Inside" : "No Batteries Inside";
 
                 OnPropertyChanged();
             }
         }
+
+        public bool EUT1
+        {
+            get
+            {
+                return _EUT1;
+            }
+            set
+            {
+                if(_EUT1 == value) return;
+
+                _EUT1 = value;
+                EUT1Message = _EUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EUT2
+        {
+            get
+            {
+                return _EUT2;
+            }
+            set
+            {
+                if(_EUT2 == value) return;
+
+                _EUT2 = value;
+                EUT2Message = _EUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EUT3
+        {
+            get
+            {
+                return _EUT3;
+            }
+            set
+            {
+                if(_EUT3 == value) return;
+
+                _EUT3 = value;
+                EUT3Message = _EUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EUT4
+        {
+            get
+            {
+                return _EUT4;
+            }
+            set
+            {
+                if(_EUT4 == value) return;
+
+                _EUT4 = value;
+                EUT4Message = _EUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EUT5
+        {
+            get
+            {
+                return _EUT5;
+            }
+            set
+            {
+                if(_EUT5 == value) return;
+
+                _EUT5 = value;
+                EUT5Message = _EUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
 
         public string LinkToTestplan
         {
@@ -336,7 +432,7 @@ namespace BarcoApplicatie.viewModels
 
         private void SendJobRequest()
         {
-            MessageBox.Show(LinkToTestplan);
+            MessageBox.Show(batteryMessage);
         }
 
 
