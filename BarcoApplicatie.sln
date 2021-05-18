@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcoApplicatie", "BarcoApplicatie\BarcoApplicatie.csproj", "{647DC0BB-63CC-4A90-9E05-40736C1EF587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcoApplicatie", "BarcoApplicatie\BarcoApplicatie.csproj", "{647DC0BB-63CC-4A90-9E05-40736C1EF587}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcoApplicatie.Domain", "BarcoApplicatie.Domain\BarcoApplicatie.Domain.csproj", "{DC5656F3-F0B3-4279-B83F-2C775AED0B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcoApplicatie.Data", "BarcoApplicatie.Data\BarcoApplicatie.Data.csproj", "{53820276-873C-412E-A791-B1B3878DAC5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{647DC0BB-63CC-4A90-9E05-40736C1EF587}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{647DC0BB-63CC-4A90-9E05-40736C1EF587}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{647DC0BB-63CC-4A90-9E05-40736C1EF587}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5656F3-F0B3-4279-B83F-2C775AED0B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5656F3-F0B3-4279-B83F-2C775AED0B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5656F3-F0B3-4279-B83F-2C775AED0B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5656F3-F0B3-4279-B83F-2C775AED0B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53820276-873C-412E-A791-B1B3878DAC5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53820276-873C-412E-A791-B1B3878DAC5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53820276-873C-412E-A791-B1B3878DAC5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53820276-873C-412E-A791-B1B3878DAC5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
