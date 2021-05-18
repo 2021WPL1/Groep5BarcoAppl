@@ -1,19 +1,12 @@
 ﻿using BarcoApplicatie.BibModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections;
+using BarcoApplicatie.viewModels;
+using BarcoApplication.Data;
 
 
 namespace BarcoApplicatie
@@ -27,14 +20,18 @@ namespace BarcoApplicatie
         private ErrorHandling errorHandling = new ErrorHandling();
         HomeScreen HomeScreen = new HomeScreen();
 
+        private MainViewModel viewModel;
+
 
         public MainWindow()
         {
             InitializeComponent();
             dao = DAO.Instance();
 
-            insertDivisionIntoComboBox();
-            insertJobNatureIntoComboBox();
+            viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
+            DataContext = viewModel;
+            viewModel.insertDivisionIntoComboBox(cmbDivision);
+            viewModel.insertJobNatureIntoComboBox(cmbJobNature);
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
@@ -52,29 +49,7 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
-        ///////////////////////////////////////////loadDataIntoGUI///////////////////////////////////////////
-        //Koen
-        private void insertDivisionIntoComboBox()
-        {
-            List<RqBarcoDivision> divisions = dao.getAllDivisions();
 
-            foreach (RqBarcoDivision division in divisions)
-            {
-                cmbDivision.Items.Add(division.Afkorting);
-            }
-        }
-
-        //Koen
-        private void insertJobNatureIntoComboBox()
-        {
-            List<RqJobNature> jobNatures = dao.getAllJobNatures();
-
-            foreach (RqJobNature jobNature in jobNatures)
-            {
-                cmbJobNature.Items.Add(jobNature.Nature);
-            }
-        }
-        ///////////////////////////////////////////buttonSendToDB///////////////////////////////////////////
         //Koen
         private void openViewJobRequestScreen()
         {

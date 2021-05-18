@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.VisualBasic;
 
 namespace BarcoApplicatie.BibModels
 {
@@ -29,7 +30,7 @@ namespace BarcoApplicatie.BibModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
+                object p = optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
             }
         }
 
