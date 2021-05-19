@@ -15,8 +15,9 @@ namespace BarcoApplicatie
 {
     public partial class Login : Window
     {
-
-        private void btnSendJob_Click()
+        //Robbe
+        //De registry aanpassen met de dingen die je ingeeft
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string Name = txtNaam.Text;
             string Division = txtDivisie.Text;
@@ -48,7 +49,11 @@ namespace BarcoApplicatie
                 test.SetValue("Division", Division);
                 test.Close();
             }
+
+            HomeScreen HomeScreen = new HomeScreen();
+            HomeScreen.Show();
         }
+
     }
 
 }

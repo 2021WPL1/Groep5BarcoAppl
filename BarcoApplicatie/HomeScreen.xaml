@@ -15,8 +15,8 @@
         <Border BorderThickness="1" BorderBrush="#FFF10000" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="1920" Background="#FFF10000"/>
         <Button x:Name="btnSendJob1" Click="Add_Click" Content="ADD JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,217,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000"/>
         <Image x:Name="capturedPhoto" Width="200" Height="75" Margin="1,-5,701,760"/>
-        <Button x:Name="btnSendJob1_Copy" Click="Confirm_Click" Content="CONFIRM JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,415,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000"/>
-        <Button x:Name="btnSendJob1_Copy1" Click="View_Click" Content="VIEW JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,605,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000"/>
+        <Button x:Name="btnSendJob1_Copy" Click="Confirm_Click" Content="CONFIRM JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,415,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000" IsEnabled="False"/>
+        <Button x:Name="btnSendJob1_Copy1" Click="View_Click" Content="VIEW JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,605,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000" IsEnabled="False"/>
 
     </Grid>
 </Window>
