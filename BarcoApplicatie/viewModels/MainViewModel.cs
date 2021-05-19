@@ -440,7 +440,7 @@ namespace BarcoApplicatie.viewModels
                 if(_EUT1 == value) return;
 
                 _EUT1 = value;
-                EUT1Message = _EUT1 ? "EUT1" : "";
+                EUT1Message = _EUT1 ? "EUT" : "";
 
                 OnPropertyChanged();
             }
@@ -669,7 +669,7 @@ namespace BarcoApplicatie.viewModels
                 SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
                 $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
                 $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",
-                EUT1Date,EUT2Date, EUT3Date,EUT4Date,EUT5Date,EUT6Date
+                EUT1Date
                 );
         }
 

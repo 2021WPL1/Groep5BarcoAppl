@@ -39,7 +39,7 @@ namespace BarcoApplication.Data
         public void SendJobRequest(string initials, string projectName, 
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery, string testdivision, string omschrijving,
-            DateTime? dateEUT1, DateTime? dateEUT2, DateTime? dateEUT3, DateTime? dateEUT4, DateTime? dateEUT5, DateTime? dateEUT6)
+            DateTime? dateEUT)
         {
             RqRequest request = new RqRequest();
             request.JrNumber = "0001";
@@ -65,59 +65,12 @@ namespace BarcoApplication.Data
             _context.RqRequestDetail.Add(requestDetail);
             _context.SaveChanges();
 
+            Eut eut = new Eut();
+            eut.OmschrijvingEut = omschrijving;
+            eut.AvailableDate = dateEUT;
 
-            //======EUT1======
-            Eut eut1 = new Eut();
-            eut1.OmschrijvingEut = omschrijving;
-            eut1.AvailableDate = dateEUT1;
-
-            eut1.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut1);
-            _context.SaveChanges();
-
-            //======EUT2======
-            Eut eut2 = new Eut();
-            eut2.OmschrijvingEut = omschrijving;
-            eut2.AvailableDate = dateEUT2;
-
-            eut2.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut2);
-            _context.SaveChanges();
-
-            //======EUT3======
-            Eut eut3 = new Eut();
-            eut3.OmschrijvingEut = omschrijving;
-            eut3.AvailableDate = dateEUT3;
-
-            eut3.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut3);
-            _context.SaveChanges();
-
-            //======EUT4======
-            Eut eut4 = new Eut();
-            eut4.OmschrijvingEut = omschrijving;
-            eut4.AvailableDate = dateEUT4;
-
-            eut4.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut4);
-            _context.SaveChanges();
-
-            //======EUT5======
-            Eut eut5 = new Eut();
-            eut5.OmschrijvingEut = omschrijving;
-            eut5.AvailableDate = dateEUT5;
-
-            eut5.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut5);
-            _context.SaveChanges();
-
-            //======EUT6======
-            Eut eut6 = new Eut();
-            eut6.OmschrijvingEut = omschrijving;
-            eut6.AvailableDate = dateEUT6;
-
-            eut6.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut6);
+            eut.IdRqDetail = requestDetail.IdRqDetail;
+            _context.Eut.Add(eut);
             _context.SaveChanges();
         }
     }
