@@ -17,21 +17,29 @@ namespace BarcoApplicatie.viewModels
 
         public ICommand SendJobRequestCommand { get; set; }
 
-        private ObservableCollection<RqBarcoDivision> _divisions { get; set; }
-        private ObservableCollection<RqJobNature> _jobNatures { get; set; }
-
-        public ObservableCollection<RqBarcoDivision> Divisions
-        {  
-            get { return _divisions; }  
-            set { _divisions = value; OnPropertyChanged(); }  
-        }
+        public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
+        public ObservableCollection<RqJobNature> JobNatures { get; set; }
 
         private RqBarcoDivision _selectedDivision;
+        private RqBarcoDivision _selectedJobNatures;
 
         public RqBarcoDivision SelectedDivision
         {
             get { return _selectedDivision; }
-            set { _selectedDivision = value; }
+            set
+            {
+                _selectedDivision = value;
+                OnPropertyChanged();
+            }
+        }
+        public RqBarcoDivision SelectedJobNatures
+        {
+            get { return _selectedJobNatures; }
+            set
+            {
+                _selectedJobNatures = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _requesterInitials;
@@ -537,38 +545,38 @@ namespace BarcoApplicatie.viewModels
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
 
 
-            _divisions = new ObservableCollection<RqBarcoDivision>();
-            _jobNatures = new ObservableCollection<RqJobNature>();
+            Divisions = new ObservableCollection<RqBarcoDivision>();
+            JobNatures = new ObservableCollection<RqJobNature>();
         }
 
         public void SendJobRequest()
         {
             _dataservice.SendJobRequest(RequesterInitials, ProjectName,
                 EutPartnumber1, ExpectedEndDate, GrossWeight1,
-                NetWeight1);
+                NetWeight1, SelectedDivision.Afkorting, SelectedJobNatures.Afkorting);
         }
 
 
         ///////////////////////////////////////////loadDataIntoGUI///////////////////////////////////////////
         //Koen
-        public void insertDivisionIntoComboBox(ComboBox comboBox)
+        public void insertDivisionIntoComboBox()
         {
             var divisions = _dataservice.getAllDivisions();
-
+            Divisions.Clear();
             foreach (var division in divisions)
             {
-                comboBox.Items.Add(division.Afkorting);
+                Divisions.Add(division);
             }
         }
 
         //Koen
-        public void insertJobNatureIntoComboBox(ComboBox comboBox)
+        public void insertJobNatureIntoComboBox()
         {
             var jobNatures = _dataservice.getAllJobNatures();
-
+            JobNatures.Clear();
             foreach (var jobNature in jobNatures)
             {
-                comboBox.Items.Add(jobNature.Nature);
+                JobNatures.Add(jobNature);
             }
         }
     }

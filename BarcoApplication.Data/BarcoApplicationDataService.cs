@@ -37,7 +37,7 @@ namespace BarcoApplication.Data
         }
 
         public RqRequest SendJobRequest(string initials, string projectName, 
-            string partNumber, DateTime? date, string grossWeight, string netWeight)
+            string partNumber, DateTime? date, string grossWeight, string netWeight, string division, string jobNature)
         {
             RqRequest request = new RqRequest();
             request.JrNumber = "0001";
@@ -49,8 +49,8 @@ namespace BarcoApplication.Data
             request.InternRequest = false;
             request.GrossWeight = grossWeight;
             request.NetWeight = netWeight;
-            request.BarcoDivision = "testDiv";
-            request.JobNature = "testNature";
+            request.BarcoDivision = division;
+            request.JobNature = jobNature;
 
             _context.RqRequest.Add(request);
             _context.SaveChanges();
