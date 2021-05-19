@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using BarcoApplicatie.BibModels;
 using BarcoApplication.Data;
+using Microsoft.Win32;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
@@ -98,6 +99,11 @@ namespace BarcoApplicatie.viewModels
         {
             get
             {
+                RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+                if (request != null)
+                {
+                    _requesterInitials = Convert.ToString(request.GetValue("Name"));
+                }
                 return _requesterInitials;
             }
             set

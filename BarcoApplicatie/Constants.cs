@@ -3,6 +3,6 @@
     public class Constants
     {
         public static string CONNECTION_STRING =
-           "Server=LAPTOP\\VIVES; Database= Barco2021; Trusted_Connection=True;";
+           "Server=DESKTOP-MB87VP9\\VIVES; Database=Barco; Trusted_Connection=True;";
     }
 }
