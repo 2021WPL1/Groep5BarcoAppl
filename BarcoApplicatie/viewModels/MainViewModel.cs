@@ -696,6 +696,7 @@ namespace BarcoApplicatie.viewModels
                 JobNatures.Add(jobNature);
             }
         }
+
     }
 
 }

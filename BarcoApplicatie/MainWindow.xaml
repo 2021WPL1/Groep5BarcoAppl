@@ -471,7 +471,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button Command="{Binding Path=SendJobRequestCommand}" x:Name="btnSendJob" Click="btnSendJob_Click" Content="SEND JOB REQUEST TO PVG" HorizontalAlignment="Left" Height="116" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
+        <Button Command="{Binding Path=SendJobRequestCommand}" x:Name="btnSendJob" Content="SEND JOB REQUEST TO PVG" HorizontalAlignment="Left" Height="116" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
         <ComboBox ItemsSource="{Binding JobNatures}"
                   SelectedItem="{Binding SelectedJobNatures}"
                   DisplayMemberPath="Nature"
