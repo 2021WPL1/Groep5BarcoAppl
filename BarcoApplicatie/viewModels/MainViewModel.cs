@@ -20,6 +20,20 @@ namespace BarcoApplicatie.viewModels
         private ObservableCollection<RqBarcoDivision> _divisions { get; set; }
         private ObservableCollection<RqJobNature> _jobNatures { get; set; }
 
+        public ObservableCollection<RqBarcoDivision> Divisions
+        {  
+            get { return _divisions; }  
+            set { _divisions = value; OnPropertyChanged(); }  
+        }
+
+        private RqBarcoDivision _selectedDivision;
+
+        public RqBarcoDivision SelectedDivision
+        {
+            get { return _selectedDivision; }
+            set { _selectedDivision = value; }
+        }
+
         private string _requesterInitials;
 
         private string _projectNumber;
@@ -27,6 +41,7 @@ namespace BarcoApplicatie.viewModels
         private string _projectName;
 
         private string _linkToTestplan;
+        private string _specialRemarks;
 
         private string _eutPartnumber1;
         private string _eutPartnumber2;
@@ -53,6 +68,8 @@ namespace BarcoApplicatie.viewModels
         private DateTime _EUT3Date = DateTime.Now;
         private DateTime _EUT4Date = DateTime.Now;
         private DateTime _EUT5Date = DateTime.Now;
+        private DateTime _EUT6Date = DateTime.Now;
+        private DateTime _PVGDate = DateTime.Now;
 
         private bool _batteries_No;
         private bool _batteries_Yes;
@@ -104,6 +121,88 @@ namespace BarcoApplicatie.viewModels
             set
             {
                 _projectName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        
+        public DateTime ExpectedEndDate
+        {
+            get { return _expectedEndDate; }
+
+            set
+            {
+                _expectedEndDate = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT1Date
+        {
+            get { return _EUT1Date; }
+
+            set
+            {
+                _EUT1Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT2Date
+        {
+            get { return _EUT2Date; }
+
+            set
+            {
+                _EUT2Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT3Date
+        {
+            get { return _EUT3Date; }
+
+            set
+            {
+                _EUT3Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT4Date
+        {
+            get { return _EUT4Date; }
+
+            set
+            {
+                _EUT4Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT5Date
+        {
+            get { return _EUT5Date; }
+
+            set
+            {
+                _EUT5Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime EUT6Date
+        {
+            get { return _EUT6Date; }
+
+            set
+            {
+                _EUT6Date = value; 
+                OnPropertyChanged();
+            }
+        }
+        public DateTime PVGDate
+        {
+            get { return _PVGDate; }
+
+            set
+            {
+                _PVGDate = value; 
                 OnPropertyChanged();
             }
         }
@@ -405,7 +504,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-
         public string LinkToTestplan
         {
             get
@@ -415,6 +513,19 @@ namespace BarcoApplicatie.viewModels
             set
             {
                 _linkToTestplan = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SpecialRemarks
+        {
+            get
+            {
+                return _specialRemarks;
+            }
+            set
+            {
+                _specialRemarks = value;
                 OnPropertyChanged();
             }
         }
@@ -430,9 +541,11 @@ namespace BarcoApplicatie.viewModels
             _jobNatures = new ObservableCollection<RqJobNature>();
         }
 
-        private void SendJobRequest()
+        public void SendJobRequest()
         {
-            MessageBox.Show(batteryMessage);
+            _dataservice.SendJobRequest(RequesterInitials, ProjectName,
+                EutPartnumber1, ExpectedEndDate, GrossWeight1,
+                NetWeight1);
         }
 
 

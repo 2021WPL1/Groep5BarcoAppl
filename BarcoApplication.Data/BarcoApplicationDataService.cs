@@ -36,6 +36,28 @@ namespace BarcoApplication.Data
             return _context.RqRequest.ToList();
         }
 
+        public RqRequest SendJobRequest(string initials, string projectName, 
+            string partNumber, DateTime? date, string grossWeight, string netWeight)
+        {
+            RqRequest request = new RqRequest();
+            request.JrNumber = "0001";
+            request.HydraProjectNr = "0001";
+            request.Requester = initials;
+            request.EutProjectname = projectName;
+            request.EutPartnumbers = partNumber;
+            request.ExpectedEnddate = date;
+            request.InternRequest = false;
+            request.GrossWeight = grossWeight;
+            request.NetWeight = netWeight;
+            request.BarcoDivision = "testDiv";
+            request.JobNature = "testNature";
+
+            _context.RqRequest.Add(request);
+            _context.SaveChanges();
+
+            return request;
+        }
+
         public void saveChanges()
         {
             _context.SaveChanges();

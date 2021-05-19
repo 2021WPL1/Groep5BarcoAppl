@@ -30,7 +30,7 @@ namespace BarcoApplicatie
 
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;
-            viewModel.insertDivisionIntoComboBox(cmbDivision);
+            //viewModel.insertDivisionIntoComboBox(cmbDivision);
             viewModel.insertJobNatureIntoComboBox(cmbJobNature);
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
