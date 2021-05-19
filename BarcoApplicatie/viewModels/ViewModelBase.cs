@@ -3,6 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace BarcoApplicatie.viewModels
 {
+    /// <summary>
+    /// Koen
+    /// </summary>
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;

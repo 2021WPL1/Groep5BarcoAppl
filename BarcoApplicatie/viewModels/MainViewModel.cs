@@ -11,8 +11,13 @@ using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
 {
+
+    /// <summary>
+    /// Koen
+    /// </summary>
     public class MainViewModel : ViewModelBase
     {
+
         private BarcoApplicationDataService _dataservice;
 
         public ICommand SendJobRequestCommand { get; set; }
@@ -21,7 +26,7 @@ namespace BarcoApplicatie.viewModels
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
 
         private RqBarcoDivision _selectedDivision;
-        private RqBarcoDivision _selectedJobNatures;
+        private RqJobNature _selectedJobNatures;
 
         public RqBarcoDivision SelectedDivision
         {
@@ -32,7 +37,7 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-        public RqBarcoDivision SelectedJobNatures
+        public RqJobNature SelectedJobNatures
         {
             get { return _selectedJobNatures; }
             set
@@ -79,9 +84,7 @@ namespace BarcoApplicatie.viewModels
         private DateTime _EUT6Date = DateTime.Now;
         private DateTime _PVGDate = DateTime.Now;
 
-        private bool _batteries_No;
         private bool _batteries_Yes;
-        public string batteryMessage {get;set;}
 
         private bool _EUT1;
         public string EUT1Message {get;set;}
@@ -93,6 +96,21 @@ namespace BarcoApplicatie.viewModels
         public string EUT4Message {get;set;}
         private bool _EUT5;
         public string EUT5Message {get;set;}
+        private bool _EUT6;
+        public string EUT6Message {get;set;}
+
+        private bool _EMC;
+        public string EMCMessage {get;set;}
+        private bool _ENV;
+        public string ENVMessage {get;set;}
+        private bool _REL;
+        public string RELMessage {get;set;}
+        private bool _SAFE;
+        public string SAFEMessage {get;set;}
+        private bool _PACK;
+        public string PACKMessage {get;set;}
+        private bool _GREEN;
+        public string GREENMessage {get;set;}
 
         public string RequesterInitials
         {
@@ -398,22 +416,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        public bool Batteries_No
-        {
-            get
-            {
-                return _batteries_No;
-            }
-            set
-            {
-                if(_batteries_No == value) return;
-
-                _batteries_No = value;
-                batteryMessage = _batteries_No ? "No Batteries Inside" : "Batteries Inside";
-
-                OnPropertyChanged();
-            }
-        }
         public bool Batteries_Yes
         {
             get
@@ -422,11 +424,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_batteries_Yes == value) return;
-
                 _batteries_Yes = value;
-                batteryMessage = _batteries_Yes ? "Batteries Inside" : "No Batteries Inside";
-
                 OnPropertyChanged();
             }
         }
@@ -511,6 +509,119 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+        public bool EUT6
+        {
+            get
+            {
+                return _EUT6;
+            }
+            set
+            {
+                if(_EUT6 == value) return;
+
+                _EUT6 = value;
+                EUT6Message = _EUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool EMC
+        {
+            get
+            {
+                return _EMC;
+            }
+            set
+            {
+                if(_EMC == value) return;
+
+                _EMC = value;
+                EMCMessage = _EMC ? "EMC" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool ENV
+        {
+            get
+            {
+                return _ENV;
+            }
+            set
+            {
+                if(_ENV == value) return;
+
+                _ENV = value;
+                ENVMessage = _ENV ? "ENV" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool REL
+        {
+            get
+            {
+                return _REL;
+            }
+            set
+            {
+                if(_REL == value) return;
+
+                _REL = value;
+                RELMessage = _REL ? "REL" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SAFE
+        {
+            get
+            {
+                return _SAFE;
+            }
+            set
+            {
+                if(_SAFE == value) return;
+
+                _SAFE = value;
+                SAFEMessage = _SAFE ? "SAFE" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PACK
+        {
+            get
+            {
+                return _PACK;
+            }
+            set
+            {
+                if(_PACK == value) return;
+
+                _PACK = value;
+                PACKMessage = _PACK ? "PACK" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GREEN
+        {
+            get
+            {
+                return _GREEN;
+            }
+            set
+            {
+                if(_GREEN == value) return;
+
+                _GREEN = value;
+                GREENMessage = _GREEN ? "GREEN" : "";
+
+                OnPropertyChanged();
+            }
+        }
 
         public string LinkToTestplan
         {
@@ -552,12 +663,18 @@ namespace BarcoApplicatie.viewModels
         public void SendJobRequest()
         {
             _dataservice.SendJobRequest(RequesterInitials, ProjectName,
-                EutPartnumber1, ExpectedEndDate, GrossWeight1,
-                NetWeight1, SelectedDivision.Afkorting, SelectedJobNatures.Afkorting);
+                $"{EutPartnumber1}; {EutPartnumber2}; {EutPartnumber3}; {EutPartnumber4}; {EutPartnumber5}",
+                ExpectedEndDate, $"{GrossWeight1}; {GrossWeight2}; {GrossWeight3}; {GrossWeight4}; {GrossWeight5}",
+                $"{NetWeight1}; {NetWeight2}; {NetWeight3}; {NetWeight4}; {NetWeight5}",
+                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
+                $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
+                $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",
+                EUT1Date,EUT2Date, EUT3Date,EUT4Date,EUT5Date,EUT6Date
+                );
         }
 
 
-        ///////////////////////////////////////////loadDataIntoGUI///////////////////////////////////////////
+        ///////////////////////////////////////////loadDataIntoCombo///////////////////////////////////////////
         //Koen
         public void insertDivisionIntoComboBox()
         {

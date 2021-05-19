@@ -5,6 +5,9 @@ using Microsoft.VisualBasic;
 
 namespace BarcoApplicatie.BibModels
 {
+    /// <summary>
+    /// Koen
+    /// </summary>
     public partial class Barco2021Context : DbContext
     {
         public Barco2021Context()
