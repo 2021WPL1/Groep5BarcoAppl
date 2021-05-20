@@ -500,6 +500,7 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        ///////////////////////////////////////////connectionbuttons///////////////////////////////////////////
         //Mathias
         public ICommand MainWindowCommand
         {
