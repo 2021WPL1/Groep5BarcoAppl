@@ -639,7 +639,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Button x:Name="btnRefuseJob" Click="btnSendJob_Click" Content="REFUSE JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,766,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome" Command="{Binding HomeCommand}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
 
     </Grid>
 </Window>

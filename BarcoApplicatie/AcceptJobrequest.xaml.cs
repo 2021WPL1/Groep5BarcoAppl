@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcoApplicatie.viewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace BarcoApplicatie
     /// <summary>
     /// Interaction logic for AcceptJobrequest.xaml
     /// </summary>
-    public partial class AcceptJobrequest : Window
+    public partial class AcceptJobrequest : Window 
     {
         public AcceptJobrequest()
         {
@@ -23,6 +24,7 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
+            btnHome.DataContext = new MainViewModel();
         }
 
         private void btnSendJob_Click(object sender, RoutedEventArgs e)
@@ -39,11 +41,12 @@ namespace BarcoApplicatie
         {
 
         }
-
+        /*
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
         }
+        */
     }
 }

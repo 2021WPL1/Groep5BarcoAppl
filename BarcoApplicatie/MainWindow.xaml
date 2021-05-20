@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:BarcoApplicatie"
         mc:Ignorable="d"
         Title="MainWindow" Height="840" Width="900" WindowStartupLocation="CenterScreen">
+   
     <Grid Background="#FF3C3F41" OpacityMask="White" Margin="-2,0,0,-6" OverridesDefaultStyle="True">
         <Grid.Style>
             <Style/>
@@ -39,7 +40,10 @@
         </TextBox>
         <Label Content="NATURE OF TEST(S) TO PERFORM" HorizontalAlignment="Left" Margin="25,463,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ComboBox
-            x:Name="cmbDivision" HorizontalAlignment="Left" Height="20" Margin="233,104,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black">
+            x:Name="cmbDivision" HorizontalAlignment="Left" Height="20" Margin="233,104,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black"
+             ItemsSource="{Binding Path=Divisions}"    
+             SelectedItem="{Binding Path=Division, Mode=TwoWay}"  
+             DisplayMemberPath="Afkorting">
         </ComboBox>
         <DatePicker SelectedDate="{Binding ExpectedEndDate}" x:Name="ExpectedEndDate" HorizontalAlignment="Left" Height="26" Margin="233,317,0,0" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Foreground="White" Text="#FFFFFF" ForceCursor="True">
             <DatePicker.CalendarStyle>
@@ -468,7 +472,10 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Button Command="{Binding Path=SendJobRequestCommand}" x:Name="btnSendJob" Click="btnSendJob_Click" Content="SEND JOB REQUEST TO PVG" HorizontalAlignment="Left" Height="116" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
-        <ComboBox x:Name="cmbJobNature" HorizontalAlignment="Left" Height="20" Margin="233,135,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black" />
+        <ComboBox x:Name="cmbJobNature" HorizontalAlignment="Left" Height="20" Margin="233,135,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black" 
+                  ItemsSource="{Binding Path=JobNatures}"    
+                  SelectedItem="{Binding Path=JobNature, Mode=TwoWay}"  
+                  DisplayMemberPath="Nature"/>
         <Label Content="PVG" HorizontalAlignment="Left" Margin="786,446,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
         <Label Content="RESPONSIBLE" HorizontalAlignment="Left" Margin="761,463,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
         <TextBox x:Name="txtEutPartnumber1_Copy1" HorizontalAlignment="Left" Margin="757,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24">
@@ -604,7 +611,8 @@
 
         <ComboBox x:Name="cmbPvgResponsibleGreenCompilance" HorizontalAlignment="Left" Height="24" Margin="757,599,0,0" VerticalAlignment="Top" Width="91" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black" IsEnabled="False"/>
 
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome"  Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"
+                Command="{Binding HomeCommand}"/>
         <Label x:Name="initialsErrorLabel"  Content="" HorizontalAlignment="Left" Height="25" Margin="368,68,0,0" VerticalAlignment="Top" Width="283" Foreground="Red" >
 
         </Label>

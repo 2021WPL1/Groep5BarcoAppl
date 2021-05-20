@@ -17,12 +17,28 @@ namespace BarcoApplicatie.viewModels
 
         public ICommand SendJobRequestCommand { get; set; }
 
-        private ObservableCollection<RqBarcoDivision> _divisions { get; set; }
-        private ObservableCollection<RqJobNature> _jobNatures { get; set; }
+        private ObservableCollection<RqBarcoDivision> _divisions;
+        private ObservableCollection<RqJobNature> _jobNatures;
+/*
+        public ObservableCollection<RqBarcoDivision> Divisions
+        {
+            get { return _divisions; }
+            set { _divisions = value; }
+        }
 
+        public ObservableCollection<RqJobNature> JobNatures
+        {
+            get { return _jobNatures; }
+            set { _jobNatures = value; }
+        }
+*/
         private string _requesterInitials;
 
         private string _projectNumber;
+
+        private RqBarcoDivision _division;
+
+        private RqJobNature _jobnature;
 
         private string _projectName;
 
@@ -56,18 +72,18 @@ namespace BarcoApplicatie.viewModels
 
         private bool _batteries_No;
         private bool _batteries_Yes;
-        public string batteryMessage {get;set;}
+        public string batteryMessage { get; set; }
 
         private bool _EUT1;
-        public string EUT1Message {get;set;}
+        public string EUT1Message { get; set; }
         private bool _EUT2;
-        public string EUT2Message {get;set;}
+        public string EUT2Message { get; set; }
         private bool _EUT3;
-        public string EUT3Message {get;set;}
+        public string EUT3Message { get; set; }
         private bool _EUT4;
-        public string EUT4Message {get;set;}
+        public string EUT4Message { get; set; }
         private bool _EUT5;
-        public string EUT5Message {get;set;}
+        public string EUT5Message { get; set; }
 
         public string RequesterInitials
         {
@@ -81,7 +97,31 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+        /*
+        public RqBarcoDivision Division
+        {
+            get
+            {
+                return _division;
+            }
+            set
+            {
+                _division = value;
+            }
+        }
 
+        public RqJobNature JobNature
+        {
+            get
+            {
+                return _jobnature;
+            }
+            set
+            {
+                _jobnature = value;
+            }
+        }
+        */
         public string ProjectNumber
         {
             get
@@ -299,7 +339,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_batteries_No == value) return;
+                if (_batteries_No == value) return;
 
                 _batteries_No = value;
                 batteryMessage = _batteries_No ? "No Batteries Inside" : "Batteries Inside";
@@ -315,7 +355,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_batteries_Yes == value) return;
+                if (_batteries_Yes == value) return;
 
                 _batteries_Yes = value;
                 batteryMessage = _batteries_Yes ? "Batteries Inside" : "No Batteries Inside";
@@ -332,7 +372,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EUT1 == value) return;
+                if (_EUT1 == value) return;
 
                 _EUT1 = value;
                 EUT1Message = _EUT1 ? "EUT1" : "";
@@ -348,7 +388,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EUT2 == value) return;
+                if (_EUT2 == value) return;
 
                 _EUT2 = value;
                 EUT2Message = _EUT2 ? "EUT2" : "";
@@ -364,7 +404,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EUT3 == value) return;
+                if (_EUT3 == value) return;
 
                 _EUT3 = value;
                 EUT3Message = _EUT3 ? "EUT3" : "";
@@ -380,7 +420,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EUT4 == value) return;
+                if (_EUT4 == value) return;
 
                 _EUT4 = value;
                 EUT4Message = _EUT4 ? "EUT4" : "";
@@ -396,7 +436,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EUT5 == value) return;
+                if (_EUT5 == value) return;
 
                 _EUT5 = value;
                 EUT5Message = _EUT5 ? "EUT5" : "";
@@ -458,6 +498,96 @@ namespace BarcoApplicatie.viewModels
                 comboBox.Items.Add(jobNature.Nature);
             }
         }
-    }
 
+        //Mathias
+        public ICommand MainWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand JobWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand AcceptJobrequestCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand HomeCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand ShowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand RemoveCommand
+        {
+            get;
+            set;
+        }
+       
+        public MainViewModel()
+        {
+            MainWindowCommand = new DelegateCommand(ShowMainWindow);
+            JobWindowCommand = new DelegateCommand(ShowJobrequest);
+            AcceptJobrequestCommand = new DelegateCommand(ShowAcceptJobrequest);
+            HomeCommand = new DelegateCommand(ShowHome);
+            ShowCommand = new DelegateCommand(ShowAccept);
+            RemoveCommand = new DelegateCommand(Remove);
+            
+        }
+
+        private void ShowMainWindow()
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+        }
+
+        private void ShowJobrequest()
+        {
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+        }
+
+        private void ShowAcceptJobrequest()
+        {
+            ViewAcceptJobrequest viewAcceptJobrequest = new ViewAcceptJobrequest();
+            viewAcceptJobrequest.Show();
+        }
+
+        private void ShowHome()
+        {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+        }
+
+        private void ShowAccept()
+        {
+            AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+            acceptJobrequest.Show();
+        }
+
+        private void Remove()
+        {
+            
+        }
+
+        public event EventHandler CloseView;
+
+        public void CloseWindow()
+        {
+            if (CloseView != null)
+                CloseView(this, EventArgs.Empty);
+        }
+    }
 }

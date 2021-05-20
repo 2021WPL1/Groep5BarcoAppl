@@ -55,7 +55,8 @@
         <Label Content="End date" HorizontalAlignment="Left" Margin="819,53,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ListBox Margin="0,76,0,0" BorderThickness="0.5,0.25" Background="Transparent" BorderBrush="#FF707070" Foreground="White"/>
         <Label Content="JR number" HorizontalAlignment="Left" Margin="15,53,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome"  Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"
+                Command="{Binding HomeCommand}"/>
     </Grid>
 </Window>
     

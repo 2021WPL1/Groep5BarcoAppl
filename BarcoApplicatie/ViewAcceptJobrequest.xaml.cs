@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcoApplicatie.viewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -23,8 +24,9 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
+            btnHome.DataContext = new MainViewModel();
         }
-
+        /*
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -32,6 +34,6 @@ namespace BarcoApplicatie
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
         }
-        
+        */
     }
 }
