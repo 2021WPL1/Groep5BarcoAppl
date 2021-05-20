@@ -2,15 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using BarcoApplication.Data;
 
 namespace BarcoApplicatie
 {
@@ -19,12 +14,13 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class ViewJobrequest : Window
     {
-        private DAO dao;
+        private BarcoApplicationDataService _dataService;
+
         public ViewJobrequest()
         {
             InitializeComponent();
 
-            dao = DAO.Instance();
+            _dataService = BarcoApplicationDataService.Instance();
 
             loadAllRequest();
 
@@ -50,14 +46,14 @@ namespace BarcoApplicatie
         //Koen
         private void loadAllRequest()
         {
-            List<RqRequest> requests = dao.getAllRequests();
+            List<RqRequest> requests = _dataService.getAllRequests();
             updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
         }
 
         //Koen
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            dao.removeJobRequest(Convert.ToInt32(lbViewRequest.SelectedValue));
+            _dataService.removeJobRequest(Convert.ToInt32(lbViewRequest.SelectedValue));
             loadAllRequest();
         }
 

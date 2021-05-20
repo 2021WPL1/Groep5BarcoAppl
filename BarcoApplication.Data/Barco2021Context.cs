@@ -1,9 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.VisualBasic;
 
 namespace BarcoApplicatie.BibModels
 {
+    /// <summary>
+    /// Koen
+    /// </summary>
     public partial class Barco2021Context : DbContext
     {
         public Barco2021Context()
@@ -29,7 +33,7 @@ namespace BarcoApplicatie.BibModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
+                object p = optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
             }
         }
 
