@@ -19,9 +19,12 @@ namespace BarcoApplicatie
     {
         ViewAcceptJobrequest ViewAcceptJobrequest = new ViewAcceptJobrequest();
         ViewJobrequest ViewJobrequest = new ViewJobrequest();
+        Email email = new Email();
 
         public HomeScreen()
         {
+            email.TimerEmail(TxtBoxTry);
+
             InitializeComponent();
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));

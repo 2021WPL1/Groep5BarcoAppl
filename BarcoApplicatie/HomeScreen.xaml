@@ -17,6 +17,7 @@
         <Image x:Name="capturedPhoto" Width="200" Height="75" Margin="1,-5,701,760"/>
         <Button x:Name="btnSendJob1_Copy" Click="Confirm_Click" Content="CONFIRM JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,415,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000"/>
         <Button x:Name="btnSendJob1_Copy1" Click="View_Click" Content="VIEW JOBREQUEST" HorizontalAlignment="Center" Height="57" Margin="0,605,0,0" VerticalAlignment="Top" Width="246" Foreground="White" Background="#FFF10000"/>
+        <TextBox x:Name="TxtBoxTry" HorizontalAlignment="Left" Margin="101,111,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
