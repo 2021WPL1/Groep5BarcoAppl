@@ -1,4 +1,6 @@
 ﻿using BarcoApplicatie.BibModels;
+using BarcoApplicatie.viewModels;
+using BarcoApplication.Data;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -13,40 +15,40 @@ namespace BarcoApplicatie
     //Nikki
     class Email
     {
-        private DAO dao;
-        
+        private BarcoApplicationDataService _dataService;
 
-        public void TimerEmail(TextBox txtbox)
+        public void ActivateEmail()
         {
-            //InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(5);
             timer.Tick += timer_Tick;
             timer.Start();
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 47, 0, 0); //18pm,0min,0sec,0
-            if (emailSendTime == DateTime.Now)
-            {
-                List<RqRequest> listAllRequests = dao.getAllRequests();
-                if (listAllRequests != null)
-                {
-                    SendMail();
-                }    
-            }
-            //tryout if it works
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 38, 0, 0); //18pm,0min,0sec,0
+                                                                                                                          //tryout if it works
             if (emailSendTime > DateTime.Now)
             {
-                txtbox.Text = "";
                 MessageBox.Show("To early");
             }
+
             if (emailSendTime < DateTime.Now)
             {
                 MessageBox.Show("To late");
-
             }
+
+            if (emailSendTime == DateTime.Now)
+            {
+                List<RqRequest> listAllRequests = _dataService.getAllRequests();
+                if (listAllRequests != null)
+                {
+                    MessageBox.Show("email sended!");
+                    //SendMail();
+                }
+            }
+
         }
 
         //initialise for SendMail
@@ -55,7 +57,7 @@ namespace BarcoApplicatie
 
         public void SendMail()
         {
-            List<RqRequest> listAllRequests = dao.getAllRequests();
+            List<RqRequest> listAllRequests = _dataService.getAllRequests();
 
             //setup smtp & mail 
             using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
@@ -79,7 +81,6 @@ namespace BarcoApplicatie
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
             }
