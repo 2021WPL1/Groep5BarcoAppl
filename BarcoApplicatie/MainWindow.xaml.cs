@@ -16,7 +16,6 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class MainWindow : Window 
     {
-        private DAO dao;
         private ErrorHandling errorHandling = new ErrorHandling();
         HomeScreen HomeScreen = new HomeScreen();
 
@@ -26,7 +25,6 @@ namespace BarcoApplicatie
         public MainWindow()
         {
             InitializeComponent();
-            dao = DAO.Instance();
 
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;

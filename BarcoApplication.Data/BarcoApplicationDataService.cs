@@ -16,7 +16,7 @@ namespace BarcoApplication.Data
             return _instance;
         }
 
-        public BarcoApplicationDataService()
+        private BarcoApplicationDataService()
         {
             this._context = new Barco2021Context();
         }
@@ -34,6 +34,17 @@ namespace BarcoApplication.Data
         public List<RqRequest> getAllRequests()
         {
             return _context.RqRequest.ToList();
+        }
+
+        public RqRequest getRequestWithId(int id)
+        {
+            return _context.RqRequest.FirstOrDefault(r => r.IdRequest == id);
+        }
+
+        public void removeJobRequest(int id)
+        {
+            _context.RqRequest.Remove(getRequestWithId(id));
+            _context.SaveChanges();
         }
 
         public void SendJobRequest(string initials, string projectName, 
@@ -71,6 +82,15 @@ namespace BarcoApplication.Data
 
             eut.IdRqDetail = requestDetail.IdRqDetail;
             _context.Eut.Add(eut);
+            _context.SaveChanges();
+        }
+
+        public void addTestDivision(string testDivision)
+        {
+            RqRequestDetail requestDetail = new RqRequestDetail();
+            requestDetail.Testdivisie = testDivision;
+
+            _context.RqRequestDetail.Add(requestDetail);
             _context.SaveChanges();
         }
     }
