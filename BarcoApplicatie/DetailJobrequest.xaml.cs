@@ -24,7 +24,6 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-            btnHome.DataContext = new MainViewModel();
         }
 
         private void Checkbox_Yes_Checked(object sender, RoutedEventArgs e)
@@ -36,12 +35,17 @@ namespace BarcoApplicatie
         {
 
         }
-        /*
+        
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            btnHome.DataContext = new MainViewModel();
+            this.Close();
+
+            /*
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
+            */
         }
-        */
+        
     }
 }

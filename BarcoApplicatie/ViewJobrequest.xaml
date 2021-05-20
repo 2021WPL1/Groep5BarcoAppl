@@ -58,10 +58,10 @@
         <Label Content="End date" HorizontalAlignment="Left" Margin="819,53,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ListBox x:Name="lbViewRequest" Margin="0,76,0,0" BorderThickness="0.5,0.25" Background="Transparent" BorderBrush="#FF707070" Foreground="White"/>
         <Button x:Name="btnHome" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"
-                Command="{Binding HomeCommand}"/>
+                Command="{Binding HomeCommand}" Click="btnHome_Click" />
         <Button x:Name="btnRemove" Content="REMOVE" HorizontalAlignment="Left" Height="56" Margin="762,0,0,0" VerticalAlignment="Top" Width="140" Background="#FFF10000" Foreground="White" BorderBrush="#FF3C3F41" BorderThickness="2,2,2,2" 
                 Click="btnRemove_Click"/>
         <Button x:Name="btnShow" Content="SHOW" HorizontalAlignment="Left" Height="56" Margin="625,0,0,0" VerticalAlignment="Top" Width="140" Background="#FFF10000" Foreground="White" BorderBrush="#FF3C3F41" BorderThickness="2,2,2,2" 
-                Command="{Binding ShowCommand}"/>
+                Command="{Binding ShowCommand}" Click="btnShow_Click" />
     </Grid>
 </Window>

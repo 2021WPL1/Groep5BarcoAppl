@@ -32,7 +32,7 @@ namespace BarcoApplicatie
             DataContext = viewModel;
             viewModel.insertDivisionIntoComboBox(cmbDivision);
             viewModel.insertJobNatureIntoComboBox(cmbJobNature);
-            btnHome.DataContext = new MainViewModel();
+            //btnHome.DataContext = new MainViewModel();
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
@@ -256,15 +256,19 @@ namespace BarcoApplicatie
             }
         }
         ///////////////////////////////////////////logoHomeScreen///////////////////////////////////////////
-       /*
+       
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            btnHome.DataContext = new MainViewModel();
+            this.Close();
+            /*
             this.Hide();
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
+            */
         }
-       */
+       
         ///////////////////////////////////////////boolCheckbox///////////////////////////////////////////
         public class Utils
         {

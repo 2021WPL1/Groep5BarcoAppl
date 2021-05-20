@@ -31,16 +31,19 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-            btnHome.DataContext = new MainViewModel();
-            btnShow.DataContext = new MainViewModel();
         }
-        /*
+        
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            btnHome.DataContext = new MainViewModel();
+            this.Close();
+
+            /*
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
+            */
         }
-        */
+        
         //Koen
         private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
         {
@@ -62,15 +65,19 @@ namespace BarcoApplicatie
             dao.removeJobRequest(Convert.ToInt32(lbViewRequest.SelectedValue));
             loadAllRequest();
         }
-        /*
+        
         //Koen
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
+            btnShow.DataContext = new MainViewModel();
+            this.Close();
+            /*
             this.Hide();
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Closed += (s, args) => this.Close();
-            acceptJobrequest.Show();
+            acceptJobrequest.Show(); 
+            */
         }
-        */
+        
     }
 }

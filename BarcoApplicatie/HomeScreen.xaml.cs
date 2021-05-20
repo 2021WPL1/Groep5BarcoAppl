@@ -28,32 +28,44 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-            btnSendJob1.DataContext = new MainViewModel();
-            btnSendJob1_Copy.DataContext = new MainViewModel(); 
-            btnSendJob1_Copy1.DataContext = new MainViewModel(); 
+            //btnSendJob1.DataContext = new MainViewModel();
+            //btnSendJob1_Copy.DataContext = new MainViewModel(); 
+            //btnSendJob1_Copy1.DataContext = new MainViewModel(); 
         } 
-        /*
+        
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            
+            btnSendJob1.DataContext = new MainViewModel();
+            //this.Close();
+
+            /*
             this.Hide();
             MainWindow MainWindow = new MainWindow();
             MainWindow.Closed += (s, args) => this.Close();
-            MainWindow.Show();
+            MainWindow.Show(); */
         }
         
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            
+            btnSendJob1_Copy.DataContext = new MainViewModel();
+            this.Close();
+            
+            /*
             ViewAcceptJobrequest.Closed += (s, args) => this.Close();
-            ViewAcceptJobrequest.Show();
+            ViewAcceptJobrequest.Show();*/
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            
+            btnSendJob1_Copy1.DataContext = new MainViewModel();
+            this.Close();
+            /*
             ViewJobrequest.Closed += (s, args) => this.Close();
-            ViewJobrequest.Show();
+            ViewJobrequest.Show();*/
         }
-        */
+        
     }
 }

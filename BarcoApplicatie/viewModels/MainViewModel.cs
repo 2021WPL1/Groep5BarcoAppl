@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using BarcoApplicatie.BibModels;
 using BarcoApplication.Data;
+using GalaSoft.MvvmLight.Command;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
@@ -530,12 +531,6 @@ namespace BarcoApplicatie.viewModels
             set;
         }
 
-        public ICommand RemoveCommand
-        {
-            get;
-            set;
-        }
-       
         public MainViewModel()
         {
             MainWindowCommand = new DelegateCommand(ShowMainWindow);
@@ -543,51 +538,38 @@ namespace BarcoApplicatie.viewModels
             AcceptJobrequestCommand = new DelegateCommand(ShowAcceptJobrequest);
             HomeCommand = new DelegateCommand(ShowHome);
             ShowCommand = new DelegateCommand(ShowAccept);
-            RemoveCommand = new DelegateCommand(Remove);
-            
+
         }
 
-        private void ShowMainWindow()
+        public void ShowMainWindow()
         {
             MainWindow mainwindow = new MainWindow();
             mainwindow.Show();
         }
 
-        private void ShowJobrequest()
+        public void ShowJobrequest()
         {
             ViewJobrequest viewJobrequest = new ViewJobrequest();
             viewJobrequest.Show();
         }
 
-        private void ShowAcceptJobrequest()
+        public void ShowAcceptJobrequest()
         {
             ViewAcceptJobrequest viewAcceptJobrequest = new ViewAcceptJobrequest();
             viewAcceptJobrequest.Show();
         }
 
-        private void ShowHome()
+        public void ShowHome()
         {
             HomeScreen homeScreen = new HomeScreen();
             homeScreen.Show();
         }
 
-        private void ShowAccept()
+        public void ShowAccept()
         {
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Show();
         }
-
-        private void Remove()
-        {
-            
-        }
-
-        public event EventHandler CloseView;
-
-        public void CloseWindow()
-        {
-            if (CloseView != null)
-                CloseView(this, EventArgs.Empty);
-        }
+        
     }
 }

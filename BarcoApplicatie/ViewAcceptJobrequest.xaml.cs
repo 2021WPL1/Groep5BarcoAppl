@@ -24,16 +24,21 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-            btnHome.DataContext = new MainViewModel();
+            
         }
-        /*
+        
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            btnHome.DataContext = new MainViewModel();
+            this.Close();
+
+            /*
             this.Hide();
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
+            */
         }
-        */
+        
     }
 }
