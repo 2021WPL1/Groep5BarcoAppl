@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +31,7 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-
+            getAll();
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -51,8 +52,19 @@ namespace BarcoApplicatie
         private void loadAllRequest()
         {
             List<RqRequest> requests = dao.getAllRequests();
+
+
             updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
         }
+
+        public List<RqJobNature> getAll()
+        {
+            Barco2021Context context = new Barco2021Context();
+            var test =  context.RqJobNature.ToList();
+            return test;
+        }
+
+        //BarcoDivision, JobNature, EutProjectname
 
         //Koen
         private void btnRemove_Click(object sender, RoutedEventArgs e)
