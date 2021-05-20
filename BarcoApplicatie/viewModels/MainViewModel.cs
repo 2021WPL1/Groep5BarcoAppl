@@ -86,31 +86,67 @@ namespace BarcoApplicatie.viewModels
 
         private bool _batteries_Yes;
 
-        private bool _EUT1;
-        public string EUT1Message {get;set;}
-        private bool _EUT2;
-        public string EUT2Message {get;set;}
-        private bool _EUT3;
-        public string EUT3Message {get;set;}
-        private bool _EUT4;
-        public string EUT4Message {get;set;}
-        private bool _EUT5;
-        public string EUT5Message {get;set;}
-        private bool _EUT6;
-        public string EUT6Message {get;set;}
+        public string EUT1Message { get; set; }
+        public string EUT2Message { get; set; }
+        public string EUT3Message { get; set; }
+        public string EUT4Message { get; set; }
+        public string EUT5Message { get; set; }
+        public string EUT6Message { get; set; }
+
+        private bool _EmcEUT1;
+        private bool _EmcEUT2;
+        private bool _EmcEUT3;
+        private bool _EmcEUT4;
+        private bool _EmcEUT5;
+        private bool _EmcEUT6;
+
+        private bool _EnvEUT1;
+        private bool _EnvEUT2;
+        private bool _EnvEUT3;
+        private bool _EnvEUT4;
+        private bool _EnvEUT5;
+        private bool _EnvEUT6;
+
+        private bool _RelEUT1;
+        private bool _RelEUT2;
+        private bool _RelEUT3;
+        private bool _RelEUT4;
+        private bool _RelEUT5;
+        private bool _RelEUT6;
+
+        private bool _SafeEUT1;
+        private bool _SafeEUT2;
+        private bool _SafeEUT3;
+        private bool _SafeEUT4;
+        private bool _SafeEUT5;
+        private bool _SafeEUT6;
+
+        private bool _PackEUT1;
+        private bool _PackEUT2;
+        private bool _PackEUT3;
+        private bool _PackEUT4;
+        private bool _PackEUT5;
+        private bool _PackEUT6;
+
+        private bool _GreenEUT1;
+        private bool _GreenEUT2;
+        private bool _GreenEUT3;
+        private bool _GreenEUT4;
+        private bool _GreenEUT5;
+        private bool _GreenEUT6;
 
         private bool _EMC;
-        public string EMCMessage {get;set;}
+        public string EMCMessage { get; set; }
         private bool _ENV;
-        public string ENVMessage {get;set;}
+        public string ENVMessage { get; set; }
         private bool _REL;
-        public string RELMessage {get;set;}
+        public string RELMessage { get; set; }
         private bool _SAFE;
-        public string SAFEMessage {get;set;}
+        public string SAFEMessage { get; set; }
         private bool _PACK;
-        public string PACKMessage {get;set;}
+        public string PACKMessage { get; set; }
         private bool _GREEN;
-        public string GREENMessage {get;set;}
+        public string GREENMessage { get; set; }
 
         public string RequesterInitials
         {
@@ -151,14 +187,14 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        
+
         public DateTime ExpectedEndDate
         {
             get { return _expectedEndDate; }
 
             set
             {
-                _expectedEndDate = value; 
+                _expectedEndDate = value;
                 OnPropertyChanged();
             }
         }
@@ -168,7 +204,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT1Date = value; 
+                _EUT1Date = value;
                 OnPropertyChanged();
             }
         }
@@ -178,7 +214,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT2Date = value; 
+                _EUT2Date = value;
                 OnPropertyChanged();
             }
         }
@@ -188,7 +224,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT3Date = value; 
+                _EUT3Date = value;
                 OnPropertyChanged();
             }
         }
@@ -198,7 +234,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT4Date = value; 
+                _EUT4Date = value;
                 OnPropertyChanged();
             }
         }
@@ -208,7 +244,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT5Date = value; 
+                _EUT5Date = value;
                 OnPropertyChanged();
             }
         }
@@ -218,7 +254,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _EUT6Date = value; 
+                _EUT6Date = value;
                 OnPropertyChanged();
             }
         }
@@ -228,7 +264,7 @@ namespace BarcoApplicatie.viewModels
 
             set
             {
-                _PVGDate = value; 
+                _PVGDate = value;
                 OnPropertyChanged();
             }
         }
@@ -429,98 +465,583 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        public bool EUT1
+        public bool EmcEUT1
         {
             get
             {
-                return _EUT1;
+                return _EmcEUT1;
             }
             set
             {
-                if(_EUT1 == value) return;
+                if (_EmcEUT1 == value) return;
 
-                _EUT1 = value;
-                EUT1Message = _EUT1 ? "EUT" : "";
+                _EmcEUT1 = value;
+                EUT1Message = _EmcEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
         }
-        public bool EUT2
+        public bool EmcEUT2
         {
             get
             {
-                return _EUT2;
+                return _EmcEUT2;
             }
             set
             {
-                if(_EUT2 == value) return;
+                if (_EmcEUT2 == value) return;
 
-                _EUT2 = value;
-                EUT2Message = _EUT2 ? "EUT2" : "";
+                _EmcEUT2 = value;
+                EUT2Message = _EmcEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
         }
-        public bool EUT3
+        public bool EmcEUT3
         {
             get
             {
-                return _EUT3;
+                return _EmcEUT3;
             }
             set
             {
-                if(_EUT3 == value) return;
+                if (_EmcEUT3 == value) return;
 
-                _EUT3 = value;
-                EUT3Message = _EUT3 ? "EUT3" : "";
+                _EmcEUT3 = value;
+                EUT3Message = _EmcEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
         }
-        public bool EUT4
+        public bool EmcEUT4
         {
             get
             {
-                return _EUT4;
+                return _EmcEUT4;
             }
             set
             {
-                if(_EUT4 == value) return;
+                if (_EmcEUT4 == value) return;
 
-                _EUT4 = value;
-                EUT4Message = _EUT4 ? "EUT4" : "";
+                _EmcEUT4 = value;
+                EUT4Message = _EmcEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
         }
-        public bool EUT5
+        public bool EmcEUT5
         {
             get
             {
-                return _EUT5;
+                return _EmcEUT5;
             }
             set
             {
-                if(_EUT5 == value) return;
+                if (_EmcEUT5 == value) return;
 
-                _EUT5 = value;
-                EUT5Message = _EUT5 ? "EUT5" : "";
+                _EmcEUT5 = value;
+                EUT5Message = _EmcEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
         }
-        public bool EUT6
+        public bool EmcEUT6
         {
             get
             {
-                return _EUT6;
+                return _EmcEUT6;
             }
             set
             {
-                if(_EUT6 == value) return;
+                if (_EmcEUT6 == value) return;
 
-                _EUT6 = value;
-                EUT6Message = _EUT6 ? "EUT6" : "";
+                _EmcEUT6 = value;
+                EUT6Message = _EmcEUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool EnvEUT1
+        {
+            get
+            {
+                return _EnvEUT1;
+            }
+            set
+            {
+                if (_EnvEUT1 == value) return;
+
+                _EnvEUT1 = value;
+                EUT1Message = _EnvEUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EnvEUT2
+        {
+            get
+            {
+                return _EnvEUT2;
+            }
+            set
+            {
+                if (_EnvEUT2 == value) return;
+
+                _EnvEUT2 = value;
+                EUT2Message = _EnvEUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EnvEUT3
+        {
+            get
+            {
+                return _EnvEUT3;
+            }
+            set
+            {
+                if (_EnvEUT3 == value) return;
+
+                _EnvEUT3 = value;
+                EUT3Message = _EnvEUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EnvEUT4
+        {
+            get
+            {
+                return _EnvEUT4;
+            }
+            set
+            {
+                if (_EnvEUT4 == value) return;
+
+                _EnvEUT4 = value;
+                EUT4Message = _EnvEUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EnvEUT5
+        {
+            get
+            {
+                return _EnvEUT5;
+            }
+            set
+            {
+                if (_EnvEUT5 == value) return;
+
+                _EnvEUT5 = value;
+                EUT5Message = _EnvEUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool EnvEUT6
+        {
+            get
+            {
+                return _EnvEUT6;
+            }
+            set
+            {
+                if (_EnvEUT6 == value) return;
+
+                _EnvEUT6 = value;
+                EUT6Message = _EnvEUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool RelEUT1
+        {
+            get
+            {
+                return _RelEUT1;
+            }
+            set
+            {
+                if (_RelEUT1 == value) return;
+
+                _RelEUT1 = value;
+                EUT1Message = _RelEUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool RelEUT2
+        {
+            get
+            {
+                return _RelEUT2;
+            }
+            set
+            {
+                if (_RelEUT2 == value) return;
+
+                _RelEUT2 = value;
+                EUT2Message = _RelEUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool RelEUT3
+        {
+            get
+            {
+                return _RelEUT3;
+            }
+            set
+            {
+                if (_RelEUT3 == value) return;
+
+                _RelEUT3 = value;
+                EUT3Message = _RelEUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool RelEUT4
+        {
+            get
+            {
+                return _RelEUT4;
+            }
+            set
+            {
+                if (_RelEUT4 == value) return;
+
+                _RelEUT4 = value;
+                EUT4Message = _RelEUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool RelEUT5
+        {
+            get
+            {
+                return _RelEUT5;
+            }
+            set
+            {
+                if (_RelEUT5 == value) return;
+
+                _RelEUT5 = value;
+                EUT5Message = _RelEUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool RelEUT6
+        {
+            get
+            {
+                return _RelEUT6;
+            }
+            set
+            {
+                if (_RelEUT6 == value) return;
+
+                _RelEUT6 = value;
+                EUT6Message = _RelEUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool SafeEUT1
+        {
+            get
+            {
+                return _SafeEUT1;
+            }
+            set
+            {
+                if (_SafeEUT1 == value) return;
+
+                _SafeEUT1 = value;
+                EUT1Message = _SafeEUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SafeEUT2
+        {
+            get
+            {
+                return _SafeEUT2;
+            }
+            set
+            {
+                if (_SafeEUT2 == value) return;
+
+                _SafeEUT2 = value;
+                EUT2Message = _SafeEUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SafeEUT3
+        {
+            get
+            {
+                return _SafeEUT3;
+            }
+            set
+            {
+                if (_SafeEUT3 == value) return;
+
+                _SafeEUT3 = value;
+                EUT3Message = _SafeEUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SafeEUT4
+        {
+            get
+            {
+                return _SafeEUT4;
+            }
+            set
+            {
+                if (_SafeEUT4 == value) return;
+
+                _SafeEUT4 = value;
+                EUT4Message = _SafeEUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SafeEUT5
+        {
+            get
+            {
+                return _SafeEUT5;
+            }
+            set
+            {
+                if (_SafeEUT5 == value) return;
+
+                _SafeEUT5 = value;
+                EUT5Message = _SafeEUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool SafeEUT6
+        {
+            get
+            {
+                return _SafeEUT6;
+            }
+            set
+            {
+                if (_SafeEUT6 == value) return;
+
+                _SafeEUT6 = value;
+                EUT6Message = _SafeEUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool PackEUT1
+        {
+            get
+            {
+                return _PackEUT1;
+            }
+            set
+            {
+                if (_PackEUT1 == value) return;
+
+                _PackEUT1 = value;
+                EUT1Message = _PackEUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PackEUT2
+        {
+            get
+            {
+                return _PackEUT2;
+            }
+            set
+            {
+                if (_PackEUT2 == value) return;
+
+                _PackEUT2 = value;
+                EUT2Message = _PackEUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PackEUT3
+        {
+            get
+            {
+                return _PackEUT3;
+            }
+            set
+            {
+                if (_PackEUT3 == value) return;
+
+                _PackEUT3 = value;
+                EUT3Message = _PackEUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PackEUT4
+        {
+            get
+            {
+                return _PackEUT4;
+            }
+            set
+            {
+                if (_PackEUT4 == value) return;
+
+                _PackEUT4 = value;
+                EUT4Message = _PackEUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PackEUT5
+        {
+            get
+            {
+                return _PackEUT5;
+            }
+            set
+            {
+                if (_PackEUT5 == value) return;
+
+                _PackEUT5 = value;
+                EUT5Message = _PackEUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool PackEUT6
+        {
+            get
+            {
+                return _PackEUT6;
+            }
+            set
+            {
+                if (_PackEUT6 == value) return;
+
+                _PackEUT6 = value;
+                EUT6Message = _PackEUT6 ? "EUT6" : "";
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool GreenEUT1
+        {
+            get
+            {
+                return _GreenEUT1;
+            }
+            set
+            {
+                if (_GreenEUT1 == value) return;
+
+                _GreenEUT1 = value;
+                EUT1Message = _GreenEUT1 ? "EUT1" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GreenEUT2
+        {
+            get
+            {
+                return _GreenEUT2;
+            }
+            set
+            {
+                if (_GreenEUT2 == value) return;
+
+                _GreenEUT2 = value;
+                EUT2Message = _GreenEUT2 ? "EUT2" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GreenEUT3
+        {
+            get
+            {
+                return _GreenEUT3;
+            }
+            set
+            {
+                if (_GreenEUT3 == value) return;
+
+                _GreenEUT3 = value;
+                EUT3Message = _GreenEUT3 ? "EUT3" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GreenEUT4
+        {
+            get
+            {
+                return _GreenEUT4;
+            }
+            set
+            {
+                if (_GreenEUT4 == value) return;
+
+                _GreenEUT4 = value;
+                EUT4Message = _GreenEUT4 ? "EUT4" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GreenEUT5
+        {
+            get
+            {
+                return _GreenEUT5;
+            }
+            set
+            {
+                if (_GreenEUT5 == value) return;
+
+                _GreenEUT5 = value;
+                EUT5Message = _GreenEUT5 ? "EUT5" : "";
+
+                OnPropertyChanged();
+            }
+        }
+        public bool GreenEUT6
+        {
+            get
+            {
+                return _GreenEUT6;
+            }
+            set
+            {
+                if (_GreenEUT6 == value) return;
+
+                _GreenEUT6 = value;
+                EUT6Message = _GreenEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -534,7 +1055,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_EMC == value) return;
+                if (_EMC == value) return;
 
                 _EMC = value;
                 EMCMessage = _EMC ? "EMC" : "";
@@ -550,7 +1071,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_ENV == value) return;
+                if (_ENV == value) return;
 
                 _ENV = value;
                 ENVMessage = _ENV ? "ENV" : "";
@@ -566,7 +1087,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_REL == value) return;
+                if (_REL == value) return;
 
                 _REL = value;
                 RELMessage = _REL ? "REL" : "";
@@ -582,7 +1103,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_SAFE == value) return;
+                if (_SAFE == value) return;
 
                 _SAFE = value;
                 SAFEMessage = _SAFE ? "SAFE" : "";
@@ -598,7 +1119,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_PACK == value) return;
+                if (_PACK == value) return;
 
                 _PACK = value;
                 PACKMessage = _PACK ? "PACK" : "";
@@ -614,7 +1135,7 @@ namespace BarcoApplicatie.viewModels
             }
             set
             {
-                if(_GREEN == value) return;
+                if (_GREEN == value) return;
 
                 _GREEN = value;
                 GREENMessage = _GREEN ? "GREEN" : "";
