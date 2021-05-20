@@ -20,7 +20,7 @@ namespace BarcoApplicatie
         public void ActivateEmail()
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
         }
@@ -28,16 +28,6 @@ namespace BarcoApplicatie
         void timer_Tick(object sender, EventArgs e)
         {
             DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 15, 10, 0, 0); //18pm,0min,0sec,0
-                                                                                                                          //tryout if it works
-            if (emailSendTime > DateTime.Now)
-            {
-                MessageBox.Show("To early");
-            }
-
-            if (emailSendTime < DateTime.Now)
-            {
-                MessageBox.Show("To late");
-            }
 
             if (emailSendTime == DateTime.Now)
             {
