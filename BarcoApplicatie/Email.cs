@@ -20,14 +20,14 @@ namespace BarcoApplicatie
         public void ActivateEmail()
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Interval = TimeSpan.FromSeconds(10);
             timer.Tick += timer_Tick;
             timer.Start();
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 38, 0, 0); //18pm,0min,0sec,0
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 15, 10, 0, 0); //18pm,0min,0sec,0
                                                                                                                           //tryout if it works
             if (emailSendTime > DateTime.Now)
             {
@@ -41,11 +41,15 @@ namespace BarcoApplicatie
 
             if (emailSendTime == DateTime.Now)
             {
-                List<RqRequest> listAllRequests = _dataService.getAllRequests();
-                if (listAllRequests != null)
+                List<RqRequest> listAllRequests = _dataService.getAllRequests ();
+                if (listAllRequests == null)
                 {
                     MessageBox.Show("email sended!");
                     //SendMail();
+                }
+                else
+                {
+                    MessageBox.Show("no email sended");
                 }
             }
 
