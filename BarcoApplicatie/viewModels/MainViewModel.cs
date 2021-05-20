@@ -1181,13 +1181,17 @@ namespace BarcoApplicatie.viewModels
         {
             _dataservice.SendJobRequest(RequesterInitials, ProjectName,
                 $"{EutPartnumber1}; {EutPartnumber2}; {EutPartnumber3}; {EutPartnumber4}; {EutPartnumber5}",
-                ExpectedEndDate, $"{GrossWeight1}; {GrossWeight2}; {GrossWeight3}; {GrossWeight4}; {GrossWeight5}",
-                $"{NetWeight1}; {NetWeight2}; {NetWeight3}; {NetWeight4}; {NetWeight5}",
+                ExpectedEndDate, $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2};" +
+                                 $" Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
+                $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; " +
+                $"Net4: {NetWeight4}; Net5: {NetWeight5}",
                 SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
                 $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
                 $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",
-                EUT1Date
+                EUT1Date, LinkToTestplan, SpecialRemarks
                 );
+
+            OpenJobRequestWindow();
         }
 
 
@@ -1212,6 +1216,15 @@ namespace BarcoApplicatie.viewModels
             {
                 JobNatures.Add(jobNature);
             }
+        }
+
+        public void OpenJobRequestWindow()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            ViewJobrequest viewJR = new ViewJobrequest();
+            viewJR.Closed += (s, args) => mainWindow.Close();
+            viewJR.Show();
         }
 
     }
