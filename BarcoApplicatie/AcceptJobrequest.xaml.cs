@@ -1,6 +1,7 @@
 ﻿using BarcoApplicatie.viewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,7 +50,30 @@ namespace BarcoApplicatie
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
             */
+        }   
+
+        private string IdRequester;
+        public string _IdRequester
+        {
+            get
+            {
+                return IdRequester;
+            }
+            set
+            {
+                IdRequester = value;
+                OnPropertyChanged("_Requester");
+            }
+
         }
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

@@ -18,10 +18,10 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class HomeScreen : Window
     {
-        /*
+        
         ViewAcceptJobrequest ViewAcceptJobrequest = new ViewAcceptJobrequest();
         ViewJobrequest ViewJobrequest = new ViewJobrequest();
-        */
+        
         public HomeScreen()
         {
             InitializeComponent();
@@ -46,25 +46,25 @@ namespace BarcoApplicatie
         
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            
+            /*
             DataContext = new MainViewModel();
             this.Close();
-            
-            /*
+            */
+
             ViewAcceptJobrequest.Closed += (s, args) => this.Close();
             ViewAcceptJobrequest.Show();
-            */
+            
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
-            
+            /*
             DataContext = new MainViewModel();
             this.Close();
-            /*
+            */
             ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
-            */
+            
         }
         
     }
