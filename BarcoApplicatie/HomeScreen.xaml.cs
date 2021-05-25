@@ -58,6 +58,7 @@ namespace BarcoApplicatie
             MainWindow MainWindow = new MainWindow();
             MainWindow.Closed += (s, args) => this.Close();
             MainWindow.Show();
+            Close();
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
@@ -65,6 +66,7 @@ namespace BarcoApplicatie
             this.Hide();
             ViewAcceptJobrequest.Closed += (s, args) => this.Close();
             ViewAcceptJobrequest.Show();
+            Close();
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
@@ -72,6 +74,7 @@ namespace BarcoApplicatie
             this.Hide();
             ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
+            Close();
         }
     }
 }

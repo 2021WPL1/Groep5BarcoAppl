@@ -52,6 +52,7 @@ namespace BarcoApplicatie
 
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
+            this.Close();
         }
 
     }

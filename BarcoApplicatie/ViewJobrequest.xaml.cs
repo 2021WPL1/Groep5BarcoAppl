@@ -33,6 +33,7 @@ namespace BarcoApplicatie
         {
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
+            Close();
         }
 
         //Koen
