@@ -1,20 +1,14 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.VisualBasic;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BarcoApplicatie.BibModels
+namespace BarcoApplicatie.BibModelsNew
 {
-    /// <summary>
-    /// Koen
-    /// </summary>
-    public partial class Barco2021Context : DbContext
+    public partial class BarcoDBContext : DbContext
     {
-        public Barco2021Context()
+        public BarcoDBContext()
         {
         }
 
-        public Barco2021Context(DbContextOptions<Barco2021Context> options)
+        public BarcoDBContext(DbContextOptions<BarcoDBContext> options)
             : base(options)
         {
         }
@@ -33,7 +27,7 @@ namespace BarcoApplicatie.BibModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                object p = optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
+                optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
             }
         }
 

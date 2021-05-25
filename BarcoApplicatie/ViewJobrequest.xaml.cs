@@ -1,10 +1,10 @@
-﻿using BarcoApplicatie.BibModels;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using BarcoApplicatie.BibModelsNew;
 using BarcoApplication.Data;
 
 namespace BarcoApplicatie

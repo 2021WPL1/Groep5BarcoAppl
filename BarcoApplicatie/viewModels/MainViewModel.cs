@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using BarcoApplicatie.BibModels;
+using BarcoApplicatie.BibModelsNew;
+using BarcoApplicatie.BibModelsNew;
 using BarcoApplication.Data;
 using Prism.Commands;
 
@@ -1184,7 +1185,7 @@ namespace BarcoApplicatie.viewModels
                 ExpectedEndDate, $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2};" +
                                  $" Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
                 $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; " +
-                $"Net4: {NetWeight4}; Net5: {NetWeight5}",
+                $"Net4: {NetWeight4}; Net5: {NetWeight5}", 
                 SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
                 $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
                 $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",

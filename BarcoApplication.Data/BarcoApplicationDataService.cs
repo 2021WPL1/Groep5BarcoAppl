@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using BarcoApplicatie.BibModels;
-using Microsoft.EntityFrameworkCore;
+using BarcoApplicatie.BibModelsNew;
 
 namespace BarcoApplication.Data
 {
     public class BarcoApplicationDataService
     {
         private static readonly BarcoApplicationDataService _instance = new BarcoApplicationDataService();
-        private Barco2021Context _context;
+
+        private BarcoDBContext _context;
 
         public static BarcoApplicationDataService Instance()
         {
@@ -19,7 +18,7 @@ namespace BarcoApplication.Data
 
         private BarcoApplicationDataService()
         {
-            this._context = new Barco2021Context();
+            this._context = new BarcoDBContext();
         }
 
         public List<RqBarcoDivision> getAllDivisions()
@@ -66,8 +65,14 @@ namespace BarcoApplication.Data
             request.BarcoDivision = division;
             request.JobNature = jobNature;
             request.Battery = battery;
+            
 
             _context.RqRequest.Add(request);
+            _context.SaveChanges();
+
+            RqTestDevision testDevision = new RqTestDevision();
+            testDevision.Afkorting = testdivision;
+            _context.RqTestDevision.Add(testDevision);
             _context.SaveChanges();
 
             RqRequestDetail requestDetail = new RqRequestDetail();
@@ -91,6 +96,9 @@ namespace BarcoApplication.Data
             optional.Remarks = remarks;
             _context.RqOptionel.Add(optional);
             _context.SaveChanges();
+
+
+
         }
 
         //public void AddJobRequest(string initials, string projectName,
