@@ -32,8 +32,10 @@ namespace BarcoApplicatie
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
             getAll();
-        }
 
+
+        }
+        
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             HomeScreen HomeScreen = new HomeScreen();
@@ -53,8 +55,8 @@ namespace BarcoApplicatie
         {
             List<RqRequest> requests = dao.getAllRequests();
 
-
-            updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
+            lbViewRequest.SelectedValuePath = "IdRequest";
+            lbViewRequest.ItemsSource = requests;
         }
 
         public List<RqJobNature> getAll()
@@ -80,6 +82,11 @@ namespace BarcoApplicatie
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Closed += (s, args) => this.Close();
             acceptJobrequest.Show();
+        }
+
+        private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -29,5 +29,30 @@ namespace BarcoApplicatie.BibModels
 
         public virtual ICollection<RqOptionel> RqOptionel { get; set; }
         public virtual ICollection<RqRequestDetail> RqRequestDetail { get; set; }
+
+        //lettertype monospaced font
+
+        public override string ToString() {
+
+            int maxDivisionLength = 11;
+
+            int divisionLength = BarcoDivision.Length;
+
+            int spacesToAdd = maxDivisionLength - divisionLength + 1;
+
+            string result = BarcoDivision;
+
+            for (int i = 0; i < spacesToAdd; i++)
+            {
+                result += " ";
+            }
+
+
+            return 
+                
+                
+                result + JobNature + " " +  EutProjectname + " " +ExpectedEnddate;
+               
+                }
     }
 }
