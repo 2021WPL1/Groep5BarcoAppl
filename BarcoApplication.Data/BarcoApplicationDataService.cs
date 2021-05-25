@@ -96,65 +96,6 @@ namespace BarcoApplication.Data
             optional.Remarks = remarks;
             _context.RqOptionel.Add(optional);
             _context.SaveChanges();
-
-
-
         }
-
-        //public void AddJobRequest(string initials, string projectName,
-        //    string partNumber, DateTime? date, string grossWeight, string netWeight,
-        //    string division, string jobNature, bool battery)
-        //{
-        //    RqRequest request = new RqRequest();
-        //    request.JrNumber = "0001";
-        //    request.HydraProjectNr = "0001";
-        //    request.Requester = initials;
-        //    request.EutProjectname = projectName;
-        //    request.EutPartnumbers = partNumber;
-        //    request.ExpectedEnddate = date;
-        //    request.InternRequest = false;
-        //    request.GrossWeight = grossWeight;
-        //    request.NetWeight = netWeight;
-        //    request.BarcoDivision = division;
-        //    request.JobNature = jobNature;
-        //    request.Battery = battery;
-
-        //    _context.RqRequest.Add(request);
-        //    _context.SaveChanges();
-
-        //}
-
-        //public void AddRequest(RqRequestDetail requestDetail, RqRequest request, string testdivision)
-        //{
-        //    requestDetail = new RqRequestDetail();
-
-        //    requestDetail.IdRequest = request.IdRequest;
-        //    requestDetail.Testdivisie = testdivision;
-        //    _context.RqRequestDetail.Add(requestDetail);
-        //    _context.SaveChanges();
-
-        //}
-
-        //public void AddEUT(RqRequestDetail requestDetail, string omschrijving, DateTime dateEUT)
-        //{
-        //    Eut eut = new Eut();
-        //    eut.OmschrijvingEut = omschrijving;
-        //    eut.AvailableDate = dateEUT;
-
-        //    eut.IdRqDetail = requestDetail.IdRqDetail;
-        //    _context.Eut.Add(eut);
-        //    _context.SaveChanges();
-        //}
-
-        //public void AddOptional(RqRequest request, string link, string remarks)
-        //{
-        //    RqOptionel optional = new RqOptionel();
-        //    optional.IdRequest = request.IdRequest;
-        //    optional.Link = link;
-        //    optional.Remarks = remarks;
-        //    _context.RqOptionel.Add(optional);
-        //    _context.SaveChanges();
-        //}
-
     }
 }
