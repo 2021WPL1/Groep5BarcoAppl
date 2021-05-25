@@ -22,7 +22,6 @@ namespace BarcoApplicatie
     {
         private BarcoApplicationDataService _dataService;
 
-
         ViewAcceptJobrequest ViewAcceptJobrequest = new ViewAcceptJobrequest();
         ViewJobrequest ViewJobrequest = new ViewJobrequest();
         readonly Email email = new Email();
@@ -30,57 +29,10 @@ namespace BarcoApplicatie
         public HomeScreen()
         {
             InitializeComponent();
-            ActivateEmail();
+            email.ActivateEmail();
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-        }
-
-        //tijdelijk
-        public void ActivateEmail()
-        {
-            _dataService = BarcoApplicationDataService.Instance();
-
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
-
-        }
-
-        //tijdelijk
-        void timer_Tick(object sender, EventArgs e)
-        {
-            //Date kan aangepast worden naar keuze
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 45, 0); //18pm,0min,0sec
-            DateTime dateNow = DateTime.Now;
-
-            List<RqRequest> listAllRequests = _dataService.getAllRequests();
-
-            //if (listAllRequests != null)
-            //{
-            if (emailSendTime == DateTime.Now)
-            {
-                MessageBox.Show("EMAIL SEND" + Environment.NewLine + emailSendTime + Environment.NewLine + dateNow);
-                //SendMail();
-            }
-
-            if (emailSendTime < DateTime.Now)
-            {
-                if (listAllRequests == null)
-                {
-                    txtBoxTest.Text = "to late" + Environment.NewLine + emailSendTime + Environment.NewLine + dateNow;
-                }
-                else
-                {
-                }
-            }
-
-            if (emailSendTime > DateTime.Now)
-            {
-                txtBoxTest.Text = "to soon" + Environment.NewLine + emailSendTime + Environment.NewLine + dateNow;
-            }   
-            //}
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

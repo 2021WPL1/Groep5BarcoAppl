@@ -17,6 +17,11 @@ namespace BarcoApplicatie
     {
         private BarcoApplicationDataService _dataService;
 
+        //initialise for SendMail
+        private static string mailFrom = "Groep3testprog@gmail.com";
+        private static string mailFromPassword = "Testtest123";
+
+
         public void ActivateEmail()
         {
             _dataService = BarcoApplicationDataService.Instance();
@@ -25,29 +30,29 @@ namespace BarcoApplicatie
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-
         }
 
+        //tijdelijk
         void timer_Tick(object sender, EventArgs e)
         {
             //Date kan aangepast worden naar keuze
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 11, 0); //18pm,0min,0sec
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11, 28, 0); //18pm,0min,0sec
+            DateTime dateNow = DateTime.Now;
 
             //List<RqRequest> listAllRequests = _dataService.getAllRequests();
             //if (listAllRequests != null)
             //{
-            //}
 
-            if (emailSendTime == DateTime.Now)
+            if (dateNow.DayOfWeek != DayOfWeek.Saturday || dateNow.DayOfWeek != DayOfWeek.Sunday)
             {
-                MessageBox.Show("email send");     
-                //SendMail();  
+                if (emailSendTime.Hour == dateNow.Hour && emailSendTime.Minute == dateNow.Minute)
+                {
+                    SendMail();
+                }
             }
+            
+            //}
         }
-
-        //initialise for SendMail
-        private static string mailFrom = "Groep3testprog@gmail.com";
-        private static string mailFromPassword = "Testtest123";
 
         public void SendMail()
         {
