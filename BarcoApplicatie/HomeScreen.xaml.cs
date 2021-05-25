@@ -32,16 +32,16 @@ namespace BarcoApplicatie
         
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            
+            /*
             DataContext = new MainViewModel();
             this.Close();
+            */
             
-            /*
             this.Hide();
             MainWindow MainWindow = new MainWindow();
             MainWindow.Closed += (s, args) => this.Close();
             MainWindow.Show(); 
-            */
+            
         }
         
         private void Confirm_Click(object sender, RoutedEventArgs e)

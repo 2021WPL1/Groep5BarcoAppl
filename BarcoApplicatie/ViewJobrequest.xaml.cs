@@ -45,18 +45,20 @@ namespace BarcoApplicatie
         }
         
         //Koen
-        private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
+        private void updateListBox(ListBox listBox, string display, string value, string jobnature, string eutprojectname, IEnumerable source )
         {
             listBox.DisplayMemberPath = display;
             listBox.SelectedValuePath = value;
             listBox.ItemsSource = source;
+            listBox.SelectedValuePath = jobnature;
+            listBox.SelectedValuePath = eutprojectname;
         }
 
         //Koen
         private void loadAllRequest()
         {
             List<RqRequest> requests = dao.getAllRequests();
-            updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
+            updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", "JobNature", "EutProjectname", requests ) ;
         }
 
         //Koen
