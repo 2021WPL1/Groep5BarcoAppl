@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace BarcoApplicatie
 {
@@ -20,10 +21,12 @@ namespace BarcoApplicatie
     {
         ViewAcceptJobrequest ViewAcceptJobrequest = new ViewAcceptJobrequest();
         ViewJobrequest ViewJobrequest = new ViewJobrequest();
+        readonly Email email = new Email();
 
         public HomeScreen()
         {
             InitializeComponent();
+            email.ActivateEmail();
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
@@ -70,8 +73,5 @@ namespace BarcoApplicatie
             ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
         }
-
-
-
     }
 }

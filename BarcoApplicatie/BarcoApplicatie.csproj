@@ -24,10 +24,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <ProjectReference Include="..\BarcoApplication.Data\BarcoApplication.Data.csproj" />
+    <ProjectReference Include="..\BarcoApplication.Domain\BarcoApplication.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
