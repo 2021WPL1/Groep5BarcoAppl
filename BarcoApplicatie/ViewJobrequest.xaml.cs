@@ -66,7 +66,7 @@ namespace BarcoApplicatie
             return test;
         }
 
-        //BarcoDivision, JobNature, EutProjectname
+        
 
         //Koen
         private void btnRemove_Click(object sender, RoutedEventArgs e)

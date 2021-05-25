@@ -35,23 +35,46 @@ namespace BarcoApplicatie.BibModels
         public override string ToString() {
 
             int maxDivisionLength = 11;
+            int maxJobNatureLength = 19;
+            int maxEutProjectnameLength = 20;
+
+
 
             int divisionLength = BarcoDivision.Length;
+            int JobNatureLengt = JobNature.Length;
+            int EutProjectnameLength = EutProjectname.Length;
 
-            int spacesToAdd = maxDivisionLength - divisionLength + 1;
 
-            string result = BarcoDivision;
 
-            for (int i = 0; i < spacesToAdd; i++)
+            int spacesToAddDivision = maxDivisionLength - divisionLength + 22;
+            int spacesToAddJobNature = maxJobNatureLength - JobNatureLengt + 21;
+            int spacesToAddEutProjectname = maxEutProjectnameLength - EutProjectnameLength + 5;
+
+
+            string resultDivision = BarcoDivision;
+            string resultJobNature = JobNature;
+            string resultEutProjectname = EutProjectname;
+
+            for (int i = 0; i < spacesToAddDivision; i++)
             {
-                result += " ";
+                resultDivision += " ";
             }
 
 
-            return 
-                
-                
-                result + JobNature + " " +  EutProjectname + " " +ExpectedEnddate;
+            for (int i = 0; i < spacesToAddJobNature; i++)
+            {
+                resultJobNature += " ";
+            }
+
+            for (int i = 0; i < spacesToAddEutProjectname; i++)
+            {
+                resultEutProjectname += " ";
+            }
+
+            return
+
+
+                resultDivision + resultJobNature  + resultEutProjectname + " " +ExpectedEnddate;
                
                 }
     }
