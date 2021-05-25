@@ -19,30 +19,30 @@ namespace BarcoApplicatie
 
         public void ActivateEmail()
         {
+            _dataService = BarcoApplicationDataService.Instance();
+
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
+
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 15, 10, 0, 0); //18pm,0min,0sec,0
+            //Date kan aangepast worden naar keuze
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 11, 0); //18pm,0min,0sec
+
+            //List<RqRequest> listAllRequests = _dataService.getAllRequests();
+            //if (listAllRequests != null)
+            //{
+            //}
 
             if (emailSendTime == DateTime.Now)
             {
-                List<RqRequest> listAllRequests = _dataService.getAllRequests ();
-                if (listAllRequests == null)
-                {
-                    MessageBox.Show("email sended!");
-                    //SendMail();
-                }
-                else
-                {
-                    MessageBox.Show("no email sended");
-                }
+                MessageBox.Show("email send");     
+                //SendMail();  
             }
-
         }
 
         //initialise for SendMail
