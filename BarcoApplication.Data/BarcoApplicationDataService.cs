@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BarcoApplicatie.BibModelsNew;
+using BarcoApplication.Data.BibModels;
 
 namespace BarcoApplication.Data
 {
@@ -9,7 +9,7 @@ namespace BarcoApplication.Data
     {
         private static readonly BarcoApplicationDataService _instance = new BarcoApplicationDataService();
 
-        private BarcoDBContext _context;
+        private Barco2021Context _context;
 
         public static BarcoApplicationDataService Instance()
         {
@@ -18,7 +18,7 @@ namespace BarcoApplication.Data
 
         private BarcoApplicationDataService()
         {
-            this._context = new BarcoDBContext();
+            this._context = new Barco2021Context();
         }
 
         public List<RqBarcoDivision> getAllDivisions()
@@ -65,14 +65,15 @@ namespace BarcoApplication.Data
             request.BarcoDivision = division;
             request.JobNature = jobNature;
             request.Battery = battery;
-            
 
             _context.RqRequest.Add(request);
             _context.SaveChanges();
 
-            RqTestDevision testDevision = new RqTestDevision();
-            testDevision.Afkorting = testdivision;
-            _context.RqTestDevision.Add(testDevision);
+            RqOptionel optional = new RqOptionel();
+            optional.IdRequest = request.IdRequest;
+            optional.Link = link;
+            optional.Remarks = remarks;
+            _context.RqOptionel.Add(optional);
             _context.SaveChanges();
 
             RqRequestDetail requestDetail = new RqRequestDetail();
@@ -83,18 +84,10 @@ namespace BarcoApplication.Data
             _context.SaveChanges();
 
             Eut eut = new Eut();
+            eut.IdRqDetail = requestDetail.IdRqDetail;
             eut.OmschrijvingEut = omschrijving;
             eut.AvailableDate = dateEUT;
-
-            eut.IdRqDetail = requestDetail.IdRqDetail;
             _context.Eut.Add(eut);
-            _context.SaveChanges();
-
-            RqOptionel optional = new RqOptionel();
-            optional.IdRequest = request.IdRequest;
-            optional.Link = link;
-            optional.Remarks = remarks;
-            _context.RqOptionel.Add(optional);
             _context.SaveChanges();
         }
     }

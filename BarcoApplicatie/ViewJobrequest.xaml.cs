@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using BarcoApplicatie.BibModelsNew;
 using BarcoApplication.Data;
+using BarcoApplication.Data.BibModels;
 
 namespace BarcoApplicatie
 {

@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Documents;
 using System.Windows.Input;
-using BarcoApplicatie.BibModelsNew;
-using BarcoApplicatie.BibModelsNew;
 using BarcoApplication.Data;
+using BarcoApplication.Data.BibModels;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
@@ -1187,8 +1188,9 @@ namespace BarcoApplicatie.viewModels
                 $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; " +
                 $"Net4: {NetWeight4}; Net5: {NetWeight5}", 
                 SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
-                $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
-                $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",
+                $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}"
+                ,
+                $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
                 EUT1Date, LinkToTestplan, SpecialRemarks
                 );
 
