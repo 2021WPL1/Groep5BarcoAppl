@@ -5,6 +5,10 @@ using BarcoApplication.Data.BibModels;
 
 namespace BarcoApplication.Data
 {
+
+    /// <summary>
+    /// KOEN
+    /// </summary>
     public class BarcoApplicationDataService
     {
         private static readonly BarcoApplicationDataService _instance = new BarcoApplicationDataService();
@@ -47,12 +51,10 @@ namespace BarcoApplication.Data
             _context.SaveChanges();
         }
 
-        public void SendJobRequest(string initials, string projectName,
+        public RqRequest AddRequest(RqRequest request, string initials, string projectName,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
-            string division, string jobNature, bool battery, string testdivision, string omschrijving,
-            DateTime? dateEUT, string link, string remarks)
+            string division, string jobNature, bool battery)
         {
-            RqRequest request = new RqRequest();
             request.JrNumber = "0001";
             request.HydraProjectNr = "0001";
             request.Requester = initials;
@@ -69,26 +71,39 @@ namespace BarcoApplication.Data
             _context.RqRequest.Add(request);
             _context.SaveChanges();
 
-            RqOptionel optional = new RqOptionel();
+            return request;
+        }
+
+        public RqOptionel AddOptionel(RqOptionel optional, RqRequest request, string link, string remarks)
+        {
             optional.IdRequest = request.IdRequest;
             optional.Link = link;
             optional.Remarks = remarks;
             _context.RqOptionel.Add(optional);
             _context.SaveChanges();
 
-            RqRequestDetail requestDetail = new RqRequestDetail();
+            return optional;
+        }
 
+        public RqRequestDetail AddDetail(RqRequestDetail requestDetail, RqRequest request, string testdivision)
+        {
             requestDetail.IdRequest = request.IdRequest;
             requestDetail.Testdivisie = testdivision;
             _context.RqRequestDetail.Add(requestDetail);
+
             _context.SaveChanges();
 
-            Eut eut = new Eut();
+            return requestDetail;
+        }
+
+        public Eut AddEut(Eut eut, RqRequestDetail requestDetail, string omschrijving, DateTime dateEUT)
+        {
             eut.IdRqDetail = requestDetail.IdRqDetail;
             eut.OmschrijvingEut = omschrijving;
             eut.AvailableDate = dateEUT;
             _context.Eut.Add(eut);
             _context.SaveChanges();
+            return eut;
         }
     }
 }

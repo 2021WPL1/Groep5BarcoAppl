@@ -15,6 +15,12 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private RqRequest request = new RqRequest();
+        private RqOptionel optionel = new RqOptionel();
+        private RqTestDevision testDevision = new RqTestDevision();
+        private RqRequestDetail requestDetail = new RqRequestDetail();
+        private Eut eut = new Eut();
+
 
         private BarcoApplicationDataService _dataservice;
 
@@ -1104,7 +1110,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SAFE == value) return;
 
                 _SAFE = value;
-                SAFEMessage = _SAFE ? "SAFE" : "";
+                SAFEMessage = _SAFE ? "SAF" : "";
 
                 OnPropertyChanged();
             }
@@ -1120,7 +1126,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PACK == value) return;
 
                 _PACK = value;
-                PACKMessage = _PACK ? "PACK" : "";
+                PACKMessage = _PACK ? "PCK" : "";
 
                 OnPropertyChanged();
             }
@@ -1136,7 +1142,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GREEN == value) return;
 
                 _GREEN = value;
-                GREENMessage = _GREEN ? "GREEN" : "";
+                GREENMessage = _GREEN ? "ECO" : "";
 
                 OnPropertyChanged();
             }
@@ -1181,18 +1187,57 @@ namespace BarcoApplicatie.viewModels
 
         public void SendJobRequest()
         {
-            _dataservice.SendJobRequest(RequesterInitials, ProjectName,
-                $"{EutPartnumber1}; {EutPartnumber2}; {EutPartnumber3}; {EutPartnumber4}; {EutPartnumber5}",
-                ExpectedEndDate, $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2};" +
-                                 $" Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
-                $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; " +
-                $"Net4: {NetWeight4}; Net5: {NetWeight5}", 
-                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
-                $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}"
-                ,
-                $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                EUT1Date, LinkToTestplan, SpecialRemarks
-                );
+
+            _dataservice.AddRequest(request, RequesterInitials, ProjectName,
+                $"{EutPartnumber1}; {EutPartnumber2}; {EutPartnumber3}; {EutPartnumber4}; {EutPartnumber5}", ExpectedEndDate,
+                $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2}; Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
+                $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; Net4: {NetWeight4}; Net5: {NetWeight5}",
+                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes);
+
+            _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
+
+            if (testDevision.Afkorting == EMCMessage && _EMC)
+            {
+                _dataservice.AddDetail(requestDetail, request, "ENV");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
+            if (testDevision.Afkorting == ENVMessage && _ENV)
+            {
+                _dataservice.AddDetail(requestDetail, request, "EMC");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
+            if (testDevision.Afkorting == RELMessage && _REL)
+            {
+                _dataservice.AddDetail(requestDetail, request, "REL");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
+            if (testDevision.Afkorting == SAFEMessage && _SAFE)
+            {
+                _dataservice.AddDetail(requestDetail, request, "SAFE");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
+            if (testDevision.Afkorting == PACKMessage && _PACK)
+            {
+                _dataservice.AddDetail(requestDetail, request, "PACK");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
+            if (testDevision.Afkorting == GREENMessage && _GREEN)
+            {
+                _dataservice.AddDetail(requestDetail, request, "GREEN");
+                _dataservice.AddEut(eut, requestDetail,
+                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                    EUT1Date );
+            }
 
             OpenJobRequestWindow();
         }
