@@ -54,7 +54,7 @@ namespace BarcoApplicatie
         //Koen
         private void loadAllRequest()
         {
-            List<RqRequest> requests = dao.getAllRequests();
+            List<RqRequest> requests = _dataService.getAllRequests();
 
             lbViewRequest.SelectedValuePath = "IdRequest";
             lbViewRequest.ItemsSource = requests;

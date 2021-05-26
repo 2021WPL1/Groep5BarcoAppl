@@ -25,7 +25,7 @@ namespace BarcoApplicatie
         public MainWindow()
         {
             InitializeComponent();
-
+            controlInitials();
             controlDivision();
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;
@@ -35,7 +35,7 @@ namespace BarcoApplicatie
             capturedPhoto.Source = bitmapImage;
         }
 
-        private void controlDivision()
+        private void controlInitials()
         {
             RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
 
@@ -45,8 +45,19 @@ namespace BarcoApplicatie
 
             }
         }
-    ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
-    private void Checkbox_No_Click(object sender, RoutedEventArgs e)
+
+        private void controlDivision()
+        {
+            RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+
+            if (request != null)
+            {
+                txtDivision.IsEnabled = false;
+
+            }
+        }
+        ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
+        private void Checkbox_No_Click(object sender, RoutedEventArgs e)
         {
             Checkbox_No.IsChecked = true;
             Checkbox_Yes.IsChecked = false;
@@ -411,6 +422,11 @@ namespace BarcoApplicatie
         private void txtGrossWeight5_TextChanged(object sender, TextChangedEventArgs e)
         {
             errorHandling.ControlInput("[^0-9]", txtGrossWeight5, numbersErrorLabel, "Please enter numbers only.");
+        }
+
+        private void cmbDivision_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
