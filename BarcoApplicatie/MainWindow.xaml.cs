@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using BarcoApplicatie.viewModels;
 using BarcoApplication.Data;
-
+using Microsoft.Win32;
 
 namespace BarcoApplicatie
 {
@@ -26,16 +26,27 @@ namespace BarcoApplicatie
         {
             InitializeComponent();
 
+            controlDivision();
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;
             viewModel.insertDivisionIntoComboBox();
             viewModel.insertJobNatureIntoComboBox();
-
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
         }
-        ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
-        private void Checkbox_No_Click(object sender, RoutedEventArgs e)
+
+        private void controlDivision()
+        {
+            RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+
+            if (request != null)
+            {
+                txtRequesterInitials.IsEnabled = false;
+
+            }
+        }
+    ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
+    private void Checkbox_No_Click(object sender, RoutedEventArgs e)
         {
             Checkbox_No.IsChecked = true;
             Checkbox_Yes.IsChecked = false;
@@ -47,6 +58,7 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
+     
 
         //Koen
         private void openViewJobRequestScreen()

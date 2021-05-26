@@ -2,8 +2,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using BarcoApplication.Data;
 
@@ -26,6 +32,7 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
+            getAll();
 
         }
 
@@ -47,8 +54,17 @@ namespace BarcoApplicatie
         //Koen
         private void loadAllRequest()
         {
-            List<RqRequest> requests = _dataService.getAllRequests();
-            updateListBox(lbViewRequest, "ExpectedEnddate", "IdRequest", requests);
+            List<RqRequest> requests = dao.getAllRequests();
+
+            lbViewRequest.SelectedValuePath = "IdRequest";
+            lbViewRequest.ItemsSource = requests;
+        }
+
+        public List<RqJobNature> getAll()
+        {
+            Barco2021Context context = new Barco2021Context();
+            var test =  context.RqJobNature.ToList();
+            return test;
         }
 
         //Koen
@@ -65,6 +81,11 @@ namespace BarcoApplicatie
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Closed += (s, args) => this.Close();
             acceptJobrequest.Show();
+        }
+
+        private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

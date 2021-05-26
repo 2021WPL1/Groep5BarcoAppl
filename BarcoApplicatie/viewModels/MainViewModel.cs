@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BarcoApplicatie.BibModels;
 using BarcoApplication.Data;
+using Microsoft.Win32;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
@@ -26,7 +27,11 @@ namespace BarcoApplicatie.viewModels
 
         public RqBarcoDivision SelectedDivision
         {
-            get { return _selectedDivision; }
+            get 
+            {
+
+                return _selectedDivision; 
+            }
             set
             {
                 _selectedDivision = value;
@@ -148,6 +153,26 @@ namespace BarcoApplicatie.viewModels
         {
             get
             {
+                //Robbe
+                string name = "";
+                //Naam opvragen uit register
+                RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+
+                if (request != null)
+                {
+                    name = Convert.ToString(request.GetValue("Name"));
+                }
+
+                //initialen maken van de volledige naam
+                string[] nameSplit = name.Trim().Split(new string[] { ",", " " }, StringSplitOptions.RemoveEmptyEntries);
+                var initials = nameSplit[0].Substring(0, 1).ToUpper();
+
+                if (nameSplit.Length > 1)
+                {
+                    initials += nameSplit[nameSplit.Length - 1].Substring(0, 1).ToUpper();
+                }
+                _requesterInitials = initials;
+
                 return _requesterInitials;
             }
             set
