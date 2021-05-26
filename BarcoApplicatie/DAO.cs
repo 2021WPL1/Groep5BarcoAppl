@@ -58,7 +58,6 @@ namespace BarcoApplicatie
             saveChanges();
         }
 
-
         public void Request(string initials, string divisions, string jobNature, string projectName, 
             string partNumber, DateTime? date, string grossWeight, string netWeight, CheckBox checkbox,
             DateTime? dateEUT1, CheckBox checkBoxEUT1, 
