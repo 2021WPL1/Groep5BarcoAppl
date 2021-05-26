@@ -18,8 +18,8 @@ namespace BarcoApplicatie.viewModels
         private RqRequest request = new RqRequest();
         private RqOptionel optionel = new RqOptionel();
         private RqTestDevision testDevision = new RqTestDevision();
-        private RqRequestDetail requestDetail = new RqRequestDetail();
-        private Eut eut = new Eut();
+        private RqRequestDetail requestDetail;
+        private Eut eut;
 
 
         private BarcoApplicationDataService _dataservice;
@@ -1185,6 +1185,7 @@ namespace BarcoApplicatie.viewModels
             JobNatures = new ObservableCollection<RqJobNature>();
         }
 
+
         public void SendJobRequest()
         {
 
@@ -1196,52 +1197,48 @@ namespace BarcoApplicatie.viewModels
 
             _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
 
-            if (testDevision.Afkorting == EMCMessage && _EMC)
+            if (_EMC)
             {
-                _dataservice.AddDetail(requestDetail, request, "ENV");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
+               
+                createRequestDetail("EMC");
             }
-            if (testDevision.Afkorting == ENVMessage && _ENV)
+            if (_ENV)
             {
-                _dataservice.AddDetail(requestDetail, request, "EMC");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
+                createRequestDetail("ENV");
             }
-            if (testDevision.Afkorting == RELMessage && _REL)
+            if (_REL)
             {
-                _dataservice.AddDetail(requestDetail, request, "REL");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
+                createRequestDetail("REL");
             }
-            if (testDevision.Afkorting == SAFEMessage && _SAFE)
+            if (_SAFE)
             {
-                _dataservice.AddDetail(requestDetail, request, "SAFE");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
+                createRequestDetail("SAFE");
             }
-            if (testDevision.Afkorting == PACKMessage && _PACK)
+            if (_PACK)
             {
-                _dataservice.AddDetail(requestDetail, request, "PACK");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
+                createRequestDetail("PCK");
             }
-            if (testDevision.Afkorting == GREENMessage && _GREEN)
+            if (_GREEN)
             {
-                _dataservice.AddDetail(requestDetail, request, "GREEN");
-                _dataservice.AddEut(eut, requestDetail,
-                    $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
-                    EUT1Date );
-            }
 
+                createRequestDetail("ECO");
+            }
+            _dataservice.SaveChanges();
             OpenJobRequestWindow();
         }
 
+        private void createRequestDetail(string division)
+        {
+           var requestDetail = new RqRequestDetail();
+           
+            _dataservice.AddDetail(requestDetail, request, division);
+            
+            var eut = new Eut();
+
+            _dataservice.AddEut(eut, requestDetail,
+                $"{EUT1Message} ; {EUT2Message} ; {EUT3Message} ; {EUT4Message} ; {EUT5Message} ; {EUT6Message}",
+                EUT1Date );
+        }
 
         ///////////////////////////////////////////loadDataIntoCombo///////////////////////////////////////////
         //Koen

@@ -68,9 +68,6 @@ namespace BarcoApplication.Data
             request.JobNature = jobNature;
             request.Battery = battery;
 
-            _context.RqRequest.Add(request);
-            _context.SaveChanges();
-
             return request;
         }
 
@@ -79,8 +76,7 @@ namespace BarcoApplication.Data
             optional.IdRequest = request.IdRequest;
             optional.Link = link;
             optional.Remarks = remarks;
-            _context.RqOptionel.Add(optional);
-            _context.SaveChanges();
+            request.RqOptionel.Add(optional);
 
             return optional;
         }
@@ -89,9 +85,8 @@ namespace BarcoApplication.Data
         {
             requestDetail.IdRequest = request.IdRequest;
             requestDetail.Testdivisie = testdivision;
-            _context.RqRequestDetail.Add(requestDetail);
-
-            _context.SaveChanges();
+            request.RqRequestDetail.Add(requestDetail);
+            _context.RqRequest.Add(request);
 
             return requestDetail;
         }
@@ -101,9 +96,15 @@ namespace BarcoApplication.Data
             eut.IdRqDetail = requestDetail.IdRqDetail;
             eut.OmschrijvingEut = omschrijving;
             eut.AvailableDate = dateEUT;
-            _context.Eut.Add(eut);
-            _context.SaveChanges();
+            requestDetail.Eut.Add(eut);
+
             return eut;
         }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
     }
 }
