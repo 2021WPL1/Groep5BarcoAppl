@@ -45,8 +45,8 @@ namespace BarcoApplicatie
 
             }
         }
-    ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
-    private void Checkbox_No_Click(object sender, RoutedEventArgs e)
+        ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
+        private void Checkbox_No_Click(object sender, RoutedEventArgs e)
         {
             Checkbox_No.IsChecked = true;
             Checkbox_Yes.IsChecked = false;
@@ -58,7 +58,7 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
-     
+
 
         //Koen
         private void openViewJobRequestScreen()

@@ -18,6 +18,7 @@ namespace BarcoApplicatie.viewModels
         private BarcoApplicationDataService _dataservice;
 
         public ICommand SendJobRequestCommand { get; set; }
+        public ICommand CheckboxCommand { get; set; }
 
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
@@ -86,6 +87,7 @@ namespace BarcoApplicatie.viewModels
         private DateTime _PVGDate = DateTime.Now;
 
         private bool _batteries_Yes;
+        private bool _batteries_No;
 
         public string EUT1Message { get; set; }
         public string EUT2Message { get; set; }
@@ -482,6 +484,18 @@ namespace BarcoApplicatie.viewModels
             set
             {
                 _batteries_Yes = value;
+                OnPropertyChanged("Batteries_Yes");
+            }
+        }
+        public bool Batteries_No
+        {
+            get
+            {
+                return _batteries_No;
+            }
+            set
+            {
+                _batteries_No = value;
                 OnPropertyChanged();
             }
         }
@@ -1196,6 +1210,7 @@ namespace BarcoApplicatie.viewModels
             this._dataservice = dataService;
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
+            //CheckboxCommand = new DelegateCommand();
 
 
             Divisions = new ObservableCollection<RqBarcoDivision>();
@@ -1216,6 +1231,7 @@ namespace BarcoApplicatie.viewModels
         }
 
 
+
         ///////////////////////////////////////////loadDataIntoCombo///////////////////////////////////////////
         //Koen
         public void insertDivisionIntoComboBox()
@@ -1223,7 +1239,7 @@ namespace BarcoApplicatie.viewModels
             var divisions = _dataservice.getAllDivisions();
             Divisions.Clear();
             foreach (var division in divisions)
-            {
+            { 
                 Divisions.Add(division);
             }
         }
