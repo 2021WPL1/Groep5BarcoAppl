@@ -1278,7 +1278,7 @@ namespace BarcoApplicatie.viewModels
                 $"Part1: {EutPartnumber1}; Part2: {EutPartnumber2}; Part3: {EutPartnumber3}; Part4: {EutPartnumber4}; Part5: {EutPartnumber5}", ExpectedEndDate,
                 $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2}; Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
                 $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; Net4: {NetWeight4}; Net5: {NetWeight5}",
-                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes);
+                RegistryDivision, SelectedJobNatures.Nature, Batteries_Yes);
 
             _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
 
