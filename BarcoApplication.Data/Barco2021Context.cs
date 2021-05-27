@@ -1,4 +1,5 @@
 ﻿using System;
+using BarcoApplicatie;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -38,7 +39,7 @@ namespace BarcoApplication.Data.BibModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LAPTOP\\VIVES;Database=Barco2021;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(Constants.CONNECTION_STRING);
             }
         }
 

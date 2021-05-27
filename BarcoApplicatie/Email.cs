@@ -1,5 +1,4 @@
-﻿using BarcoApplicatie.BibModels;
-using BarcoApplicatie.viewModels;
+﻿using BarcoApplicatie.viewModels;
 using BarcoApplication.Data;
 using System;
 using System.Collections.Generic;
