@@ -1278,6 +1278,7 @@ namespace BarcoApplicatie.viewModels
                         $"{GreenEUT1Message} ; {GreenEUT2Message} ; {GreenEUT3Message} ; {GreenEUT4Message} ; {GreenEUT5Message} ; {GreenEUT6Message} ; ", EUT6Date);
                 }
             }
+
             _dataservice.SaveChanges();
             OpenJobRequestWindow();
         }
@@ -1292,7 +1293,7 @@ namespace BarcoApplicatie.viewModels
         }
 
         ///////////////////////////////////////////loadDataIntoCombo///////////////////////////////////////////
-        //Koen
+        
         public void insertDivisionIntoComboBox()
         {
             var divisions = _dataservice.getAllDivisions();
@@ -1303,7 +1304,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        //Koen
         public void insertJobNatureIntoComboBox()
         {
             var jobNatures = _dataservice.getAllJobNatures();
