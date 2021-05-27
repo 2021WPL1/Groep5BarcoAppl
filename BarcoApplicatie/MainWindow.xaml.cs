@@ -73,20 +73,28 @@ namespace BarcoApplicatie
         //Koen
         private void openViewJobRequestScreen()
         {
+            DataContext = new MainViewModel();
+            Close();
+            /*
             this.Hide();
             ViewJobrequest viewJR = new ViewJobrequest();
             viewJR.Closed += (s, args) => this.Close();
             viewJR.Show();
+            */
         }
 
 
         ///////////////////////////////////////////logoHomeScreen///////////////////////////////////////////
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            this.Close();
+            /*
             this.Hide();
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
+            */
         }
 
         ///////////////////////////////////////////boolCheckbox///////////////////////////////////////////

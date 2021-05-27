@@ -663,6 +663,6 @@
         </TextBox>
         <Label Content="REQUEST DATE" HorizontalAlignment="Left" Margin="688,52,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="JR NUMBER" HorizontalAlignment="Left" Margin="697,70,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome" Click="btnHome_Click" Command="{Binding HomeCommand}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
     </Grid>
 </Window>

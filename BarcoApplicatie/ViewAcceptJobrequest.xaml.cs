@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcoApplicatie.viewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -27,10 +28,14 @@ namespace BarcoApplicatie
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            this.Close();
+            /*
             this.Hide();
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
+            */
         }
         
     }

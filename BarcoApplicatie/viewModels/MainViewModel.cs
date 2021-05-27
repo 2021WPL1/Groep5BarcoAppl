@@ -1374,6 +1374,78 @@ namespace BarcoApplicatie.viewModels
             viewJR.Closed += (s, args) => mainWindow.Close();
             viewJR.Show();
         }
+
+        ///////////////////////////////////////////connectionbuttons///////////////////////////////////////////
+        //Mathias
+        public ICommand MainWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand JobWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand AcceptJobrequestCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand HomeCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand ShowCommand
+        {
+            get;
+            set;
+        }
+
+        public MainViewModel()
+        {
+            MainWindowCommand = new DelegateCommand(ShowMainWindow);
+            JobWindowCommand = new DelegateCommand(ShowJobrequest);
+            AcceptJobrequestCommand = new DelegateCommand(ShowAcceptJobrequest);
+            HomeCommand = new DelegateCommand(ShowHome);
+            ShowCommand = new DelegateCommand(ShowAccept);
+
+        }
+
+        public void ShowMainWindow()
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+        }
+
+        public void ShowJobrequest()
+        {
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+        }
+
+        public void ShowAcceptJobrequest()
+        {
+            ViewAcceptJobrequest viewAcceptJobrequest = new ViewAcceptJobrequest();
+            viewAcceptJobrequest.Show();
+        }
+
+        public void ShowHome()
+        {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+        }
+
+        public void ShowAccept()
+        {
+            AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+            acceptJobrequest.Show();
+        }
     }
 
 }

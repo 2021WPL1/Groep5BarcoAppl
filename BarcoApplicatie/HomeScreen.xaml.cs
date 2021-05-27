@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using BarcoApplicatie.viewModels;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -54,27 +55,39 @@ namespace BarcoApplicatie
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            Close();
+            /*
             this.Hide();
             MainWindow MainWindow = new MainWindow();
             MainWindow.Closed += (s, args) => this.Close();
             MainWindow.Show();
             Close();
+            */
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            Close();
+            /*
             this.Hide();
             ViewAcceptJobrequest.Closed += (s, args) => this.Close();
             ViewAcceptJobrequest.Show();
             Close();
+            */
         }
 
         private void View_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            Close();
+            /*
             this.Hide();
             ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
             Close();
+            */
         }
     }
 }

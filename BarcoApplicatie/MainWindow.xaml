@@ -618,7 +618,7 @@
 
         <ComboBox x:Name="cmbPvgResponsibleGreenCompilance" HorizontalAlignment="Left" Height="24" Margin="757,599,0,0" VerticalAlignment="Top" Width="91" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black" IsEnabled="False"/>
 
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome" Click="btnHome_Click"  Command="{Binding HomeCommand}" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
         <Label x:Name="initialsErrorLabel"  Content="" HorizontalAlignment="Left" Height="25" Margin="368,68,0,0" VerticalAlignment="Top" Width="283" Foreground="Red" >
 
         </Label>

@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using BarcoApplicatie.viewModels;
 using BarcoApplication.Data;
 using BarcoApplication.Data.BibModels;
 
@@ -38,9 +39,13 @@ namespace BarcoApplicatie
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            this.Close();
+            /*
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
             Close();
+            */
         }
 
         //Koen
@@ -77,15 +82,25 @@ namespace BarcoApplicatie
         //Koen
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
+            DataContext = new MainViewModel();
+            Close();
+            /*
             this.Hide();
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Closed += (s, args) => this.Close();
             acceptJobrequest.Show();
+            */
         }
 
-        private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //Mathias
+        /*
+        private void lbViewRequest_Selected(object sender, System.EventArgs e)
         {
-
+            if (lbViewRequest.SelectedIndex != 1)
+            {
+                btnShow.IsEnabled = true;
+            }
         }
+        */
     }
 }
