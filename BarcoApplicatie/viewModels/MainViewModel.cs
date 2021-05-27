@@ -1282,9 +1282,6 @@ namespace BarcoApplicatie.viewModels
 
             _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
 
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Close();
-
             if (_EMC)
             {
                 if (EmcEUT1 || EmcEUT2 || EmcEUT3 || EmcEUT4 || EmcEUT5 || EmcEUT6)
