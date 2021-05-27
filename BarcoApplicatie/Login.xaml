@@ -27,16 +27,11 @@
         </TextBox>
         <Button x:Name="btnLogin" Click="btnLogin_Click" Content="LOGIN" HorizontalAlignment="Center" Height="71" Margin="0,415,0,0" VerticalAlignment="Top" Width="234" Foreground="White" Background="#FFF10000"/>
         <Label Content="DIVISIE:" HorizontalAlignment="Left" Margin="347,311,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtDivisie" HorizontalAlignment="Left" Margin="406,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
+        <ComboBox ItemsSource="{Binding Divisions}"
+                  SelectedItem="{Binding SelectedDivision}"
+                  DisplayMemberPath="Afkorting"
+            x:Name="cmbDivision" HorizontalAlignment="Left" Height="20" Margin="406,314,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black">
+        </ComboBox>
         <Label Content="VOORNAAM + NAAM:" HorizontalAlignment="Left" Margin="267,265,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtNaam" HorizontalAlignment="Left" Margin="406,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" >
             <TextBox.RenderTransform>

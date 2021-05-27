@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using BarcoApplicatie.viewModels;
+using BarcoApplication.Data;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,13 +17,35 @@ namespace BarcoApplicatie
 {
     public partial class Login : Window
     {
+
+        private MainViewModel viewModel;
+
+        public Login()
+        {
+            viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
+            DataContext = viewModel;
+            viewModel.insertDivisionIntoComboBox();
+
+            RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+
+            if (request != null)
+            {
+
+                HomeScreen HomeScreen = new HomeScreen();
+                HomeScreen.Show();
+                this.Close();
+            }
+        }
+
+
         //Robbe
+
         //De registry aanpassen met de dingen die je ingeeft
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             string Name = txtNaam.Text;
-            string Division = txtDivisie.Text;
             string Functie = txtFunctie.Text;
+            string Division = this.cmbDivision.Text;
 
             RegistryKey request = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\BarRequest");
 
@@ -29,8 +53,8 @@ namespace BarcoApplicatie
             if (request != null)
             {
                 request.SetValue("Name", Name);
-                request.SetValue("Division", Division);
                 request.SetValue("Functie", Functie);
+                request.SetValue("Division", Division);
                 request.Close();
             }
 
@@ -39,16 +63,10 @@ namespace BarcoApplicatie
             {
                 control.SetValue("Name", Name);
                 control.SetValue("Functie", Functie);
+                control.SetValue("Division", Division);
                 control.Close();
             }
 
-            RegistryKey test = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\BarTest");
-            if (test != null)
-            {
-                test.SetValue("Name", Name);
-                test.SetValue("Division", Division);
-                test.Close();
-            }
 
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();

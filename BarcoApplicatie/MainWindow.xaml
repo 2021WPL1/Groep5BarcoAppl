@@ -40,10 +40,21 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="NATURE OF TEST(S) TO PERFORM" HorizontalAlignment="Left" Margin="25,463,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox Text="{Binding Path=RegistryDivision, Mode=TwoWay }" x:Name="txtDivision" HorizontalAlignment="Left" Margin="234,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" TextChanged="txtRequesterInitials_TextChanged">
+
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
         <ComboBox ItemsSource="{Binding Divisions}"
                   SelectedItem="{Binding SelectedDivision}"
                   DisplayMemberPath="Afkorting"
-            x:Name="cmbDivision" HorizontalAlignment="Left" Height="20" Margin="233,104,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black">
+            x:Name="cmbDivision" HorizontalAlignment="Left" Height="20" Margin="406,314,0,0" VerticalAlignment="Top" Width="120" Background="Black" Foreground="Black" BorderBrush="Black" OpacityMask="Black">
         </ComboBox>
         <DatePicker SelectedDate="{Binding ExpectedEndDate}" x:Name="ExpectedEndDate" HorizontalAlignment="Left" Height="26" Margin="233,317,0,0" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Foreground="White" Text="#FFFFFF" ForceCursor="True">
             <DatePicker.CalendarStyle>

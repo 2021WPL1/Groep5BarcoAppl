@@ -7,6 +7,6 @@ namespace BarcoApplicatie
     public class Constants
     {
         public static string CONNECTION_STRING =
-            "Server=NIKKINOPPE1E16\\VIVES; Database= Barco2021; Trusted_Connection=True;";
+            "Server=desktop-mb87vp9\\VIVES; Database= Barco; Trusted_Connection=True;";
     }
 }

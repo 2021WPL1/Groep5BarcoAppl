@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BarcoApplication.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -44,6 +45,13 @@ namespace BarcoApplicatie
         {
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
+        }
+
+        private void btnRefuseJobrequest_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+
         }
     }
 }

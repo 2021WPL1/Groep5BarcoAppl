@@ -26,6 +26,34 @@ namespace BarcoApplicatie.viewModels
         private RqBarcoDivision _selectedDivision;
         private RqJobNature _selectedJobNatures;
 
+
+        private string _registryDivision { get; set; }
+
+        public string RegistryDivision
+        {
+            get
+            {
+                //Robbe
+                string name = "";
+                //Naam opvragen uit register
+                RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
+
+                if (request != null)
+                {
+                    name = Convert.ToString(request.GetValue("Division"));
+                }
+                _registryDivision = name;
+
+                return _registryDivision;
+            }
+            set
+            {
+                _registryDivision = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public RqBarcoDivision SelectedDivision
         {
             get 
