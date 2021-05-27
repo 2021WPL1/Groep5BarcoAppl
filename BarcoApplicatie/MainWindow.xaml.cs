@@ -87,6 +87,7 @@ namespace BarcoApplicatie
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Closed += (s, args) => this.Close();
             HomeScreen.Show();
+            this.Close();
         }
 
         ///////////////////////////////////////////boolCheckbox///////////////////////////////////////////

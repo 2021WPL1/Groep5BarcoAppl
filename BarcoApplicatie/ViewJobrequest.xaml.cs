@@ -40,7 +40,7 @@ namespace BarcoApplicatie
         {
             HomeScreen HomeScreen = new HomeScreen();
             HomeScreen.Show();
-            Close();
+            this.Close();
         }
 
         //Koen
@@ -81,6 +81,7 @@ namespace BarcoApplicatie
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Closed += (s, args) => this.Close();
             acceptJobrequest.Show();
+            this.Close();
         }
 
         private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
