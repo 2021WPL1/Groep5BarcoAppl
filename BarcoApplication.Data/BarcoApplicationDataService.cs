@@ -55,7 +55,6 @@ namespace BarcoApplication.Data
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)
         {
-            request.JrNumber = "0001";
             request.HydraProjectNr = "0001";
             request.Requester = initials;
             request.EutProjectname = projectName;
