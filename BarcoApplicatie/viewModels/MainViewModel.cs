@@ -4,6 +4,7 @@ using System.Windows.Input;
 using BarcoApplicatie.BibModels;
 using BarcoApplication.Data;
 using Microsoft.Win32;
+using BarcoApplication.Data.BibModels;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
@@ -14,11 +15,16 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private RqRequest request = new RqRequest();
+        private RqOptionel optionel = new RqOptionel();
+        private RqTestDevision testDevision = new RqTestDevision();
+        private RqRequestDetail requestDetail;
+        private Eut eut;
+
 
         private BarcoApplicationDataService _dataservice;
 
         public ICommand SendJobRequestCommand { get; set; }
-        public ICommand CheckboxCommand { get; set; }
 
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
@@ -115,14 +121,48 @@ namespace BarcoApplicatie.viewModels
         private DateTime _PVGDate = DateTime.Now;
 
         private bool _batteries_Yes;
-        private bool _batteries_No;
 
-        public string EUT1Message { get; set; }
-        public string EUT2Message { get; set; }
-        public string EUT3Message { get; set; }
-        public string EUT4Message { get; set; }
-        public string EUT5Message { get; set; }
-        public string EUT6Message { get; set; }
+        public string EmcEUT1Message { get; set; }
+        public string EmcEUT2Message { get; set; }
+        public string EmcEUT3Message { get; set; }
+        public string EmcEUT4Message { get; set; }
+        public string EmcEUT5Message { get; set; }
+        public string EmcEUT6Message { get; set; }
+
+        public string EnvEUT1Message { get; set; }
+        public string EnvEUT2Message { get; set; }
+        public string EnvEUT3Message { get; set; }
+        public string EnvEUT4Message { get; set; }
+        public string EnvEUT5Message { get; set; }
+        public string EnvEUT6Message { get; set; }
+
+        public string RelEUT1Message { get; set; }
+        public string RelEUT2Message { get; set; }
+        public string RelEUT3Message { get; set; }
+        public string RelEUT4Message { get; set; }
+        public string RelEUT5Message { get; set; }
+        public string RelEUT6Message { get; set; }
+
+        public string SafeEUT1Message { get; set; }
+        public string SafeEUT2Message { get; set; }
+        public string SafeEUT3Message { get; set; }
+        public string SafeEUT4Message { get; set; }
+        public string SafeEUT5Message { get; set; }
+        public string SafeEUT6Message { get; set; }
+
+        public string PackEUT1Message { get; set; }
+        public string PackEUT2Message { get; set; }
+        public string PackEUT3Message { get; set; }
+        public string PackEUT4Message { get; set; }
+        public string PackEUT5Message { get; set; }
+        public string PackEUT6Message { get; set; }
+
+        public string GreenEUT1Message { get; set; }
+        public string GreenEUT2Message { get; set; }
+        public string GreenEUT3Message { get; set; }
+        public string GreenEUT4Message { get; set; }
+        public string GreenEUT5Message { get; set; }
+        public string GreenEUT6Message { get; set; }
 
         private bool _EmcEUT1;
         private bool _EmcEUT2;
@@ -512,18 +552,6 @@ namespace BarcoApplicatie.viewModels
             set
             {
                 _batteries_Yes = value;
-                OnPropertyChanged("Batteries_Yes");
-            }
-        }
-        public bool Batteries_No
-        {
-            get
-            {
-                return _batteries_No;
-            }
-            set
-            {
-                _batteries_No = value;
                 OnPropertyChanged();
             }
         }
@@ -539,7 +567,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT1 == value) return;
 
                 _EmcEUT1 = value;
-                EUT1Message = _EmcEUT1 ? "EUT1" : "";
+                EmcEUT1Message = _EmcEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -555,7 +583,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT2 == value) return;
 
                 _EmcEUT2 = value;
-                EUT2Message = _EmcEUT2 ? "EUT2" : "";
+                EmcEUT2Message = _EmcEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -571,7 +599,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT3 == value) return;
 
                 _EmcEUT3 = value;
-                EUT3Message = _EmcEUT3 ? "EUT3" : "";
+                EmcEUT3Message = _EmcEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -587,7 +615,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT4 == value) return;
 
                 _EmcEUT4 = value;
-                EUT4Message = _EmcEUT4 ? "EUT4" : "";
+                EmcEUT4Message = _EmcEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -603,7 +631,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT5 == value) return;
 
                 _EmcEUT5 = value;
-                EUT5Message = _EmcEUT5 ? "EUT5" : "";
+                EmcEUT5Message = _EmcEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -619,7 +647,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EmcEUT6 == value) return;
 
                 _EmcEUT6 = value;
-                EUT6Message = _EmcEUT6 ? "EUT6" : "";
+                EmcEUT6Message = _EmcEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -636,7 +664,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT1 == value) return;
 
                 _EnvEUT1 = value;
-                EUT1Message = _EnvEUT1 ? "EUT1" : "";
+                EnvEUT1Message = _EnvEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -652,7 +680,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT2 == value) return;
 
                 _EnvEUT2 = value;
-                EUT2Message = _EnvEUT2 ? "EUT2" : "";
+                EnvEUT2Message = _EnvEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -668,7 +696,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT3 == value) return;
 
                 _EnvEUT3 = value;
-                EUT3Message = _EnvEUT3 ? "EUT3" : "";
+                EnvEUT3Message = _EnvEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -684,7 +712,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT4 == value) return;
 
                 _EnvEUT4 = value;
-                EUT4Message = _EnvEUT4 ? "EUT4" : "";
+                EnvEUT4Message = _EnvEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -700,7 +728,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT5 == value) return;
 
                 _EnvEUT5 = value;
-                EUT5Message = _EnvEUT5 ? "EUT5" : "";
+                EnvEUT5Message = _EnvEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -716,7 +744,7 @@ namespace BarcoApplicatie.viewModels
                 if (_EnvEUT6 == value) return;
 
                 _EnvEUT6 = value;
-                EUT6Message = _EnvEUT6 ? "EUT6" : "";
+                EnvEUT6Message = _EnvEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -733,7 +761,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT1 == value) return;
 
                 _RelEUT1 = value;
-                EUT1Message = _RelEUT1 ? "EUT1" : "";
+                RelEUT1Message = _RelEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -749,7 +777,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT2 == value) return;
 
                 _RelEUT2 = value;
-                EUT2Message = _RelEUT2 ? "EUT2" : "";
+                RelEUT2Message = _RelEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -765,7 +793,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT3 == value) return;
 
                 _RelEUT3 = value;
-                EUT3Message = _RelEUT3 ? "EUT3" : "";
+                RelEUT3Message = _RelEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -781,7 +809,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT4 == value) return;
 
                 _RelEUT4 = value;
-                EUT4Message = _RelEUT4 ? "EUT4" : "";
+                RelEUT4Message = _RelEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -797,7 +825,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT5 == value) return;
 
                 _RelEUT5 = value;
-                EUT5Message = _RelEUT5 ? "EUT5" : "";
+                RelEUT5Message = _RelEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -813,7 +841,7 @@ namespace BarcoApplicatie.viewModels
                 if (_RelEUT6 == value) return;
 
                 _RelEUT6 = value;
-                EUT6Message = _RelEUT6 ? "EUT6" : "";
+                RelEUT6Message = _RelEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -830,7 +858,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT1 == value) return;
 
                 _SafeEUT1 = value;
-                EUT1Message = _SafeEUT1 ? "EUT1" : "";
+                SafeEUT1Message = _SafeEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -846,7 +874,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT2 == value) return;
 
                 _SafeEUT2 = value;
-                EUT2Message = _SafeEUT2 ? "EUT2" : "";
+                SafeEUT2Message = _SafeEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -862,7 +890,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT3 == value) return;
 
                 _SafeEUT3 = value;
-                EUT3Message = _SafeEUT3 ? "EUT3" : "";
+                SafeEUT3Message = _SafeEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -878,7 +906,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT4 == value) return;
 
                 _SafeEUT4 = value;
-                EUT4Message = _SafeEUT4 ? "EUT4" : "";
+                SafeEUT4Message = _SafeEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -894,7 +922,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT5 == value) return;
 
                 _SafeEUT5 = value;
-                EUT5Message = _SafeEUT5 ? "EUT5" : "";
+                SafeEUT5Message = _SafeEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -910,7 +938,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SafeEUT6 == value) return;
 
                 _SafeEUT6 = value;
-                EUT6Message = _SafeEUT6 ? "EUT6" : "";
+                SafeEUT6Message = _SafeEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -927,7 +955,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT1 == value) return;
 
                 _PackEUT1 = value;
-                EUT1Message = _PackEUT1 ? "EUT1" : "";
+                PackEUT1Message = _PackEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -943,7 +971,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT2 == value) return;
 
                 _PackEUT2 = value;
-                EUT2Message = _PackEUT2 ? "EUT2" : "";
+                PackEUT2Message = _PackEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -959,7 +987,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT3 == value) return;
 
                 _PackEUT3 = value;
-                EUT3Message = _PackEUT3 ? "EUT3" : "";
+                PackEUT3Message = _PackEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -975,7 +1003,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT4 == value) return;
 
                 _PackEUT4 = value;
-                EUT4Message = _PackEUT4 ? "EUT4" : "";
+                PackEUT4Message = _PackEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -991,7 +1019,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT5 == value) return;
 
                 _PackEUT5 = value;
-                EUT5Message = _PackEUT5 ? "EUT5" : "";
+                PackEUT5Message = _PackEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -1007,7 +1035,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PackEUT6 == value) return;
 
                 _PackEUT6 = value;
-                EUT6Message = _PackEUT6 ? "EUT6" : "";
+                PackEUT6Message = _PackEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -1024,7 +1052,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT1 == value) return;
 
                 _GreenEUT1 = value;
-                EUT1Message = _GreenEUT1 ? "EUT1" : "";
+                GreenEUT1Message = _GreenEUT1 ? "EUT1" : "";
 
                 OnPropertyChanged();
             }
@@ -1040,7 +1068,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT2 == value) return;
 
                 _GreenEUT2 = value;
-                EUT2Message = _GreenEUT2 ? "EUT2" : "";
+                GreenEUT2Message = _GreenEUT2 ? "EUT2" : "";
 
                 OnPropertyChanged();
             }
@@ -1056,7 +1084,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT3 == value) return;
 
                 _GreenEUT3 = value;
-                EUT3Message = _GreenEUT3 ? "EUT3" : "";
+                GreenEUT3Message = _GreenEUT3 ? "EUT3" : "";
 
                 OnPropertyChanged();
             }
@@ -1072,7 +1100,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT4 == value) return;
 
                 _GreenEUT4 = value;
-                EUT4Message = _GreenEUT4 ? "EUT4" : "";
+                GreenEUT4Message = _GreenEUT4 ? "EUT4" : "";
 
                 OnPropertyChanged();
             }
@@ -1088,7 +1116,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT5 == value) return;
 
                 _GreenEUT5 = value;
-                EUT5Message = _GreenEUT5 ? "EUT5" : "";
+                GreenEUT5Message = _GreenEUT5 ? "EUT5" : "";
 
                 OnPropertyChanged();
             }
@@ -1104,7 +1132,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GreenEUT6 == value) return;
 
                 _GreenEUT6 = value;
-                EUT6Message = _GreenEUT6 ? "EUT6" : "";
+                GreenEUT6Message = _GreenEUT6 ? "EUT6" : "";
 
                 OnPropertyChanged();
             }
@@ -1169,7 +1197,7 @@ namespace BarcoApplicatie.viewModels
                 if (_SAFE == value) return;
 
                 _SAFE = value;
-                SAFEMessage = _SAFE ? "SAFE" : "";
+                SAFEMessage = _SAFE ? "SAF" : "";
 
                 OnPropertyChanged();
             }
@@ -1185,7 +1213,7 @@ namespace BarcoApplicatie.viewModels
                 if (_PACK == value) return;
 
                 _PACK = value;
-                PACKMessage = _PACK ? "PACK" : "";
+                PACKMessage = _PACK ? "PCK" : "";
 
                 OnPropertyChanged();
             }
@@ -1201,7 +1229,7 @@ namespace BarcoApplicatie.viewModels
                 if (_GREEN == value) return;
 
                 _GREEN = value;
-                GREENMessage = _GREEN ? "GREEN" : "";
+                GREENMessage = _GREEN ? "ECO" : "";
 
                 OnPropertyChanged();
             }
@@ -1238,7 +1266,6 @@ namespace BarcoApplicatie.viewModels
             this._dataservice = dataService;
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
-            //CheckboxCommand = new DelegateCommand();
 
 
             Divisions = new ObservableCollection<RqBarcoDivision>();
@@ -1247,18 +1274,76 @@ namespace BarcoApplicatie.viewModels
 
         public void SendJobRequest()
         {
-            _dataservice.SendJobRequest(RequesterInitials, ProjectName,
-                $"{EutPartnumber1}; {EutPartnumber2}; {EutPartnumber3}; {EutPartnumber4}; {EutPartnumber5}",
-                ExpectedEndDate, $"{GrossWeight1}; {GrossWeight2}; {GrossWeight3}; {GrossWeight4}; {GrossWeight5}",
-                $"{NetWeight1}; {NetWeight2}; {NetWeight3}; {NetWeight4}; {NetWeight5}",
-                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes,
-                $"{EMCMessage}; {ENVMessage}; {RELMessage}; {SAFEMessage}; {PACKMessage}; {GREENMessage}",
-                $"{EUT1Message}; {EUT2Message}; {EUT3Message}; {EUT4Message}; {EUT5Message}; {EUT6Message}; ",
-                EUT1Date
-                );
+
+            _dataservice.AddRequest(request, RequesterInitials, ProjectName,
+                $"Part1: {EutPartnumber1}; Part2: {EutPartnumber2}; Part3: {EutPartnumber3}; Part4: {EutPartnumber4}; Part5: {EutPartnumber5}", ExpectedEndDate,
+                $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2}; Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
+                $"Net1: {NetWeight1}; Net2: {NetWeight2}; Net3: {NetWeight3}; Net4: {NetWeight4}; Net5: {NetWeight5}",
+                SelectedDivision.Afkorting, SelectedJobNatures.Nature, Batteries_Yes);
+
+            _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
+
+            if (_EMC)
+            {
+                if (EmcEUT1 || EmcEUT2 || EmcEUT3 || EmcEUT4 || EmcEUT5 || EmcEUT6)
+                {
+                    CreateRequestDetail("EMC", 
+                        $"{EmcEUT1Message} ; {EmcEUT2Message} ; {EmcEUT3Message} ; {EmcEUT4Message} ; {EmcEUT5Message} ; {EmcEUT6Message} ; ", EUT1Date);
+                }
+            }
+            if (_ENV)
+            {
+                if (EnvEUT1 || EnvEUT2|| EnvEUT3 || EnvEUT4 || EnvEUT5 || EnvEUT6)
+                {
+                    CreateRequestDetail("ENV", 
+                        $"{EnvEUT1Message} ; {EnvEUT2Message} ; {EnvEUT3Message} ; {EnvEUT4Message} ; {EnvEUT5Message} ; {EnvEUT6Message} ; ", EUT2Date);
+                }
+            }
+            if (_REL)
+            {
+                if (RelEUT1 || RelEUT2|| RelEUT3 || RelEUT4 || RelEUT5 || RelEUT6)
+                {
+                    CreateRequestDetail("REL", 
+                        $"{RelEUT1Message} ; {RelEUT2Message} ; {RelEUT3Message} ; {RelEUT4Message} ; {RelEUT5Message} ; {RelEUT6Message} ; ", EUT3Date);
+                }
+            }
+            if (_SAFE)
+            {
+                if (SafeEUT1 || SafeEUT2|| SafeEUT3 || SafeEUT4 || SafeEUT5 || SafeEUT6)
+                {
+                    CreateRequestDetail("SAF", 
+                        $"{SafeEUT1Message} ; {SafeEUT2Message} ; {SafeEUT3Message} ; {SafeEUT4Message} ; {SafeEUT5Message} ; {SafeEUT6Message} ; ", EUT4Date);
+                }
+            }
+            if (_PACK)
+            {
+                if (PackEUT1 || PackEUT2|| PackEUT3 || PackEUT4 || PackEUT5 || PackEUT6)
+                {
+                    CreateRequestDetail("PCK", 
+                        $"{PackEUT1Message} ; {PackEUT2Message} ; {PackEUT3Message} ; {PackEUT4Message} ; {PackEUT5Message} ; {PackEUT6Message} ; ", EUT5Date);
+                }
+            }
+            if (_GREEN)
+            {
+                if (GreenEUT1 || GreenEUT2|| GreenEUT3 || GreenEUT4 || GreenEUT5 || GreenEUT6)
+                {
+                    CreateRequestDetail("ECO", 
+                        $"{GreenEUT1Message} ; {GreenEUT2Message} ; {GreenEUT3Message} ; {GreenEUT4Message} ; {GreenEUT5Message} ; {GreenEUT6Message} ; ", EUT6Date);
+                }
+            }
+
+            _dataservice.SaveChanges();
+            OpenJobRequestWindow();
         }
 
+        private void CreateRequestDetail(string division, string eutMessage, DateTime date)
+        {
+            var requestDetail = new RqRequestDetail();
+            _dataservice.AddDetail(requestDetail, request, division);
 
+            var eut = new Eut();
+            _dataservice.AddEut(eut, requestDetail, eutMessage, date);
+        }
 
         ///////////////////////////////////////////loadDataIntoCombo///////////////////////////////////////////
         //Koen
@@ -1272,7 +1357,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        //Koen
         public void insertJobNatureIntoComboBox()
         {
             var jobNatures = _dataservice.getAllJobNatures();
@@ -1281,6 +1365,15 @@ namespace BarcoApplicatie.viewModels
             {
                 JobNatures.Add(jobNature);
             }
+        }
+
+        public void OpenJobRequestWindow()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            ViewJobrequest viewJR = new ViewJobrequest();
+            viewJR.Closed += (s, args) => mainWindow.Close();
+            viewJR.Show();
         }
     }
 

@@ -233,7 +233,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="LINK TO TESTPLAN" HorizontalAlignment="Left" Margin="48,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-        <TextBox Text="{Binding Path=LinkToTestplan, Mode=TwoWay }" x:Name="txtLinkToTestplan"  HorizontalAlignment="Left" Margin="233,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="614" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="22">
+        <TextBox Text="{Binding Path=LinkToTestplan}" x:Name="txtLinkToTestplan"  HorizontalAlignment="Left" Margin="233,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="614" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="22">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -468,7 +468,7 @@
         <Label Content="GREEN COMPILANCE" HorizontalAlignment="Left" Margin="51,598,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="EUT DORE SEEN AVAILABILITY DATE" HorizontalAlignment="Left" Margin="1,626,0,0" VerticalAlignment="Top" Foreground="White" Width="202"/>
         <Label Content="Special remarks (optional):" HorizontalAlignment="Left" Margin="49,666,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Path=SpecialRemarks, Mode=TwoWay }" x:Name="txtSpecialRemarks" HorizontalAlignment="Left" Margin="54,697,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="116">
+        <TextBox Text="{Binding Path=SpecialRemarks}" x:Name="txtSpecialRemarks" HorizontalAlignment="Left" Margin="54,697,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="116">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

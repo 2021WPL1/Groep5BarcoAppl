@@ -1,5 +1,4 @@
-﻿using BarcoApplicatie.BibModels;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using BarcoApplication.Data;
+using BarcoApplication.Data.BibModels;
 
 namespace BarcoApplicatie
 {

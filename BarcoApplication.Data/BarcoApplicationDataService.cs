@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using BarcoApplicatie.BibModels;
+using BarcoApplication.Data.BibModels;
 
 namespace BarcoApplication.Data
 {
+
+    /// <summary>
+    /// KOEN
+    /// </summary>
     public class BarcoApplicationDataService
     {
         private static readonly BarcoApplicationDataService _instance = new BarcoApplicationDataService();
+
         private Barco2021Context _context;
 
         public static BarcoApplicationDataService Instance()
@@ -47,12 +51,10 @@ namespace BarcoApplication.Data
             _context.SaveChanges();
         }
 
-        public void SendJobRequest(string initials, string projectName, 
+        public RqRequest AddRequest(RqRequest request, string initials, string projectName,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
-            string division, string jobNature, bool battery, string testdivision, string omschrijving,
-            DateTime? dateEUT)
+            string division, string jobNature, bool battery)
         {
-            RqRequest request = new RqRequest();
             request.JrNumber = "0001";
             request.HydraProjectNr = "0001";
             request.Requester = initials;
@@ -66,32 +68,43 @@ namespace BarcoApplication.Data
             request.JobNature = jobNature;
             request.Battery = battery;
 
-            _context.RqRequest.Add(request);
-            _context.SaveChanges();
+            return request;
+        }
 
-            RqRequestDetail requestDetail = new RqRequestDetail();
+        public RqOptionel AddOptionel(RqOptionel optional, RqRequest request, string link, string remarks)
+        {
+            optional.IdRequest = request.IdRequest;
+            optional.Link = link;
+            optional.Remarks = remarks;
+            request.RqOptionel.Add(optional);
 
+            return optional;
+        }
+
+        public RqRequestDetail AddDetail(RqRequestDetail requestDetail, RqRequest request, string testdivision)
+        {
             requestDetail.IdRequest = request.IdRequest;
             requestDetail.Testdivisie = testdivision;
-            _context.RqRequestDetail.Add(requestDetail);
-            _context.SaveChanges();
+            request.RqRequestDetail.Add(requestDetail);
+            _context.RqRequest.Add(request);
 
-            Eut eut = new Eut();
+            return requestDetail;
+        }
+
+        public Eut AddEut(Eut eut, RqRequestDetail requestDetail, string omschrijving, DateTime dateEUT)
+        {
+            eut.IdRqDetail = requestDetail.IdRqDetail;
             eut.OmschrijvingEut = omschrijving;
             eut.AvailableDate = dateEUT;
+            requestDetail.Eut.Add(eut);
 
-            eut.IdRqDetail = requestDetail.IdRqDetail;
-            _context.Eut.Add(eut);
-            _context.SaveChanges();
+            return eut;
         }
 
-        public void addTestDivision(string testDivision)
+        public void SaveChanges()
         {
-            RqRequestDetail requestDetail = new RqRequestDetail();
-            requestDetail.Testdivisie = testDivision;
-
-            _context.RqRequestDetail.Add(requestDetail);
             _context.SaveChanges();
         }
+
     }
 }

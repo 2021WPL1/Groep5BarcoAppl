@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BarcoApplicatie.BibModels
+namespace BarcoApplication.Data.BibModels
 {
     public partial class Eut
     {
