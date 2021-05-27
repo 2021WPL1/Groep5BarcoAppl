@@ -572,45 +572,5 @@ namespace BarcoApplicatie.viewModels
             acceptJobrequest.Show();
         }
 
-        public IList<RqRequest> _Requester
-        {
-            get { return _Requester; }
-            set { _Requester = value; }
-        }
-
-        private ICommand mUpdater;
-        public ICommand UpdateCommand
-        {
-            get
-            {
-                if (mUpdater == null)
-                    mUpdater = new Updater();
-                return mUpdater;
-            }
-            set
-            {
-                mUpdater = value;
-            }
-        }
-
-        private class Updater : ICommand
-        {
-              
-
-            public bool CanExecute(object parameter)
-            {
-                return true;
-            }
-
-            public event EventHandler CanExecuteChanged;
-
-            public void Execute(object parameter)
-            {
-
-            }
-
-           
-        }
-
     }
 }

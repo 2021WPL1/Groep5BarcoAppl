@@ -52,28 +52,5 @@ namespace BarcoApplicatie
             */
         }   
 
-        private string IdRequester;
-        public string _IdRequester
-        {
-            get
-            {
-                return IdRequester;
-            }
-            set
-            {
-                IdRequester = value;
-                OnPropertyChanged("_Requester");
-            }
-
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }
