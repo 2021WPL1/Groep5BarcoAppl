@@ -451,7 +451,7 @@
         <Label Content="PRODUCT SAFETY" HorizontalAlignment="Left" Margin="52,553,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="PACKAGING" HorizontalAlignment="Left" Margin="75,576,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="GREEN COMPILANCE" HorizontalAlignment="Left" Margin="51,598,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="EUT DORE SEEN AVAILABILITY DATE" HorizontalAlignment="Left" Margin="1,626,0,0" VerticalAlignment="Top" Foreground="White" Width="202"/>
+        <Label Content="EUT FORESEEN AVAILABILITY DATE" HorizontalAlignment="Left" Margin="10,623,0,0" VerticalAlignment="Top" Foreground="White" Width="202"/>
         <Label Content="Special remarks (optional):" HorizontalAlignment="Left" Margin="49,666,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="txtSpecialRemarks" HorizontalAlignment="Left" Margin="54,697,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="116">
             <TextBox.RenderTransform>
