@@ -43,12 +43,14 @@ namespace BarcoApplicatie
         }
 
         //Koen
+        /*   moved to MMVM
         private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
         {
             listBox.DisplayMemberPath = display;
             listBox.SelectedValuePath = value;
             listBox.ItemsSource = source;
         }
+        */
 
         //Koen
         private void loadAllRequest()
