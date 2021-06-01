@@ -1366,9 +1366,9 @@ namespace BarcoApplicatie.viewModels
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Hide();
-            ViewJobrequest viewJR = new ViewJobrequest();
-            viewJR.Closed += (s, args) => mainWindow.Close();
-            viewJR.Show();
+            HomeScreen homescreen = new HomeScreen();
+            homescreen.Closed += (s, args) => mainWindow.Close();
+            homescreen.Show();
         }
     }
 
