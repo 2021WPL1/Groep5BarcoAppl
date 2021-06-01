@@ -17,6 +17,7 @@ namespace BarcoApplication.Data.BibModels
         public Barco2021Context(DbContextOptions<Barco2021Context> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Eut> Eut { get; set; }

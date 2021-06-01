@@ -35,7 +35,6 @@ namespace BarcoApplication.Data.BibModels
         public virtual ICollection<RqRequestDetail> RqRequestDetail { get; set; }
 
         //Robbe
-
         //Maak van alles een string, die je dan in de listbox kan toevoegen
         public override string ToString() {
 
@@ -55,7 +54,6 @@ namespace BarcoApplication.Data.BibModels
             int spacesToAddJobNature = maxJobNatureLength - JobNatureLengt + 21;
             int spacesToAddEutProjectname = maxEutProjectnameLength - EutProjectnameLength + 5;
 
-
             string resultDivision = BarcoDivision;
             string resultJobNature = JobNature;
             string resultEutProjectname = EutProjectname;
@@ -65,7 +63,6 @@ namespace BarcoApplication.Data.BibModels
             {
                 resultDivision += " ";
             }
-
 
             for (int i = 0; i < spacesToAddJobNature; i++)
             {
@@ -77,11 +74,7 @@ namespace BarcoApplication.Data.BibModels
                 resultEutProjectname += " ";
             }
 
-            return
-
-
-                resultDivision + resultJobNature  + resultEutProjectname + " " +ExpectedEnddate;
-               
+            return resultDivision + resultJobNature  + resultEutProjectname + " " +ExpectedEnddate;
                 }
     }
 }

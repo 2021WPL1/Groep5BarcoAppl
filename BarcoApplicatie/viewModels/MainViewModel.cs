@@ -20,7 +20,6 @@ namespace BarcoApplicatie.viewModels
         private RqRequestDetail requestDetail;
         private Eut eut;
 
-
         private BarcoApplicationDataService _dataservice;
 
         public ICommand SendJobRequestCommand { get; set; }
@@ -30,7 +29,6 @@ namespace BarcoApplicatie.viewModels
 
         private RqBarcoDivision _selectedDivision;
         private RqJobNature _selectedJobNatures;
-
 
         private string _registryDivision { get; set; }
 
@@ -58,7 +56,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-
         public RqBarcoDivision SelectedDivision
         {
             get 
@@ -72,6 +69,7 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+
         public RqJobNature SelectedJobNatures
         {
             get { return _selectedJobNatures; }
@@ -277,7 +275,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-
         public DateTime ExpectedEndDate
         {
             get { return _expectedEndDate; }
@@ -288,6 +285,7 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+
         public DateTime EUT1Date
         {
             get { return _EUT1Date; }
@@ -348,6 +346,7 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+
         public DateTime PVGDate
         {
             get { return _PVGDate; }
@@ -480,7 +479,7 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
+     
         public string GrossWeight1
         {
             get
@@ -1266,14 +1265,12 @@ namespace BarcoApplicatie.viewModels
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
 
-
             Divisions = new ObservableCollection<RqBarcoDivision>();
             JobNatures = new ObservableCollection<RqJobNature>();
         }
 
         public void SendJobRequest()
         {
-
             _dataservice.AddRequest(request, RequesterInitials, ProjectName,
                 $"Part1: {EutPartnumber1}; Part2: {EutPartnumber2}; Part3: {EutPartnumber3}; Part4: {EutPartnumber4}; Part5: {EutPartnumber5}", ExpectedEndDate,
                 $"Gross1: {GrossWeight1}; Gross2: {GrossWeight2}; Gross3: {GrossWeight3}; Gross4: {GrossWeight4}; Gross5: {GrossWeight5}",
@@ -1330,7 +1327,6 @@ namespace BarcoApplicatie.viewModels
                         $"{GreenEUT1Message} ; {GreenEUT2Message} ; {GreenEUT3Message} ; {GreenEUT4Message} ; {GreenEUT5Message} ; {GreenEUT6Message} ; ", EUT6Date);
                 }
             }
-
             _dataservice.SaveChanges();
             OpenJobRequestWindow();
         }

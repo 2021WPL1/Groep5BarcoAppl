@@ -147,26 +147,31 @@ namespace BarcoApplicatie
             toggle_click(cbEmcEut, "cbEmcEut");
             dateColumEmpty();
         }
+
         private void cbEnviromental_Click(object sender, RoutedEventArgs e)
         {
             toggle_click(cbEnviromental, "cbEnviromental");
             dateColumEmpty();
         }
+
         private void cbReliability_Click(object sender, RoutedEventArgs e)
         {
             toggle_click(cbReliability, "cbReliability");
             dateColumEmpty();
         }
+
         private void cbProductSafety_Click(object sender, RoutedEventArgs e)
         {
             toggle_click(cbProductSafety, "cbProductSafety");
             dateColumEmpty();
         }
+
         private void cbPackaging_Click(object sender, RoutedEventArgs e)
         {
             toggle_click(cbPackaging, "cbPackaging");
             dateColumEmpty();
         }
+
         private void cbGreenCompilance_Click(object sender, RoutedEventArgs e)
         {
             toggle_click(cbGreenCompilance, "cbGreenCompilance");
@@ -188,60 +193,74 @@ namespace BarcoApplicatie
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         private void cbEnviromental1_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         private void cbReliability1_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         private void cbProductSafety1_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         private void cbPackaging1_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         private void cbGreenCompilance1_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut1, cbEmcEut1, cbEnviromental1, cbReliability1, cbProductSafety1, cbPackaging1, cbGreenCompilance1);
         }
+
         //EUT2 checkbox
         private void cbEmcEut2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         private void cbEnviromental2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         private void cbReliability2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         private void cbProductSafety2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         private void cbPackaging2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         private void cbGreenCompilance2_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut2, cbEmcEut2, cbEnviromental2, cbReliability2, cbProductSafety2, cbPackaging2, cbGreenCompilance2);
         }
+
         //EUT3 checkbox
         private void cbEmcEut3_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
         }
+
         private void cbEnviromental3_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
         }
+
         private void cbReliability3_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
@@ -250,85 +269,105 @@ namespace BarcoApplicatie
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
         }
+
         private void cbPackaging3_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
         }
+
         private void cbGreenCompilance3_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut3, cbEmcEut3, cbEnviromental3, cbReliability3, cbProductSafety3, cbPackaging3, cbGreenCompilance3);
         }
+
         //EUT4 checkbox
         private void cbEmcEut4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         private void cbEnviromental4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         private void cbReliability4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         private void cbProductSafety4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         private void cbPackaging4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         private void cbGreenCompilance4_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut4, cbEmcEut4, cbEnviromental4, cbReliability4, cbProductSafety4, cbPackaging4, cbGreenCompilance4);
         }
+
         //EUT5 checkbox
         private void cbEmcEut5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         private void cbEnviromental5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         private void cbReliability5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         private void cbProductSafety5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         private void cbPackaging5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         private void cbGreenCompilance5_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut5, cbEmcEut5, cbEnviromental5, cbReliability5, cbProductSafety5, cbPackaging5, cbGreenCompilance5);
         }
+
         //EUT6 checkbox
         private void cbEmcEut6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);
         }
+
         private void cbEnviromental6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);
         }
+
         private void cbReliability6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);
         }
+
         private void cbProductSafety6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);
         }
+
         private void cbPackaging6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);
         }
+
         private void cbGreenCompilance6_Click(object sender, RoutedEventArgs e)
         {
             errorHandling.dateEmpty(DateEut6, cbEmcEut6, cbEnviromental6, cbReliability6, cbProductSafety6, cbPackaging6, cbGreenCompilance6);

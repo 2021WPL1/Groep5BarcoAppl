@@ -9,7 +9,6 @@ namespace BarcoApplication.Data.BibModels
         public int IdRqDetail { get; set; }
         public DateTime? AvailableDate { get; set; }
         public string OmschrijvingEut { get; set; }
-
         public virtual RqRequestDetail IdRqDetailNavigation { get; set; }
     }
 }

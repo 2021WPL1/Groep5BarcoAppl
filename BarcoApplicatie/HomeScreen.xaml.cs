@@ -41,13 +41,11 @@ namespace BarcoApplicatie
             if (userName == "Robbe Delsoir")
             {
                 btnSendJob1_Copy.IsEnabled = true;
-
             }
 
             if (userName == "Nikki Noppe")
             {
                 btnSendJob1_Copy1.IsEnabled = true;
-
             }
 
         }
