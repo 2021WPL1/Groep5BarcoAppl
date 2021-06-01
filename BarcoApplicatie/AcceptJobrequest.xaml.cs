@@ -49,7 +49,7 @@ namespace BarcoApplicatie
 
         private void btnRefuseJobrequest_Click(object sender, RoutedEventArgs e)
         {
-           
+            
         }
     }
 }
