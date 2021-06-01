@@ -68,18 +68,6 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
-
-
-        //Koen
-        private void openViewJobRequestScreen()
-        {
-            this.Hide();
-            ViewJobrequest viewJR = new ViewJobrequest();
-            viewJR.Closed += (s, args) => this.Close();
-            viewJR.Show();
-        }
-
-
         ///////////////////////////////////////////logoHomeScreen///////////////////////////////////////////
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
