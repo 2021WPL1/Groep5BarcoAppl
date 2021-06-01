@@ -37,9 +37,7 @@ namespace BarcoApplicatie
             }
         }
 
-
         //Robbe
-
         //De registry aanpassen met de dingen die je ingeeft
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -48,7 +46,6 @@ namespace BarcoApplicatie
             string Division = this.cmbDivision.Text;
 
             RegistryKey request = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\BarRequest");
-
 
             if (request != null)
             {
