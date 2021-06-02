@@ -1409,5 +1409,4 @@ namespace BarcoApplicatie.viewModels
             homescreen.Show();
         }
     }
-
 }
