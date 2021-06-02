@@ -53,6 +53,14 @@ namespace BarcoApplicatie.viewModels
 
         private RqRequest _selectedRequest;
         private string _initialen;
+        private string _emcEUT;
+        private string _envEUT;
+        private string _relEUT;
+        private string _safEUT;
+        private string _pckEUT;
+        private string _ecoEUT;
+
+
         private string _division;
         private string _jobNature;
         private string _projectNumber;
@@ -204,6 +212,79 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+        public string EmcEUT
+        {
+            get
+            {
+                return _emcEUT;
+            }
+            set
+            {
+                _emcEUT = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EnvEUT
+        {
+            get
+            {
+                return _envEUT;
+            }
+            set
+            {
+                _envEUT = value;
+                OnPropertyChanged();
+            }
+        }
+        public string RelEUT
+        {
+            get
+            {
+                return _relEUT;
+            }
+            set
+            {
+                _relEUT = value;
+                OnPropertyChanged();
+            }
+        }
+        public string SafEUT
+        {
+            get
+            {
+                return _safEUT;
+            }
+            set
+            {
+                _safEUT = value;
+                OnPropertyChanged();
+            }
+        }
+        public string PckEUT
+        {
+            get
+            {
+                return _pckEUT;
+            }
+            set
+            {
+                _pckEUT = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EcoEUT
+        {
+            get
+            {
+                return _ecoEUT;
+            }
+            set
+            {
+                _ecoEUT = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string TestPlan
         {
             get
@@ -299,6 +380,7 @@ namespace BarcoApplicatie.viewModels
 
                 if (value != null)
                 {
+
                     var optional = _dataservice.GetOptionals(SelectedRequest.IdRequest);
                     if (optional != null)
                     {
@@ -317,32 +399,39 @@ namespace BarcoApplicatie.viewModels
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
 
-                    //var euts = _dataservice.GetEuts();
+                    var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
 
-                    var details = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
-                    if (details.Testdivisie.Contains("EMC"))
+                    var eut = _dataservice.GetEuts(detail.IdRqDetail);
+
+                    if (detail.Testdivisie == "EMC")
                     {
                         EMC = true;
+                        EmcEUT = eut.OmschrijvingEut;
                     }
-                    if (details.Testdivisie.Contains("ENV"))
+                    if (detail.Testdivisie == "ENV")
                     {
                         ENV = true;
+                        EnvEUT = eut.OmschrijvingEut;
                     }
-                    if (details.Testdivisie.Contains("REL"))
+                    if (detail.Testdivisie == "REL")
                     {
                         REL = true;
+                        RelEUT = eut.OmschrijvingEut;
                     }
-                    if (details.Testdivisie.Contains("SAF"))
+                    if (detail.Testdivisie == "SAF")
                     {
                         SAF = true;
+                        SafEUT = eut.OmschrijvingEut;
                     }
-                    if (details.Testdivisie.Contains("PCK"))
+                    if (detail.Testdivisie == "PCK")
                     {
                         PCK = true;
+                        PckEUT = eut.OmschrijvingEut;
                     }
-                    if (details.Testdivisie.Contains("ECO"))
+                    if (detail.Testdivisie == "ECO")
                     {
                         ECO = true;
+                        EcoEUT = eut.OmschrijvingEut;
                     }
                 }
                 OnPropertyChanged();
@@ -365,13 +454,24 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        //public void OpenAcceptWindow()
+        //{
+        //    AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+        //    acceptJobrequest.Show();
+        //}
+
+        //public void OpenHomeWindow()
+        //{
+        //    HomeScreen homeScreen = new HomeScreen();
+        //    homeScreen.Show();
+        //}
+
         public void RqDate()
         {
             string dateTimeToday = DateTime.Now.ToString("yyyyMMdd");
             //Console.WriteLine(dateTimeString);
             //20210527
         }
-
         public void JrNumber()
         {
             //counter komt uit database

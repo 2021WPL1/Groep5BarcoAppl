@@ -403,7 +403,7 @@
         </TextBox>
         <Label Content="REQUEST DATE" HorizontalAlignment="Left" Margin="688,52,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="JR NUMBER" HorizontalAlignment="Left" Margin="697,70,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="EmcEut"  HorizontalAlignment="Left" Margin="210,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24
+        <TextBox Text="{Binding EmcEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="EmcEut"  HorizontalAlignment="Left" Margin="210,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24
                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -424,7 +424,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="ReliabilityEut"  HorizontalAlignment="Left" Margin="210,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
+        <TextBox Text="{Binding RelEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="ReliabilityEut"  HorizontalAlignment="Left" Margin="210,531,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -434,7 +434,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="EnviromentalEut"  HorizontalAlignment="Left" Margin="210,508,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
+        <TextBox Text="{Binding EnvEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="210,508,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -444,7 +444,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="SafetyEut"  HorizontalAlignment="Left" Margin="210,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
+        <TextBox Text="{Binding SafEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="SafetyEut"  HorizontalAlignment="Left" Margin="210,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -454,7 +454,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="PackagingEut"  HorizontalAlignment="Left" Margin="210,577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
+        <TextBox Text="{Binding PckEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="PackagingEut"  HorizontalAlignment="Left" Margin="210,577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -464,7 +464,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="GreenEut"  HorizontalAlignment="Left" Margin="210,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
+        <TextBox Text="{Binding EcoEUT, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="GreenEut"  HorizontalAlignment="Left" Margin="210,600,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="548" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24                  ">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
