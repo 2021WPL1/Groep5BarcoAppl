@@ -38,7 +38,7 @@ namespace BarcoApplication.Data
 
         public List<RqRequest> getAllRequests()
         {
-            return _context.RqRequest.Include(r => r.RqOptionel).ToList();
+            return _context.RqRequest.ToList();
         }
 
         public RqRequest getRequestWithId(int id)
@@ -46,8 +46,20 @@ namespace BarcoApplication.Data
             return _context.RqRequest.FirstOrDefault(r => r.IdRequest == id);
         }
 
+        public RqRequestDetail getRequestDetailWithId(int id)
+        {
+            return _context.RqRequestDetail.FirstOrDefault(r => r.IdRequest == id);
+        }
+
+        public RqOptionel GetOptionelWithId(int id)
+        {
+            return _context.RqOptionel.FirstOrDefault(r => r.IdRequest == id);
+        }
+
         public void removeJobRequest(int id)
         {
+            _context.RqOptionel.Remove(GetOptionelWithId(id));
+            _context.RqRequestDetail.Remove(getRequestDetailWithId(id));
             _context.RqRequest.Remove(getRequestWithId(id));
             _context.SaveChanges();
         }
