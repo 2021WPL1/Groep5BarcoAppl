@@ -53,6 +53,7 @@ namespace BarcoApplicatie.viewModels
         private bool _batteries_Yes;
         private string _testPlan;
         private string _specialRemarks;
+        private bool _EMC;
 
         public string Initialen
         {
@@ -200,15 +201,25 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        public bool EMC
+        {
+            get
+            {
+                return _EMC;
+            }
+            set
+            {
+                _EMC = value;
+                OnPropertyChanged();
+            }
+        }
+
         public RqRequest SelectedRequest
         {
             get { return _selectedRequest; }
             set
             {
                 _selectedRequest = value;
-
-
-
 
                 if (value != null)
                 {
@@ -228,6 +239,15 @@ namespace BarcoApplicatie.viewModels
                     {
                         TestPlan = optional.Link;
                         SpecialRemarks = optional.Remarks;
+                    }
+
+                    var euts = _dataservice.GetEuts(SelectedRequest.IdRequest);
+
+
+                    var details = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+                    if (details.Testdivisie.Contains("EMC"))
+                    {
+                        EMC = true;
                     }
 
                 }

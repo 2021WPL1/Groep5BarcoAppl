@@ -12,7 +12,7 @@
         <Border BorderThickness="1" BorderBrush="#FFF10000" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="1920" Background="#FFF10000"/>
         <CheckBox IsChecked="{Binding Batteries_Yes}"  x:Name="Checkbox_Yes" Content="YES" HorizontalAlignment="Left" Margin="233,353,0,0" VerticalAlignment="Top" Checked="Checkbox_Yes_Checked" Background="#FF45494A" Foreground="White"/>
 
-        <CheckBox IsChecked="{Binding Batteries_No}" x:Name="Checkbox_No" Content="NO" HorizontalAlignment="Left" Margin="286,353,0,0" VerticalAlignment="Top" Checked="Checkbox_No_Checked" Background="#FF45494A" Foreground="White"/>
+        <CheckBox x:Name="Checkbox_No" Content="NO" HorizontalAlignment="Left" Margin="286,353,0,0" VerticalAlignment="Top" Checked="Checkbox_No_Checked" Background="#FF45494A" Foreground="White"/>
         <Label Content="EUT PROJECTNAME (NICKNAME)" HorizontalAlignment="Left" Margin="11,193,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="PROJECT NUMBER (SAP/Hydra)" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="DIVISION" HorizontalAlignment="Left" Margin="73,100,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -106,7 +106,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <CheckBox x:Name="cbEmcEut1" Content="" HorizontalAlignment="Left" Margin="228,483,0,0" VerticalAlignment="Top" Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding EmcEut1}" x:Name="cbEmcEut1" Content="" HorizontalAlignment="Left" Margin="228,483,0,0" VerticalAlignment="Top" Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3
                                 " ScaleY="2"/>
@@ -168,7 +168,7 @@
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbEmcEut" Content="" HorizontalAlignment="Left" Margin="171,483,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding EMC}" x:Name="cbEmcEut" Content="" HorizontalAlignment="Left" Margin="171,483,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>

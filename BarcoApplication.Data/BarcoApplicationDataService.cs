@@ -57,6 +57,16 @@ namespace BarcoApplication.Data
             return _context.RqOptionel.FirstOrDefault(r => r.IdRequest == id);
         }
 
+        public Eut GetEuts(int id)
+        {
+            return _context.Eut.FirstOrDefault(e => e.IdRqDetail == id);
+        }
+
+        public RqRequestDetail GetRequestDetail(int id)
+        {
+            return _context.RqRequestDetail.FirstOrDefault(r => r.IdRequest == id);
+        }
+
         public RqRequest AddRequest(RqRequest request, string initials, string projectName,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)
