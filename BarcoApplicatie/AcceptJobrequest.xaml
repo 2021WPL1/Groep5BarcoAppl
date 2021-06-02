@@ -10,9 +10,9 @@
 
         <Label x:Name="lblResult" Content="" HorizontalAlignment="Center" Margin="0,270,0,0" VerticalAlignment="Top"/>
         <Border BorderThickness="1" BorderBrush="#FFF10000" HorizontalAlignment="Center" Height="56" VerticalAlignment="Top" Width="1920" Background="#FFF10000"/>
-        <CheckBox x:Name="Checkbox_Yes" Content="YES" HorizontalAlignment="Left" Margin="233,353,0,0" VerticalAlignment="Top" Checked="Checkbox_Yes_Checked" Background="#FF45494A" Foreground="White"/>
+        <CheckBox IsChecked="{Binding Batteries_Yes}"  x:Name="Checkbox_Yes" Content="YES" HorizontalAlignment="Left" Margin="233,353,0,0" VerticalAlignment="Top" Checked="Checkbox_Yes_Checked" Background="#FF45494A" Foreground="White"/>
 
-        <CheckBox x:Name="Checkbox_No" Content="NO" HorizontalAlignment="Left" Margin="286,353,0,0" VerticalAlignment="Top" Checked="Checkbox_No_Checked" Background="#FF45494A" Foreground="White"/>
+        <CheckBox IsChecked="{Binding Batteries_No}" x:Name="Checkbox_No" Content="NO" HorizontalAlignment="Left" Margin="286,353,0,0" VerticalAlignment="Top" Checked="Checkbox_No_Checked" Background="#FF45494A" Foreground="White"/>
         <Label Content="EUT PROJECTNAME (NICKNAME)" HorizontalAlignment="Left" Margin="11,193,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="PROJECT NUMBER (SAP/Hydra)" HorizontalAlignment="Left" Margin="15,162,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="DIVISION" HorizontalAlignment="Left" Margin="73,100,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -23,7 +23,7 @@
         <Label Content="GROSS WEIGHT (kg)" HorizontalAlignment="Left" Margin="44,274,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="EXPECTED END DATE" HorizontalAlignment="Left" Margin="43,317,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="BATTERIES INSIDE" HorizontalAlignment="Left" Margin="50,348,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtRequesterInitials" HorizontalAlignment="Left" Margin="233,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding Initialen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials" HorizontalAlignment="Left" Margin="233,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -35,7 +35,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="NATURE OF TEST(S) TO PERFORM" HorizontalAlignment="Left" Margin="25,463,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <DatePicker x:Name="ExpectedEndDate" HorizontalAlignment="Left" Height="26" Margin="233,317,0,0" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Foreground="White" Text="#FFFFFF" ForceCursor="True">
+        <DatePicker SelectedDate="{Binding ExpectedEndDate}" x:Name="ExpectedEndDate" HorizontalAlignment="Left" Height="26" Margin="233,317,0,0" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Foreground="White" Text="#FFFFFF" ForceCursor="True">
             <DatePicker.CalendarStyle>
                 <Style/>
             </DatePicker.CalendarStyle>
@@ -45,7 +45,7 @@
                 </Style>
             </DatePicker.Resources>
         </DatePicker>
-        <TextBox x:Name="txtProjectNumber" HorizontalAlignment="Left" Margin="233,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding ProjectNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtProjectNumber" HorizontalAlignment="Left" Margin="233,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -55,7 +55,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtProjectName"  HorizontalAlignment="Left" Margin="233,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding ProjectName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtProjectName"  HorizontalAlignment="Left" Margin="233,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -65,7 +65,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtEutPartnumber1" HorizontalAlignment="Left" Margin="233,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding PartNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtEutPartnumber1" HorizontalAlignment="Left" Margin="233,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -75,7 +75,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtNetWeight1" HorizontalAlignment="Left" Margin="233,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding NetWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtNetWeight1" HorizontalAlignment="Left" Margin="233,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -85,7 +85,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtGrossWeight1" HorizontalAlignment="Left" Margin="233,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding GrossWeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtGrossWeight1" HorizontalAlignment="Left" Margin="233,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -616,7 +616,7 @@
             </DatePicker.CalendarStyle>
         </DatePicker>
         <Image x:Name="capturedPhoto" Width="200" Height="75" Margin="2,-7,700,762"/>
-        <TextBox x:Name="txtDivision" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding Division, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtDivision" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -627,7 +627,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtJobNature" HorizontalAlignment="Left" Margin="233,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding JobNature, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtJobNature" HorizontalAlignment="Left" Margin="233,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
             <TextBox.RenderTransform>
                 <TransformGroup>

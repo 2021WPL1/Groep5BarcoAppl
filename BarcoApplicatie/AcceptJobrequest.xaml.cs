@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BarcoApplicatie.viewModels;
 
 namespace BarcoApplicatie
 {
@@ -18,9 +19,12 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class AcceptJobrequest : Window
     {
+        private static AcceptJRViewModel _viewModel = AcceptJRViewModel.Instance();
+
         public AcceptJobrequest()
         {
             InitializeComponent();
+            DataContext = _viewModel;
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
