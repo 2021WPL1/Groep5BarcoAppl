@@ -33,21 +33,6 @@ namespace BarcoApplicatie
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
-            getAll();
         }
-
-        public List<RqJobNature> getAll()
-        {
-            Barco2021Context context = new Barco2021Context();
-            var test =  context.RqJobNature.ToList();
-            return test;
-        }
-
-        private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-
     }
 }
