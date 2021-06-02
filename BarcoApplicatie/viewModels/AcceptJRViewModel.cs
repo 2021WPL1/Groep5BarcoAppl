@@ -47,7 +47,7 @@ namespace BarcoApplicatie.viewModels
 
             RefuseJobRequestCommand = new RelayCommand<Window>(RefuseJobRequest);
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
-            OpenAcceptJrWindow = new DelegateCommand(OpenAcceptWindow);
+            OpenAcceptJrWindow = new RelayCommand<Window>(OpenAcceptWindow);
             HomeCommand = new RelayCommand<Window>(ShowHome);
         }
 
@@ -299,7 +299,6 @@ namespace BarcoApplicatie.viewModels
 
                 if (value != null)
                 {
-
                     var optional = _dataservice.GetOptionals(SelectedRequest.IdRequest);
                     if (optional != null)
                     {
@@ -318,10 +317,7 @@ namespace BarcoApplicatie.viewModels
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
 
-
-
                     //var euts = _dataservice.GetEuts();
-
 
                     var details = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
                     if (details.Testdivisie.Contains("EMC"))
@@ -348,21 +344,8 @@ namespace BarcoApplicatie.viewModels
                     {
                         ECO = true;
                     }
-
                 }
                 OnPropertyChanged();
-            }
-        }
-
-        private void RefuseJobRequest(Window window)
-        {
-            _dataservice.removeJobRequest(SelectedRequest.IdRequest);
-            LoadJRIntoListbox();
-            ViewJobrequest viewJobrequest = new ViewJobrequest();
-            viewJobrequest.Show();
-            if (window != null)
-            {
-                window.Close();
             }
         }
 
@@ -382,18 +365,13 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        public void OpenAcceptWindow()
-        {
-            AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
-            acceptJobrequest.Show();
-        }
-
         public void RqDate()
         {
             string dateTimeToday = DateTime.Now.ToString("yyyyMMdd");
             //Console.WriteLine(dateTimeString);
             //20210527
         }
+
         public void JrNumber()
         {
             //counter komt uit database
@@ -412,6 +390,26 @@ namespace BarcoApplicatie.viewModels
             //0001
         }
 
+        private void RefuseJobRequest(Window window)
+        {
+            _dataservice.removeJobRequest(SelectedRequest.IdRequest);
+            LoadJRIntoListbox();
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+        public void OpenAcceptWindow(Window window)
+        {
+            AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+            acceptJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
         public void ShowHome(Window window)
         {
             HomeScreen homeScreen = new HomeScreen();
