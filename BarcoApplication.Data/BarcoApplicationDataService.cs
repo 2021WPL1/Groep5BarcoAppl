@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BarcoApplication.Data.BibModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace BarcoApplication.Data
 {
@@ -37,7 +38,7 @@ namespace BarcoApplication.Data
 
         public List<RqRequest> getAllRequests()
         {
-            return _context.RqRequest.ToList();
+            return _context.RqRequest.Include(r => r.RqOptionel).ToList();
         }
 
         public RqRequest getRequestWithId(int id)
@@ -49,6 +50,21 @@ namespace BarcoApplication.Data
         {
             _context.RqRequest.Remove(getRequestWithId(id));
             _context.SaveChanges();
+        }
+
+        public RqOptionel GetOptionals(int id)
+        {
+            return _context.RqOptionel.FirstOrDefault(r => r.IdRequest == id);
+        }
+
+        public Eut GetEuts(int id)
+        {
+            return _context.Eut.FirstOrDefault(e => e.IdRqDetail == id);
+        }
+
+        public RqRequestDetail GetRequestDetail(int id)
+        {
+            return _context.RqRequestDetail.FirstOrDefault(r => r.IdRequest == id);
         }
 
         public RqRequest AddRequest(RqRequest request, string initials, string projectName,
