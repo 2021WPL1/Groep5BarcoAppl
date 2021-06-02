@@ -5,6 +5,8 @@ using BarcoApplication.Data;
 using Microsoft.Win32;
 using BarcoApplication.Data.BibModels;
 using Prism.Commands;
+using System.Windows;
+using GalaSoft.MvvmLight.Command;
 
 namespace BarcoApplicatie.viewModels
 {
@@ -1395,6 +1397,82 @@ namespace BarcoApplicatie.viewModels
             HomeScreen homescreen = new HomeScreen();
             homescreen.Closed += (s, args) => mainWindow.Close();
             homescreen.Show();
+        }
+
+        ///////////////////////////////////////////connectionbuttons///////////////////////////////////////////
+        //Mathias
+        public ICommand MainWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand JobWindowCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand AcceptJobrequestCommand
+        {
+            get;
+            set;
+        }
+
+        public RelayCommand<Window>HomeCommand
+        {
+            get;
+            set;
+        }
+
+        public ICommand ShowCommand
+        {
+            get;
+            set;
+        }
+
+        public MainViewModel()
+        {
+            MainWindowCommand = new DelegateCommand(ShowMainWindow);
+            JobWindowCommand = new DelegateCommand(ShowJobrequest);
+            AcceptJobrequestCommand = new DelegateCommand(ShowAcceptJobrequest);
+            HomeCommand = new RelayCommand<Window>(ShowHome);
+            ShowCommand = new DelegateCommand(ShowAccept);
+
+        }
+
+        public void ShowMainWindow()
+        {
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Show();
+        }
+
+        public void ShowJobrequest()
+        {
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+        }
+
+        public void ShowAcceptJobrequest()
+        {
+            ViewAcceptJobrequest viewAcceptJobrequest = new ViewAcceptJobrequest();
+            viewAcceptJobrequest.Show();
+        }
+
+        public void ShowHome(Window window)
+        {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+
+        public void ShowAccept()
+        {
+            AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
+            acceptJobrequest.Show();
         }
     }
 

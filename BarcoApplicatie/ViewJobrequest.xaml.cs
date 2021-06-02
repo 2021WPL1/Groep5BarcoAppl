@@ -46,25 +46,6 @@ namespace BarcoApplicatie
             this.Close();
         }
 
-        //Koen
-        /*   moved to MMVM
-        private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
-        {
-            listBox.DisplayMemberPath = display;
-            listBox.SelectedValuePath = value;
-            listBox.ItemsSource = source;
-        }
-        */
-
-        //Koen
-        //private void loadAllRequest()
-        //{
-        //    List<RqRequest> requests = _dataService.getAllRequests();
-
-        //    lbViewRequest.SelectedValuePath = "IdRequest";
-        //    lbViewRequest.ItemsSource = requests;
-        //}
-
         public List<RqJobNature> getAll()
         {
             Barco2021Context context = new Barco2021Context();
