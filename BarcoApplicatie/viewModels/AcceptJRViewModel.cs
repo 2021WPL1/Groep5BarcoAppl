@@ -1,6 +1,5 @@
 ﻿using BarcoApplication.Data;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BarcoApplication.Data.BibModels;

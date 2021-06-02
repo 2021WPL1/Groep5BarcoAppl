@@ -15,7 +15,6 @@ using System.Windows.Media.Imaging;
 
 namespace BarcoApplicatie.viewModels
 {
-    //BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
     /// <summary>
     /// Koen
     /// </summary>
