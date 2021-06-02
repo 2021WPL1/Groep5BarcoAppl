@@ -2,13 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
 using BarcoApplication.Data.BibModels;
 using Prism.Commands;
 
 namespace BarcoApplicatie.viewModels
 {
+
+    /// <summary>
+    /// Koen
+    /// </summary>
     class AcceptJRViewModel : ViewModelBase
     {
         private static readonly AcceptJRViewModel _acceptJrViewModel = new AcceptJRViewModel(BarcoApplicationDataService.Instance());
@@ -48,8 +51,8 @@ namespace BarcoApplicatie.viewModels
         private string _grossWeight;
         private DateTime? _expectedEndDate;
         private bool _batteries_Yes;
-        private bool _batteries_No;
         private string _testPlan;
+        private string _specialRemarks;
 
         public string Initialen
         {
@@ -172,19 +175,18 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        public bool Batteries_No
+        public string SpecialRemarks
         {
             get
             {
-                return _batteries_No;
+                return _specialRemarks;
             }
             set
             {
-                _batteries_No = value;
+                _specialRemarks = value;
                 OnPropertyChanged();
             }
         }
-
         public string TestPlan
         {
             get
@@ -205,6 +207,9 @@ namespace BarcoApplicatie.viewModels
             {
                 _selectedRequest = value;
 
+
+
+
                 if (value != null)
                 {
                     Initialen = value.Requester;
@@ -217,7 +222,14 @@ namespace BarcoApplicatie.viewModels
                     GrossWeight = value.GrossWeight;
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
-                    Batteries_No = value.Battery;
+
+                    var optional = _dataservice.GetOptionals(SelectedRequest.IdRequest);
+                    if (optional != null)
+                    {
+                        TestPlan = optional.Link;
+                        SpecialRemarks = optional.Remarks;
+                    }
+
                 }
                 OnPropertyChanged();
             }
@@ -226,6 +238,7 @@ namespace BarcoApplicatie.viewModels
         private void RefuseJobRequest()
         {
             _dataservice.removeJobRequest(SelectedRequest.IdRequest);
+            LoadJRIntoListbox();
         }
 
         private void RemoveJobRequest()

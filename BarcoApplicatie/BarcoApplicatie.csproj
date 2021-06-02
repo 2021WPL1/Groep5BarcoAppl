@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <Compile Remove="GUI\**" />
+    <Compile Remove="View\**" />
     <EmbeddedResource Remove="GUI\**" />
+    <EmbeddedResource Remove="View\**" />
     <None Remove="GUI\**" />
+    <None Remove="View\**" />
     <Page Remove="GUI\**" />
+    <Page Remove="View\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +40,6 @@
     <Page Update="Login.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="View\" />
   </ItemGroup>
 
 </Project>
