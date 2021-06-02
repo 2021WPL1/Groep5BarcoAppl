@@ -70,7 +70,7 @@ namespace BarcoApplicatie
         private void View_Click(object sender, RoutedEventArgs e)
         {
             //this.Hide();
-            //ViewJobrequest.Closed += (s, args) => this.Close();
+            ViewJobrequest.Closed += (s, args) => this.Close();
             ViewJobrequest.Show();
             this.Close();
         }
