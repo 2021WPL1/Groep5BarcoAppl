@@ -39,7 +39,6 @@ namespace BarcoApplicatie
             if (request != null)
             {
                 txtRequesterInitials.IsEnabled = false;
-
             }
         }
 
@@ -50,20 +49,7 @@ namespace BarcoApplicatie
             if (request != null)
             {
                 txtDivision.IsEnabled = false;
-
             }
-        }
-        ///////////////////////////////////////////Checkbox YesorNo///////////////////////////////////////////
-        private void Checkbox_No_Click(object sender, RoutedEventArgs e)
-        {
-            Checkbox_No.IsChecked = true;
-            Checkbox_Yes.IsChecked = false;
-        }
-
-        private void Checkbox_Yes_Click(object sender, RoutedEventArgs e)
-        {
-            Checkbox_Yes.IsChecked = true;
-            Checkbox_No.IsChecked = false;
         }
 
         ///////////////////////////////////////////boolCheckbox///////////////////////////////////////////
@@ -437,11 +423,6 @@ namespace BarcoApplicatie
         private void txtGrossWeight5_TextChanged(object sender, TextChangedEventArgs e)
         {
             errorHandling.ControlInput("[^0-9]", txtGrossWeight5, numbersErrorLabel, "Please enter numbers only.");
-        }
-
-        private void cmbDivision_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
