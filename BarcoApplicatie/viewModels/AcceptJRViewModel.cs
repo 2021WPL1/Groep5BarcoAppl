@@ -59,6 +59,11 @@ namespace BarcoApplicatie.viewModels
         private string _testPlan;
         private string _specialRemarks;
         private bool _EMC;
+        private bool _ENV;
+        private bool _REL;
+        private bool _SAF;
+        private bool _PCK;
+        private bool _ECO;
 
         public string Initialen
         {
@@ -218,6 +223,66 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
+        public bool ENV
+        {
+            get
+            {
+                return _ENV;
+            }
+            set
+            {
+                _ENV = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool REL
+        {
+            get
+            {
+                return _REL;
+            }
+            set
+            {
+                _REL = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool SAF
+        {
+            get
+            {
+                return _SAF;
+            }
+            set
+            {
+                _SAF = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool PCK
+        {
+            get
+            {
+                return _PCK;
+            }
+            set
+            {
+                _PCK = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool ECO
+        {
+            get
+            {
+                return _ECO;
+            }
+            set
+            {
+                _ECO = value;
+                OnPropertyChanged();
+            }
+        }
 
         public RqRequest SelectedRequest
         {
@@ -228,6 +293,14 @@ namespace BarcoApplicatie.viewModels
 
                 if (value != null)
                 {
+
+                    var optional = _dataservice.GetOptionals(SelectedRequest.IdRequest);
+                    if (optional != null)
+                    {
+                        TestPlan = optional.Link;
+                        SpecialRemarks = optional.Remarks;
+                    }
+
                     Initialen = value.Requester;
                     Division = value.BarcoDivision;
                     JobNature = value.JobNature;
@@ -239,20 +312,35 @@ namespace BarcoApplicatie.viewModels
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
 
-                    var optional = _dataservice.GetOptionals(SelectedRequest.IdRequest);
-                    if (optional != null)
-                    {
-                        TestPlan = optional.Link;
-                        SpecialRemarks = optional.Remarks;
-                    }
 
-                    var euts = _dataservice.GetEuts(SelectedRequest.IdRequest);
+
+                    //var euts = _dataservice.GetEuts();
 
 
                     var details = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
                     if (details.Testdivisie.Contains("EMC"))
                     {
                         EMC = true;
+                    }
+                    if (details.Testdivisie.Contains("ENV"))
+                    {
+                        ENV = true;
+                    }
+                    if (details.Testdivisie.Contains("REL"))
+                    {
+                        REL = true;
+                    }
+                    if (details.Testdivisie.Contains("SAF"))
+                    {
+                        SAF = true;
+                    }
+                    if (details.Testdivisie.Contains("PCK"))
+                    {
+                        PCK = true;
+                    }
+                    if (details.Testdivisie.Contains("ECO"))
+                    {
+                        ECO = true;
                     }
 
                 }

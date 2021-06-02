@@ -1289,23 +1289,29 @@ namespace BarcoApplicatie.viewModels
 
         public void SendJobRequest()
         {
-            _dataservice.AddRequest(request, RequesterInitials, ProjectName,
-                $"Part1: {EutPartnumber1};       " +
-                $" Part2: {EutPartnumber2};       " +
-                $" Part3: {EutPartnumber3};       " +
-                $" Part4: {EutPartnumber4};       " +
-                $" Part5: {EutPartnumber5}", ExpectedEndDate,
-                $"Gross1: {GrossWeight1};       " +
-                $" Gross2: {GrossWeight2};       " +
-                $" Gross3: {GrossWeight3};       " +
-                $" Gross4: {GrossWeight4};       " +
-                $" Gross5: {GrossWeight5}",
-                $"Net1: {NetWeight1};       " +
-                $" Net2: {NetWeight2};       " +
-                $" Net3: {NetWeight3};       " +
-                $" Net4: {NetWeight4};       " +
-                $" Net5: {NetWeight5}",
-                RegistryDivision, SelectedJobNatures.Nature, Batteries_Yes);
+            _dataservice.AddRequest(
+                request,
+                RequesterInitials,
+                ProjectName,
+                $"Part1: {EutPartnumber1}       " +
+                $" Part2:  {EutPartnumber2}       " +
+                $" Part3:  {EutPartnumber3}       " +
+                $" Part4:  {EutPartnumber4}       " +
+                $" Part5:  {EutPartnumber5}",
+                ExpectedEndDate,
+                $"Gross1:  {GrossWeight1}       " +
+                $" Gross2:  {GrossWeight2}       " +
+                $" Gross3:  {GrossWeight3}       " +
+                $" Gross4:  {GrossWeight4}       " +
+                $" Gross5:  {GrossWeight5}",
+                $"Net1:  {NetWeight1}       " +
+                $" Net2:  {NetWeight2}       " +
+                $" Net3:  {NetWeight3}       " +
+                $" Net4:  {NetWeight4}       " +
+                $" Net5:  {NetWeight5}",
+                RegistryDivision,
+                SelectedJobNatures.Nature,
+                Batteries_Yes);
 
             _dataservice.AddOptionel(optionel, request, LinkToTestplan, SpecialRemarks);
 
@@ -1314,7 +1320,13 @@ namespace BarcoApplicatie.viewModels
                 if (EmcEUT1 || EmcEUT2 || EmcEUT3 || EmcEUT4 || EmcEUT5 || EmcEUT6)
                 {
                     CreateRequestDetail("EMC", 
-                        $"{EmcEUT1Message} ; {EmcEUT2Message} ; {EmcEUT3Message} ; {EmcEUT4Message} ; {EmcEUT5Message} ; {EmcEUT6Message} ; ", EUT1Date);
+                        $"{EmcEUT1Message}" +
+                        $"         {EmcEUT2Message} " +
+                        $"         {EmcEUT3Message} " +
+                        $"         {EmcEUT4Message} " +
+                        $"         {EmcEUT5Message} " +
+                        $"         {EmcEUT6Message} ",
+                        EUT1Date);
                 }
             }
             if (_ENV)
@@ -1414,5 +1426,4 @@ namespace BarcoApplicatie.viewModels
             }
         }
     }
-
 }
