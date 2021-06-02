@@ -25,9 +25,6 @@ namespace BarcoApplicatie
         {
             InitializeComponent();
             DataContext = _viewModel;
-
-            BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
-            capturedPhoto.Source = bitmapImage;
         }
 
         private void btnSendJob_Click(object sender, RoutedEventArgs e)

@@ -639,7 +639,9 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Image x:Name="capturedPhoto" Width="200" Height="75" Margin="2,-7,700,762"/>
+        <Image Name="ImageBarco" 
+               Source="{Binding ImageBarco}"
+               Width="200" Height="75" Margin="2,-7,700,762"/>
         <TextBox x:Name="txtRequesterInitials_Copy" HorizontalAlignment="Left" Margin="782,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
             <TextBox.RenderTransform>

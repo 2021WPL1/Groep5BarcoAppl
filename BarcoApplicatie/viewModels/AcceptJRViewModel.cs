@@ -7,6 +7,8 @@ using BarcoApplication.Data.BibModels;
 using Prism.Commands;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace BarcoApplicatie.viewModels
 {
@@ -16,6 +18,11 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     class AcceptJRViewModel : ViewModelBase
     {
+        public ImageSource ImageBarco
+        {
+            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
+        }
+
         private static readonly AcceptJRViewModel _acceptJrViewModel = new AcceptJRViewModel(BarcoApplicationDataService.Instance());
 
         public static AcceptJRViewModel Instance()

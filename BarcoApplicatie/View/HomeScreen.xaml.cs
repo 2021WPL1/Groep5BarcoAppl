@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using BarcoApplicatie.viewModels;
+using BarcoApplication.Data;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,17 +21,13 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class HomeScreen : Window
     {
-        ViewAcceptJobrequest ViewAcceptJobrequest = new ViewAcceptJobrequest();
-        ViewJobrequest ViewJobrequest = new ViewJobrequest();
-        readonly Email email = new Email();
+        private MainViewModel viewModel;
 
         public HomeScreen()
         {
             InitializeComponent();
-            email.ActivateEmail();
-
-            BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
-            capturedPhoto.Source = bitmapImage;
+            viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
+            DataContext = viewModel;
 
             //Robbe
             //De registry ophalen en de knoppen tonen adhv wie er op welke dingen mag
@@ -48,31 +46,6 @@ namespace BarcoApplicatie
                 btnSendJob1_Copy1.IsEnabled = true;
             }
 
-        }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Hide();
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Closed += (s, args) => this.Close();
-            MainWindow.Show();
-            this.Close();
-        }
-
-        private void Confirm_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Hide();
-            ViewAcceptJobrequest.Closed += (s, args) => this.Close();
-            ViewAcceptJobrequest.Show();
-            this.Close();
-        }
-
-        private void View_Click(object sender, RoutedEventArgs e)
-        {
-            //this.Hide();
-            ViewJobrequest.Closed += (s, args) => this.Close();
-            ViewJobrequest.Show();
-            this.Close();
         }
     }
 }

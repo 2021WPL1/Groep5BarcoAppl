@@ -345,7 +345,9 @@
                 <Style/>
             </DatePicker.CalendarStyle>
         </DatePicker>
-        <Image x:Name="capturedPhoto" Width="200" Height="75" Margin="2,-7,700,762"/>
+        <Image Name="ImageBarco" 
+               Source="{Binding ImageBarco}"
+               Width="200" Height="75" Margin="2,-7,700,762"/>
         <TextBox Text="{Binding Division, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtDivision" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
             <TextBox.RenderTransform>

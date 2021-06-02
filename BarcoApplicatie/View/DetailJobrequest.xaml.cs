@@ -26,9 +26,6 @@ namespace BarcoApplicatie
             InitializeComponent();
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;
-
-            BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
-            capturedPhoto.Source = bitmapImage;
         }
 
         private void Checkbox_Yes_Checked(object sender, RoutedEventArgs e)

@@ -7,15 +7,25 @@ using BarcoApplication.Data.BibModels;
 using Prism.Commands;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
+using System.Net.Mail;
+using System.Net;
+using System.Windows.Threading;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace BarcoApplicatie.viewModels
 {
-
+    //BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
     /// <summary>
     /// Koen
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        public ImageSource ImageBarco
+        {
+            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
+        }
+
         private RqRequest request = new RqRequest();
         private RqOptionel optionel = new RqOptionel();
         private RqTestDevision testDevision = new RqTestDevision();
@@ -23,9 +33,6 @@ namespace BarcoApplicatie.viewModels
         private Eut eut;
 
         private BarcoApplicationDataService _dataservice;
-
-        public ICommand SendJobRequestCommand { get; set; }
-        public ICommand HomeCommand { get; set; }
 
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
@@ -1282,6 +1289,9 @@ namespace BarcoApplicatie.viewModels
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
             HomeCommand = new RelayCommand<Window>(ShowHome);
+            AddCommand = new RelayCommand<Window>(ShowAdd);
+            ConfirmCommand = new RelayCommand<Window>(ShowConfirm);
+            ViewCommand = new RelayCommand<Window>(ShowView);
 
             Divisions = new ObservableCollection<RqBarcoDivision>();
             JobNatures = new ObservableCollection<RqJobNature>();
@@ -1414,8 +1424,12 @@ namespace BarcoApplicatie.viewModels
         }
 
         ///////////////////////////////////////////Commands///////////////////////////////////////////
-        
-        
+        public ICommand SendJobRequestCommand { get; set; }
+        public ICommand HomeCommand { get; set; }
+        public ICommand AddCommand { get; set; }
+        public ICommand ConfirmCommand { get; set; }
+        public ICommand ViewCommand { get; set; }
+
         public void ShowHome(Window window)
         {
             HomeScreen homeScreen = new HomeScreen();
@@ -1423,6 +1437,92 @@ namespace BarcoApplicatie.viewModels
             if (window != null)
             {
                 window.Close();
+            }
+        }
+        public void ShowAdd(Window window)
+        {
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+        public void ShowConfirm(Window window)
+        {
+            ViewAcceptJobrequest viewAcceptJobrequest = new ViewAcceptJobrequest();
+            viewAcceptJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+        public void ShowView(Window window)
+        {
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
+
+        ///////////////////////////////////////////Email///////////////////////////////////////////
+        //Nikki
+
+        //initialise for SendMail
+        private static string mailFrom = "Groep3testprog@gmail.com";
+        private static string mailFromPassword = "Testtest123";
+
+        public void ActivateEmail()
+        {
+            //_dataService = BarcoApplicationDataService.Instance();
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            //Date kan aangepast worden naar keuze
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 28, 0); //18pm,0min,0sec
+            DateTime dateNow = DateTime.Now;
+
+            //geen mail op zaterdag & zondag
+            if (dateNow.DayOfWeek != DayOfWeek.Saturday || dateNow.DayOfWeek != DayOfWeek.Sunday)
+            {
+                if (emailSendTime.Hour == dateNow.Hour && emailSendTime.Minute == dateNow.Minute)
+                {
+                    SendMail();
+                }
+            }
+
+        }
+        private void SendMail()
+        {
+            //setup smtp & mail 
+            using SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            try
+            {
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(mailFrom, mailFromPassword);
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(mailFrom);
+                mail.To.Add("nikki.noppe@student.vives.be");
+
+                //needs to be updated with info!
+                mail.Subject = "testtesttes";
+                mail.Body = "Dit is een automatische mail";
+
+                client.Send(mail);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }
