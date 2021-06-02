@@ -74,7 +74,9 @@ namespace BarcoApplication.Data.BibModels
                 resultEutProjectname += " ";
             }
 
-            return resultDivision + resultJobNature  + resultEutProjectname + " " +ExpectedEnddate;
+            
+
+            return resultDivision + resultJobNature  + resultEutProjectname + " " + ExpectedEnddate;
                 }
     }
 }
