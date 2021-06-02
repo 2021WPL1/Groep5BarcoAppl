@@ -26,21 +26,23 @@ namespace BarcoApplicatie
             DataContext = viewModel;
             viewModel.insertDivisionIntoComboBox();
 
+            ifRegistryEmpty();
+        }
+        //Robbe
+        private void ifRegistryEmpty()
+        {
             RegistryKey request = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\BarRequest");
-
             if (request != null)
             {
-
                 HomeScreen HomeScreen = new HomeScreen();
                 HomeScreen.Show();
                 this.Close();
             }
         }
-
-        //Robbe
-        //De registry aanpassen met de dingen die je ingeeft
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            //De registry aanpassen met de dingen die je ingeeft
+
             string Name = txtNaam.Text;
             string Functie = txtFunctie.Text;
             string Division = this.cmbDivision.Text;
@@ -68,7 +70,5 @@ namespace BarcoApplicatie
             HomeScreen.Show();
             this.Close();
         }
-
     }
-
 }

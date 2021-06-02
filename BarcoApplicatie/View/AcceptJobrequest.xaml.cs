@@ -25,6 +25,8 @@ namespace BarcoApplicatie
         {
             InitializeComponent();
             DataContext = _viewModel;
+
+            //need to add binding acceptJobrequest (btnSendJob)
         }
 
         private void btnSendJob_Click(object sender, RoutedEventArgs e)
@@ -42,15 +44,5 @@ namespace BarcoApplicatie
 
         }
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            HomeScreen HomeScreen = new HomeScreen();
-            HomeScreen.Show();
-        }
-
-        private void btnRefuseJobrequest_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
     }
 }

@@ -45,11 +45,10 @@ namespace BarcoApplicatie.viewModels
 
             Requests = new ObservableCollection<RqRequest>();
 
-            RefuseJobRequestCommand = new DelegateCommand(RefuseJobRequest);
+            RefuseJobRequestCommand = new RelayCommand<Window>(RefuseJobRequest);
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
             OpenAcceptJrWindow = new DelegateCommand(OpenAcceptWindow);
             HomeCommand = new RelayCommand<Window>(ShowHome);
-
         }
 
         private RqRequest _selectedRequest;
@@ -355,10 +354,16 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        private void RefuseJobRequest()
+        private void RefuseJobRequest(Window window)
         {
             _dataservice.removeJobRequest(SelectedRequest.IdRequest);
             LoadJRIntoListbox();
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
         }
 
         private void RemoveJobRequest()
