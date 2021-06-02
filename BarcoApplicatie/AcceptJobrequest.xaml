@@ -143,27 +143,27 @@
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbEnviromental" Content="" HorizontalAlignment="Left" Margin="171,506,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding ENV}" x:Name="cbEnviromental" Content="" HorizontalAlignment="Left" Margin="171,506,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbReliability" Content="" HorizontalAlignment="Left" Margin="171,529,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding REL}" x:Name="cbReliability" Content="" HorizontalAlignment="Left" Margin="171,529,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbProductSafety" Content="" HorizontalAlignment="Left" Margin="171,552,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding SAF}" x:Name="cbProductSafety" Content="" HorizontalAlignment="Left" Margin="171,552,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbPackaging" Content="" HorizontalAlignment="Left" Margin="171,575,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding PCK}" x:Name="cbPackaging" Content="" HorizontalAlignment="Left" Margin="171,575,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox x:Name="cbGreenCompilance" Content="" HorizontalAlignment="Left" Margin="171,598,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+        <CheckBox IsChecked="{Binding ECO}" x:Name="cbGreenCompilance" Content="" HorizontalAlignment="Left" Margin="171,598,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
             </CheckBox.LayoutTransform>
@@ -368,7 +368,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="btnRefuseJob" Click="btnRefuseJobrequest_Click" Content="REFUSE JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,766,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
+        <Button Command="{Binding RefuseJobRequestCommand }" x:Name="btnRefuseJob" Click="btnRefuseJobrequest_Click" Content="REFUSE JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,766,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FFF10000"/>
         <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
         <TextBox x:Name="txtRequesterInitials_Copy" HorizontalAlignment="Left" Margin="782,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
 
