@@ -22,15 +22,12 @@ namespace BarcoApplicatie
     public partial class ViewJobrequest : Window
     {
         private BarcoApplicationDataService _dataService;
-
         private static AcceptJRViewModel _viewModel = AcceptJRViewModel.Instance();
 
         public ViewJobrequest()
         {
             InitializeComponent();
-
             _dataService = BarcoApplicationDataService.Instance();
-
             DataContext = _viewModel;
             _viewModel.LoadJRIntoListbox();
 
@@ -39,55 +36,12 @@ namespace BarcoApplicatie
             getAll();
         }
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            HomeScreen HomeScreen = new HomeScreen();
-            HomeScreen.Show();
-            this.Close();
-        }
-
-        //Koen
-        /*   moved to MMVM
-        private void updateListBox(ListBox listBox, string display, string value, IEnumerable source)
-        {
-            listBox.DisplayMemberPath = display;
-            listBox.SelectedValuePath = value;
-            listBox.ItemsSource = source;
-        }
-        */
-
-        //Koen
-        //private void loadAllRequest()
-        //{
-        //    List<RqRequest> requests = _dataService.getAllRequests();
-
-        //    lbViewRequest.SelectedValuePath = "IdRequest";
-        //    lbViewRequest.ItemsSource = requests;
-        //}
-
         public List<RqJobNature> getAll()
         {
             Barco2021Context context = new Barco2021Context();
             var test =  context.RqJobNature.ToList();
             return test;
         }
-
-        //Koen
-        //private void btnRemove_Click(object sender, RoutedEventArgs e)
-        //{
-        //    _dataService.removeJobRequest(Convert.ToInt32(lbViewRequest.SelectedValue));
-        //    loadAllRequest();
-        //}
-
-        //Koen
-        //private void btnShow_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.Hide();
-        //    AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
-        //    acceptJobrequest.Closed += (s, args) => this.Close();
-        //    acceptJobrequest.Show();
-        //    this.Close();
-        //}
 
         private void lbViewRequest_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

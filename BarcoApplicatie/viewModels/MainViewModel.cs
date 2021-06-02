@@ -5,6 +5,8 @@ using BarcoApplication.Data;
 using Microsoft.Win32;
 using BarcoApplication.Data.BibModels;
 using Prism.Commands;
+using System.Windows;
+using GalaSoft.MvvmLight.Command;
 
 namespace BarcoApplicatie.viewModels
 {
@@ -23,6 +25,7 @@ namespace BarcoApplicatie.viewModels
         private BarcoApplicationDataService _dataservice;
 
         public ICommand SendJobRequestCommand { get; set; }
+        public ICommand HomeCommand { get; set; }
 
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
@@ -1278,6 +1281,7 @@ namespace BarcoApplicatie.viewModels
             this._dataservice = dataService;
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
+            HomeCommand = new RelayCommand<Window>(ShowHome);
 
             Divisions = new ObservableCollection<RqBarcoDivision>();
             JobNatures = new ObservableCollection<RqJobNature>();
@@ -1395,6 +1399,19 @@ namespace BarcoApplicatie.viewModels
             HomeScreen homescreen = new HomeScreen();
             homescreen.Closed += (s, args) => mainWindow.Close();
             homescreen.Show();
+        }
+
+        ///////////////////////////////////////////Commands///////////////////////////////////////////
+        
+        
+        public void ShowHome(Window window)
+        {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
         }
     }
 

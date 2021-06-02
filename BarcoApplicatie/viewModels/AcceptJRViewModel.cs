@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BarcoApplication.Data.BibModels;
 using Prism.Commands;
+using GalaSoft.MvvmLight.Command;
+using System.Windows;
 
 namespace BarcoApplicatie.viewModels
 {
@@ -28,6 +30,7 @@ namespace BarcoApplicatie.viewModels
         public ICommand OpenAcceptJrWindow { get; set; }
         public ICommand RefuseJobRequestCommand { get; set; }
         public ICommand RemoveJrCommand { get; set; }
+        public ICommand HomeCommand { get; set; }
 
         public AcceptJRViewModel(BarcoApplicationDataService barcoApplicationDataService)
         {
@@ -38,6 +41,8 @@ namespace BarcoApplicatie.viewModels
             RefuseJobRequestCommand = new DelegateCommand(RefuseJobRequest);
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
             OpenAcceptJrWindow = new DelegateCommand(OpenAcceptWindow);
+            HomeCommand = new RelayCommand<Window>(ShowHome);
+
         }
 
         private RqRequest _selectedRequest;
@@ -305,6 +310,16 @@ namespace BarcoApplicatie.viewModels
             //je counter met automatisch 4 cijfers
             string sCounter = String.Format("{0:D4}", counter);
             //0001
+        }
+
+        public void ShowHome(Window window)
+        {
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
         }
     }
 }

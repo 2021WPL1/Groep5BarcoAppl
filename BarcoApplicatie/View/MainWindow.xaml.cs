@@ -68,16 +68,6 @@ namespace BarcoApplicatie
             Checkbox_No.IsChecked = false;
         }
 
-        ///////////////////////////////////////////logoHomeScreen///////////////////////////////////////////
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            HomeScreen HomeScreen = new HomeScreen();
-            HomeScreen.Closed += (s, args) => this.Close();
-            HomeScreen.Show();
-            this.Close();
-        }
-
         ///////////////////////////////////////////boolCheckbox///////////////////////////////////////////
         public class Utils
         {

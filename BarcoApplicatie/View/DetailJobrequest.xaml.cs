@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BarcoApplicatie.viewModels;
+using BarcoApplication.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,13 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class DetailJobrequest : Window
     {
+        private MainViewModel viewModel;
+
         public DetailJobrequest()
         {
             InitializeComponent();
+            viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
+            DataContext = viewModel;
 
             BitmapImage bitmapImage = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png"));
             capturedPhoto.Source = bitmapImage;
@@ -35,10 +41,10 @@ namespace BarcoApplicatie
 
         }
 
-        private void btnHome_Click(object sender, RoutedEventArgs e)
-        {
-            HomeScreen HomeScreen = new HomeScreen();
-            HomeScreen.Show();
-        }
+        //private void btnHome_Click(object sender, RoutedEventArgs e)
+        //{
+        //    HomeScreen HomeScreen = new HomeScreen();
+        //    HomeScreen.Show();
+        //}
     }
 }

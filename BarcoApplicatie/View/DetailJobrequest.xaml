@@ -1,4 +1,5 @@
 ﻿<Window x:Class="BarcoApplicatie.DetailJobrequest"
+        Name="DetailJob"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -663,6 +664,8 @@
         </TextBox>
         <Label Content="REQUEST DATE" HorizontalAlignment="Left" Margin="688,52,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="JR NUMBER" HorizontalAlignment="Left" Margin="697,70,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button x:Name="btnHome" Click="btnHome_Click" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
+        <Button x:Name="btnHome" 
+                Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=DetailJob}" 
+                Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
     </Grid>
 </Window>
