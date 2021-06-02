@@ -30,7 +30,7 @@ namespace BarcoApplicatie
         void timer_Tick(object sender, EventArgs e)
         {
             //Date kan aangepast worden naar keuze
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 11, 28, 0); //18pm,0min,0sec
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 28, 0); //18pm,0min,0sec
             DateTime dateNow = DateTime.Now;
 
             //geen mail op zaterdag & zondag
@@ -69,10 +69,12 @@ namespace BarcoApplicatie
                 mail.Body = "Dit is een automatische mail";
 
                 client.Send(mail);
+                MessageBox.Show("goed");
             }
             catch (Exception)
             {
                 throw;
+                MessageBox.Show("Mislukt");
             }
         }
     }
