@@ -69,12 +69,10 @@ namespace BarcoApplicatie
                 mail.Body = "Dit is een automatische mail";
 
                 client.Send(mail);
-                MessageBox.Show("goed");
             }
             catch (Exception)
             {
                 throw;
-                MessageBox.Show("Mislukt");
             }
         }
     }
