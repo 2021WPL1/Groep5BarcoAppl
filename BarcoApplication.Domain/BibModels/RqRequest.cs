@@ -52,7 +52,7 @@ namespace BarcoApplication.Data.BibModels
             //De laatste getallen zijn spaties om afstand te creeeren tussen de verschillende tabellen
             int spacesToAddDivision = maxDivisionLength - divisionLength + 22;
             int spacesToAddJobNature = maxJobNatureLength - JobNatureLengt + 21;
-            int spacesToAddEutProjectname = maxEutProjectnameLength - EutProjectnameLength + 5;
+            int spacesToAddEutProjectname = maxEutProjectnameLength - EutProjectnameLength + 14;
 
             string resultDivision = BarcoDivision;
             string resultJobNature = JobNature;
@@ -74,7 +74,7 @@ namespace BarcoApplication.Data.BibModels
                 resultEutProjectname += " ";
             }
 
-            return resultDivision + resultJobNature  + resultEutProjectname + " " +ExpectedEnddate;
+            return resultDivision + resultJobNature  + resultEutProjectname + " " + ExpectedEnddate.ToString().Substring(0, 10); ;
                 }
     }
 }
