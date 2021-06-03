@@ -18,24 +18,29 @@ namespace BarcoApplicatie.viewModels
     class AcceptJRViewModel : ViewModelBase
     {
         private static readonly AcceptJRViewModel _acceptJrViewModel = new AcceptJRViewModel(BarcoApplicationDataService.Instance());
+
         public static AcceptJRViewModel Instance()
         {
             return _acceptJrViewModel;
         }
         private BarcoApplicationDataService _dataservice;
+
         public ObservableCollection<RqRequest> Requests { get; set; }
+
+        public ObservableCollection<RqRequest> AcceptedRequests { get; set; }
 
         public AcceptJRViewModel(BarcoApplicationDataService barcoApplicationDataService)
         {
             _dataservice = barcoApplicationDataService;
 
             Requests = new ObservableCollection<RqRequest>();
+            AcceptedRequests = new ObservableCollection<RqRequest>();
 
             RefuseJobRequestCommand = new RelayCommand<Window>(RefuseJobRequest);
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
             OpenAcceptJrWindow = new RelayCommand<Window>(OpenAcceptWindow);
             HomeCommand = new RelayCommand<Window>(ShowHome);
-            openListWindowCommand = new RelayCommand<Window>(openListWindow);
+            OpenAcceptListWindowCommand = new RelayCommand<Window>(OpenAcceptListWindow);
         }
         ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
         //Koen
@@ -505,6 +510,13 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        public void AddAcceptedToList()
+        {
+            var acceptedRequest = _dataservice.getRequestWithId(SelectedRequest.IdRequest);
+            AcceptedRequests.Clear();
+            AcceptedRequests.Add(acceptedRequest);
+        }
+
         public string RqDate()
         {
             return DateTime.Now.ToString("yyyy/MM/dd");
@@ -533,7 +545,8 @@ namespace BarcoApplicatie.viewModels
         public ICommand RefuseJobRequestCommand { get; set; }
         public ICommand RemoveJrCommand { get; set; }
         public ICommand HomeCommand { get; set; }
-        public ICommand openListWindowCommand { get; set; }
+        public ICommand OpenAcceptListWindowCommand { get; set; }
+        
 
         //Het window sluiten en het window van de homescreen openen
         public void RefuseJobRequest(Window window)
@@ -550,6 +563,7 @@ namespace BarcoApplicatie.viewModels
         }
         public void OpenAcceptWindow(Window window)
         {
+            AddAcceptedToList();
             AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
             acceptJobrequest.Show();
             if (window != null)
@@ -566,10 +580,10 @@ namespace BarcoApplicatie.viewModels
                 window.Close();
             }
         }
-        public void openListWindow(Window window)
+        public void OpenAcceptListWindow(Window window)
         {
-            ViewJobrequest viewJobrequest = new ViewJobrequest();
-            viewJobrequest.Show();
+            ViewAcceptJobrequest viewAcceptedJr = new ViewAcceptJobrequest();
+            viewAcceptedJr.Show();
             if (window != null)
             {
                 window.Close();

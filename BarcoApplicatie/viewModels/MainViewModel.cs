@@ -1298,6 +1298,7 @@ namespace BarcoApplicatie.viewModels
                 request,
                 RequesterInitials,
                 ProjectName,
+                ProjectNumber,
                 $"Part1: {EutPartnumber1}       " +
                 $" Part2:  {EutPartnumber2}       " +
                 $" Part3:  {EutPartnumber3}       " +

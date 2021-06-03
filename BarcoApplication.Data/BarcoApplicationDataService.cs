@@ -86,12 +86,12 @@ namespace BarcoApplication.Data
             return _context.RqRequestDetail.FirstOrDefault(r => r.IdRequest == id);
         }
 
-        public RqRequest AddRequest(RqRequest request, string initials, string projectName,
+        public RqRequest AddRequest(RqRequest request, string initials, string projectName, string HydraProjectNr,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)
         {
             request.JrNumber = "0001";
-            request.HydraProjectNr = "0001";
+            request.HydraProjectNr = HydraProjectNr;
             request.Requester = initials;
             request.EutProjectname = projectName;
             request.EutPartnumbers = partNumber;
