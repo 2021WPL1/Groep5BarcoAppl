@@ -110,9 +110,38 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label Content="EUT" HorizontalAlignment="Left" Margin="484,463,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
-        
-      
+        <CheckBox IsChecked="{Binding EmcEut1}" x:Name="cbEmcEut1" Content="" HorizontalAlignment="Left" Margin="228,483,0,0" VerticalAlignment="Top" Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3
+                                " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Label Content="EUT" HorizontalAlignment="Left" Margin="496,463,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
+        <CheckBox x:Name="cbEnviromental1" Content="" HorizontalAlignment="Left" Margin="228,506,0,0" VerticalAlignment="Top"  Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="cbReliability1" Content="" HorizontalAlignment="Left" Margin="228,529,0,0" VerticalAlignment="Top"  Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="cbProductSafety1" Content="" HorizontalAlignment="Left" Margin="228,552,0,0" VerticalAlignment="Top"  Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="cbPackaging1" Content="" HorizontalAlignment="Left" Margin="228,575,0,0" VerticalAlignment="Top"  Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="cbGreenCompilance1" Content="" HorizontalAlignment="Left" Margin="228,598,0,0" VerticalAlignment="Top"  Background="#FF45494A" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5" RenderTransformOrigin="1.145,0.516">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
         <CheckBox IsChecked="{Binding ENV}" x:Name="cbEnviromental" Content="" HorizontalAlignment="Left" Margin="171,506,0,0" VerticalAlignment="Top"  Background="#FF626262" Foreground="White" Width="14" Height="14" BorderThickness="0.1,0.5,0.1,0.5">
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="3                                 " ScaleY="2"/>
