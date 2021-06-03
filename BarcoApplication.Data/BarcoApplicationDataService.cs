@@ -86,6 +86,13 @@ namespace BarcoApplication.Data
             return _context.RqRequestDetail.FirstOrDefault(r => r.IdRequest == id);
         }
 
+        public int GetJrNumber()
+        {
+            int jrNumber = int.Parse(_context.RqRequest.Max(p => p.JrNumber));
+            
+            return jrNumber;
+        }
+
         public RqRequest AddRequest(RqRequest request, string initials, string projectName,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)

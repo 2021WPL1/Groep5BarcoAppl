@@ -484,9 +484,9 @@ namespace BarcoApplicatie.viewModels
         }
         public void JrNumber()
         {
-            //counter komt uit database
-            int counter = 1;
-            //als database leeg is komt counter op 1
+
+            int counter = _dataservice.GetJrNumber();
+
             if (counter == 0)
             {
                 counter = 1;
