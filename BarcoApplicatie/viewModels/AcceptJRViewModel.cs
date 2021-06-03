@@ -43,6 +43,7 @@ namespace BarcoApplicatie.viewModels
             OpenAcceptListWindowCommand = new RelayCommand<Window>(OpenAcceptListWindow);
         }
 
+
         ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
         //Koen
         //link naar de image van het barcologo
