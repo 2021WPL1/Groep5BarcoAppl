@@ -1,6 +1,5 @@
 ﻿using BarcoApplication.Data;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BarcoApplication.Data.BibModels;
@@ -391,35 +390,38 @@ namespace BarcoApplicatie.viewModels
 
                     var eut = _dataservice.GetEuts(detail.IdRqDetail);
 
-                    if (detail.Testdivisie == "EMC")
+                    if (eut != null)
                     {
-                        EMC = true;
-                        EmcEUT = eut.OmschrijvingEut;
-                    }
-                    if (detail.Testdivisie == "ENV")
-                    {
-                        ENV = true;
-                        EnvEUT = eut.OmschrijvingEut;
-                    }
-                    if (detail.Testdivisie == "REL")
-                    {
-                        REL = true;
-                        RelEUT = eut.OmschrijvingEut;
-                    }
-                    if (detail.Testdivisie == "SAF")
-                    {
-                        SAF = true;
-                        SafEUT = eut.OmschrijvingEut;
-                    }
-                    if (detail.Testdivisie == "PCK")
-                    {
-                        PCK = true;
-                        PckEUT = eut.OmschrijvingEut;
-                    }
-                    if (detail.Testdivisie == "ECO")
-                    {
-                        ECO = true;
-                        EcoEUT = eut.OmschrijvingEut;
+                        if (detail.Testdivisie == "EMC")
+                        {
+                            EMC = true;
+                            EmcEUT = eut.OmschrijvingEut;
+                        }
+                        if (detail.Testdivisie == "ENV")
+                        {
+                            ENV = true;
+                            EnvEUT = eut.OmschrijvingEut;
+                        }
+                        if (detail.Testdivisie == "REL")
+                        {
+                            REL = true;
+                            RelEUT = eut.OmschrijvingEut;
+                        }
+                        if (detail.Testdivisie == "SAF")
+                        {
+                            SAF = true;
+                            SafEUT = eut.OmschrijvingEut;
+                        }
+                        if (detail.Testdivisie == "PCK")
+                        {
+                            PCK = true;
+                            PckEUT = eut.OmschrijvingEut;
+                        }
+                        if (detail.Testdivisie == "ECO")
+                        {
+                            ECO = true;
+                            EcoEUT = eut.OmschrijvingEut;
+                        }
                     }
                 }
                 OnPropertyChanged();
@@ -428,13 +430,15 @@ namespace BarcoApplicatie.viewModels
 
         private void RefuseJobRequest()
         {
-            _dataservice.removeJobRequest(SelectedRequest.IdRequest);
+            var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+            _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
             LoadJRIntoListbox();
         }
 
         private void RemoveJobRequest()
         {
-            _dataservice.removeJobRequest(SelectedRequest.IdRequest);
+            var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+            _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
             LoadJRIntoListbox();
         }
 
