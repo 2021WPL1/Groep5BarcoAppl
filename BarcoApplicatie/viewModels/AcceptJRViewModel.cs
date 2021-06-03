@@ -439,7 +439,7 @@ namespace BarcoApplicatie.viewModels
                     GrossWeight = value.GrossWeight;
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
-                    Jr_Number = JrNumber();
+                    Jr_Number = value.JrNumber;
                     RequestDate = RqDate();
 
                     var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
