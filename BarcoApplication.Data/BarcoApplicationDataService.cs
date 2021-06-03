@@ -92,7 +92,7 @@ namespace BarcoApplication.Data
             return jrNumber;
         }
 
-        public RqRequest AddRequest(RqRequest request, string initials, string projectName,
+        public RqRequest AddRequest(RqRequest request, string initials, string projectName, string HydraProjectNr,
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)
         {
