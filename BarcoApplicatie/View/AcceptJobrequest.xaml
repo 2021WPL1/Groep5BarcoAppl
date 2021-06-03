@@ -190,7 +190,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="btnAcceptJob" Click="btnSendJob_Click" Content="ACCEPT JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FF3E8603"/>
+        <Button Command="{Binding openListWindowCommand}" x:Name="btnAcceptJob" Click="btnSendJob_Click" Content="ACCEPT JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FF3E8603"/>
         <Label Content="PVG" HorizontalAlignment="Left" Margin="786,446,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
         <Label Content="RESPONSIBLE" HorizontalAlignment="Left" Margin="761,463,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>
         <TextBox x:Name="txtPvgResponsibleEmc" HorizontalAlignment="Left" Margin="757,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" Height="24" IsEnabled="False">
@@ -253,7 +253,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <DatePicker x:Name="DateEut1" HorizontalAlignment="Left" Height="26" Margin="211,623,0,0" VerticalAlignment="Top" Width="91" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Text="#FFFFFF" ForceCursor="True" FontSize="10">
+        <DatePicker SelectedDate="{Binding Eut1Date}" x:Name="DateEut1" HorizontalAlignment="Left" Height="26" Margin="211,623,0,0" VerticalAlignment="Top" Width="91" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="13.464,2.782" Text="#FFFFFF" ForceCursor="True" FontSize="10">
             <DatePicker.Resources>
                 <Style TargetType="{x:Type DatePickerTextBox}">
                     <Setter Property="Background" Value="#FF45494A" />

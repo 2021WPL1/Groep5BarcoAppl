@@ -38,6 +38,7 @@ namespace BarcoApplicatie.viewModels
         public ICommand RefuseJobRequestCommand { get; set; }
         public ICommand RemoveJrCommand { get; set; }
         public ICommand HomeCommand { get; set; }
+        public ICommand openListWindowCommand { get; set; }
 
         public AcceptJRViewModel(BarcoApplicationDataService barcoApplicationDataService)
         {
@@ -49,6 +50,7 @@ namespace BarcoApplicatie.viewModels
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
             OpenAcceptJrWindow = new RelayCommand<Window>(OpenAcceptWindow);
             HomeCommand = new RelayCommand<Window>(ShowHome);
+            openListWindowCommand = new DelegateCommand(openListWindow);
         }
 
         private RqRequest _selectedRequest;
@@ -72,6 +74,7 @@ namespace BarcoApplicatie.viewModels
         private string _netWeight;
         private string _grossWeight;
         private DateTime? _expectedEndDate;
+        private DateTime? _eut1Date;
         private bool _batteries_Yes;
         private string _testPlan;
         private string _specialRemarks;
@@ -301,6 +304,19 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        public DateTime? Eut1Date
+        {
+            get
+            {
+                return _eut1Date;
+            }
+            set
+            {
+                _eut1Date = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string Jr_Number
         {
             get
@@ -441,31 +457,37 @@ namespace BarcoApplicatie.viewModels
                         {
                             EMC = true;
                             EmcEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                         if (detail.Testdivisie == "ENV")
                         {
                             ENV = true;
                             EnvEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                         if (detail.Testdivisie == "REL")
                         {
                             REL = true;
                             RelEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                         if (detail.Testdivisie == "SAF")
                         {
                             SAF = true;
                             SafEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                         if (detail.Testdivisie == "PCK")
                         {
                             PCK = true;
                             PckEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                         if (detail.Testdivisie == "ECO")
                         {
                             ECO = true;
                             EcoEUT = eut.OmschrijvingEut;
+                            Eut1Date = eut.AvailableDate;
                         }
                     }
                 }
@@ -561,6 +583,12 @@ namespace BarcoApplicatie.viewModels
             {
                 window.Close();
             }
+        }
+
+        public void openListWindow()
+        {
+            ViewJobrequest viewJobrequest = new ViewJobrequest();
+            viewJobrequest.Show();
         }
     }
 }
