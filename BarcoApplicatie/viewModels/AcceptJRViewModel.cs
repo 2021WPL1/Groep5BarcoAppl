@@ -514,7 +514,6 @@ namespace BarcoApplicatie.viewModels
         public void AddAcceptedToList()
         {
             var acceptedRequest = _dataservice.getRequestWithId(SelectedRequest.IdRequest);
-            AcceptedRequests.Clear();
             AcceptedRequests.Add(acceptedRequest);
         }
 

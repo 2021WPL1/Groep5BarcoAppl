@@ -19,7 +19,6 @@ namespace BarcoApplicatie
             viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
             DataContext = viewModel;
             DataContext = _viewModel;
-            _viewModel.AddAcceptedToList();
         }        
     }
 }
