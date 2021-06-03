@@ -1343,13 +1343,13 @@ namespace BarcoApplicatie.viewModels
             {
                 if (EnvEUT1 || EnvEUT2|| EnvEUT3 || EnvEUT4 || EnvEUT5 || EnvEUT6)
                 {
-                    CreateRequestDetail("ENV",
-                        $"{EnvEUT1Message} " +
-                        $"         {EnvEUT2Message} " +
-                        $"         {EnvEUT3Message} " +
-                        $"         {EnvEUT4Message} " +
-                        $"         {EnvEUT5Message} " +
-                        $"         {EnvEUT6Message} ",
+                    CreateRequestDetail("ENV", 
+                        $"{EnvEUT1Message}" +
+                        $"   {EnvEUT2Message} " +
+                        $"   {EnvEUT3Message} " +
+                        $"   {EnvEUT4Message} " +
+                        $"   {EnvEUT5Message} " +
+                        $"   {EnvEUT6Message} ",
                         EUT2Date);
                 }
             }
@@ -1359,11 +1359,11 @@ namespace BarcoApplicatie.viewModels
                 {
                     CreateRequestDetail("REL", 
                         $"{RelEUT1Message} " +
-                        $"         {RelEUT2Message} " +
-                        $"         {RelEUT3Message} " +
-                        $"         {RelEUT4Message} " +
-                        $"         {RelEUT5Message} " +
-                        $"         {RelEUT6Message} ", 
+                        $"   {RelEUT2Message} " +
+                        $"   {RelEUT3Message} " +
+                        $"   {RelEUT4Message} " +
+                        $"   {RelEUT5Message} " +
+                        $"   {RelEUT6Message} ",
                         EUT3Date);
                 }
             }
@@ -1373,11 +1373,11 @@ namespace BarcoApplicatie.viewModels
                 {
                     CreateRequestDetail("SAF", 
                         $"{SafeEUT1Message} " +
-                        $"         {SafeEUT2Message} " +
-                        $"         {SafeEUT3Message} " +
-                        $"         {SafeEUT4Message} " +
-                        $"         {SafeEUT5Message} " +
-                        $"         {SafeEUT6Message} ",
+                        $"   {SafeEUT2Message} " +
+                        $"   {SafeEUT3Message} " +
+                        $"   {SafeEUT4Message} " +
+                        $"   {SafeEUT5Message} " +
+                        $"   {SafeEUT6Message} ",
                         EUT4Date);
                 }
             }
@@ -1387,11 +1387,11 @@ namespace BarcoApplicatie.viewModels
                 {
                     CreateRequestDetail("PCK", 
                         $"{PackEUT1Message} " +
-                        $"         {PackEUT2Message} " +
-                        $"         {PackEUT3Message} " +
-                        $"         {PackEUT4Message} " +
-                        $"         {PackEUT5Message} " +
-                        $"         {PackEUT6Message} ",
+                        $"   {PackEUT2Message} " +
+                        $"   {PackEUT3Message} " +
+                        $"   {PackEUT4Message} " +
+                        $"   {PackEUT5Message} " +
+                        $"   {PackEUT6Message} ",
                         EUT5Date);
                 }
             }
@@ -1401,11 +1401,11 @@ namespace BarcoApplicatie.viewModels
                 {
                     CreateRequestDetail("ECO", 
                         $"{GreenEUT1Message} " +
-                        $"         {GreenEUT2Message} " +
-                        $"         {GreenEUT3Message} " +
-                        $"         {GreenEUT4Message} " +
-                        $"         {GreenEUT5Message} " +
-                        $"         {GreenEUT6Message} ",
+                        $"   {GreenEUT2Message} " +
+                        $"   {GreenEUT3Message} " +
+                        $"   {GreenEUT4Message} " +
+                        $"   {GreenEUT5Message} " +
+                        $"   {GreenEUT6Message} ",
                         EUT6Date);
                 }
             }
@@ -1517,7 +1517,7 @@ namespace BarcoApplicatie.viewModels
         private void timer_Tick(object sender, EventArgs e)
         {
             //Date kan aangepast worden naar keuze
-            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 10, 28, 0); //18pm,0min,0sec
+            DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 17, 0); //18pm,0min,0sec
             DateTime dateNow = DateTime.Now;
 
             //geen mail op zaterdag & zondag
@@ -1528,7 +1528,6 @@ namespace BarcoApplicatie.viewModels
                     SendMail();
                 }
             }
-
         }
         private void SendMail()
         {

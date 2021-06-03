@@ -17,6 +17,7 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     class AcceptJRViewModel : ViewModelBase
     {
+        //link naar de image van het barcologo
         public ImageSource ImageBarco
         {
             get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
@@ -58,6 +59,9 @@ namespace BarcoApplicatie.viewModels
         private string _safEUT;
         private string _pckEUT;
         private string _ecoEUT;
+
+        private string _requestDate;
+        private string _jr_Number;
 
 
         private string _division;
@@ -284,6 +288,33 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        public string RequestDate
+        {
+            get
+            {
+                return _requestDate;
+            }
+            set
+            {
+                _requestDate = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Jr_Number
+        {
+            get
+            {
+                return _jr_Number;
+            }
+            set
+            {
+                _jr_Number = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public string TestPlan
         {
             get
@@ -397,6 +428,8 @@ namespace BarcoApplicatie.viewModels
                     GrossWeight = value.GrossWeight;
                     ExpectedEndDate = value.ExpectedEnddate;
                     Batteries_Yes = value.Battery;
+                    Jr_Number = value.JrNumber;
+                    RequestDate = RqDate();
 
                     var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
 
@@ -440,12 +473,12 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        //private void RefuseJobRequest()
-        //{
-        //    var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
-        //    _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
-        //    LoadJRIntoListbox();
-        //}
+        private void RefuseJobRequest()
+        {
+            var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+            _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
+            LoadJRIntoListbox();
+        }
 
         private void RemoveJobRequest()
         {
@@ -476,11 +509,9 @@ namespace BarcoApplicatie.viewModels
         //    homeScreen.Show();
         //}
 
-        public void RqDate()
+        public string RqDate()
         {
-            string dateTimeToday = DateTime.Now.ToString("yyyyMMdd");
-            //Console.WriteLine(dateTimeString);
-            //20210527
+            return DateTime.Now.ToString("yyyy/MM/dd");
         }
         public void JrNumber()
         {
@@ -521,6 +552,7 @@ namespace BarcoApplicatie.viewModels
                 window.Close();
             }
         }
+        //Het window sluiten en het window van de homescreen openen
         public void ShowHome(Window window)
         {
             HomeScreen homeScreen = new HomeScreen();
