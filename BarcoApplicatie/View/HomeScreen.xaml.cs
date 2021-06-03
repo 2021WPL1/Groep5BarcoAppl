@@ -33,6 +33,11 @@ namespace BarcoApplicatie
             {
                 userName = Convert.ToString(request.GetValue("Name"));
             }
+            if (userName == "Koen De Groot")
+            {
+                btnSendJob1_Copy.IsEnabled = true;
+                btnSendJob1_Copy1.IsEnabled = true;
+            }
             if (userName == "Robbe Delsoir")
             {
                 btnSendJob1_Copy.IsEnabled = true;
