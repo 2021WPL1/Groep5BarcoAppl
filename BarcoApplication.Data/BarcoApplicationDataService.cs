@@ -56,11 +56,18 @@ namespace BarcoApplication.Data
             return _context.RqOptionel.FirstOrDefault(r => r.IdRequest == id);
         }
 
-        public void removeJobRequest(int id)
+        public Eut GetEUTWithId(int id)
         {
-            _context.RqOptionel.Remove(GetOptionelWithId(id));
-            _context.RqRequestDetail.Remove(getRequestDetailWithId(id));
-            _context.RqRequest.Remove(getRequestWithId(id));
+            return _context.Eut.FirstOrDefault(r => r.IdRqDetail == id);
+        }
+
+        public void removeJobRequest(int requestId, int detailsId)
+        {
+            _context.RqOptionel.Remove(GetOptionelWithId(requestId));
+            _context.Eut.Remove(GetEUTWithId(detailsId));
+            _context.RqRequestDetail.Remove(getRequestDetailWithId(requestId));
+            _context.RqRequest.Remove(getRequestWithId(requestId));
+            
             _context.SaveChanges();
         }
 
