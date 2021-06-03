@@ -12,6 +12,7 @@ using System.Net;
 using System.Windows.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
 
 namespace BarcoApplicatie.viewModels
 {
@@ -1453,6 +1454,7 @@ namespace BarcoApplicatie.viewModels
         }
 
         ///////////////////////////////////////////Commands///////////////////////////////////////////
+        //Mathias & Nikki
         public ICommand SendJobRequestCommand { get; set; }
         public ICommand HomeCommand { get; set; }
         public ICommand AddCommand { get; set; }
@@ -1552,6 +1554,55 @@ namespace BarcoApplicatie.viewModels
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        ///////////////////////////////////////////Errorhandling///////////////////////////////////////////
+        //Nikki
+        public void ControlInput(string canBe, TextBox box, Label label, string content)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(box.Text, canBe))
+            {
+                label.Content = content;
+                box.Text = box.Text.Remove(box.Text.Length - 1);
+            }
+        }
+
+        //Check if checkbox is empty for datePicker
+        public void dateEmpty(DatePicker DateEut, CheckBox cbEmcEut, CheckBox cbEnviromental, CheckBox cbReliability, CheckBox cbProductSafety, CheckBox cbPackaging, CheckBox cbGreenCompilance)
+        {
+            if (cbEmcEut.IsChecked == false && cbEnviromental.IsChecked == false && cbReliability.IsChecked == false && cbProductSafety.IsChecked == false && cbPackaging.IsChecked == false && cbGreenCompilance.IsChecked == false)
+            {
+                DateEut.IsEnabled = false;
+            }
+            else
+            {
+                DateEut.IsEnabled = true;
+            }
+        }
+
+        //Check if text is empty
+        public void EmptyTextBox(TextBox txtname, string text, Label label)
+        {
+            if (txtname.Text.Length == 0)
+            {
+                label.Content = "Please fill in " + text;
+            }
+            else
+            {
+                label.Content = "";
+            }
+
+        }
+        public void EmptyComboBox(ComboBox cmbname, string text, Label label)
+        {
+            if (cmbname.SelectedIndex == -1)
+            {
+                label.Content = "Please fill in " + text;
+            }
+            else
+            {
+                label.Content = "";
             }
         }
     }
