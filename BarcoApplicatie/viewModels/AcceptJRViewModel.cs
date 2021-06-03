@@ -17,6 +17,7 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     class AcceptJRViewModel : ViewModelBase
     {
+        //link naar de image van het barcologo
         public ImageSource ImageBarco
         {
             get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
@@ -521,6 +522,7 @@ namespace BarcoApplicatie.viewModels
                 window.Close();
             }
         }
+        //Het window sluiten en het window van de homescreen openen
         public void ShowHome(Window window)
         {
             HomeScreen homeScreen = new HomeScreen();
