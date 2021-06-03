@@ -1343,7 +1343,13 @@ namespace BarcoApplicatie.viewModels
                 if (EnvEUT1 || EnvEUT2|| EnvEUT3 || EnvEUT4 || EnvEUT5 || EnvEUT6)
                 {
                     CreateRequestDetail("ENV", 
-                        $"{EnvEUT1Message} ; {EnvEUT2Message} ; {EnvEUT3Message} ; {EnvEUT4Message} ; {EnvEUT5Message} ; {EnvEUT6Message} ; ", EUT2Date);
+                        $"{EnvEUT1Message}" +
+                        $"   {EnvEUT2Message} " +
+                        $"   {EnvEUT3Message} " +
+                        $"   {EnvEUT4Message} " +
+                        $"   {EnvEUT5Message} " +
+                        $"   {EnvEUT6Message} ",
+                        EUT2Date);
                 }
             }
             if (_REL)
@@ -1351,7 +1357,13 @@ namespace BarcoApplicatie.viewModels
                 if (RelEUT1 || RelEUT2|| RelEUT3 || RelEUT4 || RelEUT5 || RelEUT6)
                 {
                     CreateRequestDetail("REL", 
-                        $"{RelEUT1Message} ; {RelEUT2Message} ; {RelEUT3Message} ; {RelEUT4Message} ; {RelEUT5Message} ; {RelEUT6Message} ; ", EUT3Date);
+                        $"{RelEUT1Message} " +
+                        $"   {RelEUT2Message} " +
+                        $"   {RelEUT3Message} " +
+                        $"   {RelEUT4Message} " +
+                        $"   {RelEUT5Message} " +
+                        $"   {RelEUT6Message} ",
+                        EUT3Date);
                 }
             }
             if (_SAFE)
@@ -1359,7 +1371,13 @@ namespace BarcoApplicatie.viewModels
                 if (SafeEUT1 || SafeEUT2|| SafeEUT3 || SafeEUT4 || SafeEUT5 || SafeEUT6)
                 {
                     CreateRequestDetail("SAF", 
-                        $"{SafeEUT1Message} ; {SafeEUT2Message} ; {SafeEUT3Message} ; {SafeEUT4Message} ; {SafeEUT5Message} ; {SafeEUT6Message} ; ", EUT4Date);
+                        $"{SafeEUT1Message} " +
+                        $"   {SafeEUT2Message} " +
+                        $"   {SafeEUT3Message} " +
+                        $"   {SafeEUT4Message} " +
+                        $"   {SafeEUT5Message} " +
+                        $"   {SafeEUT6Message} ",
+                        EUT4Date);
                 }
             }
             if (_PACK)
@@ -1367,7 +1385,13 @@ namespace BarcoApplicatie.viewModels
                 if (PackEUT1 || PackEUT2|| PackEUT3 || PackEUT4 || PackEUT5 || PackEUT6)
                 {
                     CreateRequestDetail("PCK", 
-                        $"{PackEUT1Message} ; {PackEUT2Message} ; {PackEUT3Message} ; {PackEUT4Message} ; {PackEUT5Message} ; {PackEUT6Message} ; ", EUT5Date);
+                        $"{PackEUT1Message} " +
+                        $"   {PackEUT2Message} " +
+                        $"   {PackEUT3Message} " +
+                        $"   {PackEUT4Message} " +
+                        $"   {PackEUT5Message} " +
+                        $"   {PackEUT6Message} ",
+                        EUT5Date);
                 }
             }
             if (_GREEN)
@@ -1375,7 +1399,13 @@ namespace BarcoApplicatie.viewModels
                 if (GreenEUT1 || GreenEUT2|| GreenEUT3 || GreenEUT4 || GreenEUT5 || GreenEUT6)
                 {
                     CreateRequestDetail("ECO", 
-                        $"{GreenEUT1Message} ; {GreenEUT2Message} ; {GreenEUT3Message} ; {GreenEUT4Message} ; {GreenEUT5Message} ; {GreenEUT6Message} ; ", EUT6Date);
+                        $"{GreenEUT1Message} " +
+                        $"   {GreenEUT2Message} " +
+                        $"   {GreenEUT3Message} " +
+                        $"   {GreenEUT4Message} " +
+                        $"   {GreenEUT5Message} " +
+                        $"   {GreenEUT6Message} ",
+                        EUT6Date);
                 }
             }
             _dataservice.SaveChanges();
