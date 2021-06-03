@@ -440,12 +440,12 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        private void RefuseJobRequest()
-        {
-            var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
-            _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
-            LoadJRIntoListbox();
-        }
+        //private void RefuseJobRequest()
+        //{
+        //    var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+        //    _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
+        //    LoadJRIntoListbox();
+        //}
 
         private void RemoveJobRequest()
         {
@@ -502,7 +502,8 @@ namespace BarcoApplicatie.viewModels
 
         private void RefuseJobRequest(Window window)
         {
-            _dataservice.removeJobRequest(SelectedRequest.IdRequest);
+            var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
+            _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
             LoadJRIntoListbox();
             ViewJobrequest viewJobrequest = new ViewJobrequest();
             viewJobrequest.Show();
