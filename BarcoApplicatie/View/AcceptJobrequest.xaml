@@ -190,7 +190,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button Command="{Binding openListWindowCommand}" CommandParameter="{Binding ElementName=AcceptJob}"
+        <Button Command="{Binding OpenAcceptListWindowCommand}" CommandParameter="{Binding ElementName=AcceptJob}"
                 x:Name="btnAcceptJob"
                 Content="ACCEPT JOB REQUEST" HorizontalAlignment="Left" Height="47" Margin="579,697,0,0" VerticalAlignment="Top" Width="269" Foreground="White" Background="#FF3E8603"/>
         <Label Content="PVG" HorizontalAlignment="Left" Margin="786,446,0,0" VerticalAlignment="Top" Foreground="White" Height="27"/>

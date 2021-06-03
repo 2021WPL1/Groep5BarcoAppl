@@ -97,7 +97,7 @@ namespace BarcoApplication.Data
             string division, string jobNature, bool battery)
         {
             request.JrNumber = "0001";
-            request.HydraProjectNr = "0001";
+            request.HydraProjectNr = HydraProjectNr;
             request.Requester = initials;
             request.EutProjectname = projectName;
             request.EutPartnumbers = partNumber;

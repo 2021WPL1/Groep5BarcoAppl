@@ -56,7 +56,16 @@
         <Label Content="EUT Projectname" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Request date" HorizontalAlignment="Left" Margin="611,53,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="End date" HorizontalAlignment="Left" Margin="819,53,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <ListBox Margin="0,76,0,0" BorderThickness="0.5,0.25" Background="Transparent" BorderBrush="#FF707070" Foreground="White"/>
+        <ListBox ItemsSource="{Binding AcceptedRequests}" Margin="1,79,-5,9" BorderThickness="0.5,0.25" Background="Transparent" BorderBrush="#FF707070" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.137"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
         <Label Content="JR number" HorizontalAlignment="Left" Margin="15,53,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="btnHome" 
                 Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=ViewAccept}" 
