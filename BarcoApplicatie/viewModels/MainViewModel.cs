@@ -1497,6 +1497,7 @@ namespace BarcoApplicatie.viewModels
         private static string mailFrom = "Groep3testprog@gmail.com";
         private static string mailFromPassword = "Testtest123";
 
+
         public void ActivateEmail()
         {
             //_dataService = BarcoApplicationDataService.Instance();
@@ -1512,14 +1513,18 @@ namespace BarcoApplicatie.viewModels
             DateTime emailSendTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 9, 17, 0); //18pm,0min,0sec
             DateTime dateNow = DateTime.Now;
 
-            //geen mail op zaterdag & zondag
-            if (dateNow.DayOfWeek != DayOfWeek.Saturday || dateNow.DayOfWeek != DayOfWeek.Sunday)
+            if (_dataservice.getAllRequests() != null)
             {
-                if (emailSendTime.Hour == dateNow.Hour && emailSendTime.Minute == dateNow.Minute)
+                //geen mail op zaterdag & zondag
+                if (dateNow.DayOfWeek != DayOfWeek.Saturday || dateNow.DayOfWeek != DayOfWeek.Sunday)
                 {
-                    SendMail();
+                    if (emailSendTime.Hour == dateNow.Hour && emailSendTime.Minute == dateNow.Minute)
+                    {
+                        SendMail();
+                    }
                 }
             }
+
         }
         private void SendMail()
         {

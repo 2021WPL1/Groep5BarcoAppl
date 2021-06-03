@@ -521,23 +521,23 @@ namespace BarcoApplicatie.viewModels
         {
             return DateTime.Now.ToString("yyyy/MM/dd");
         }
-        public void JrNumber()
+        public string JrNumber()
         {
-
-            //counter komt uit database
-            int counter = 1;
-            //als database leeg is komt counter op 1
-            if (counter == 0)
+            int number = _dataservice.getJrNumber();
+            if (number == 0)
             {
-                counter = 1;
+                number = 1;
             }
             else
             {
-                counter++;
+                number++;
             }
-            //je counter met automatisch 4 cijfers
-            string sCounter = String.Format("{0:D4}", counter);
-            //0001
+            string  sNumber = String.Format("{0:D4}", number);
+            return sNumber;
+            
+            ////je counter met automatisch 4 cijfers
+            //string sCounter = String.Format("{0:D4}", counter);
+            ////0001
         }
 
         ///////////////////////////////////////////Commands///////////////////////////////////////////
