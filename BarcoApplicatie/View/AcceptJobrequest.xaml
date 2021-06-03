@@ -27,7 +27,7 @@
         <Label Content="GROSS WEIGHT (kg)" HorizontalAlignment="Left" Margin="44,274,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="EXPECTED END DATE" HorizontalAlignment="Left" Margin="43,317,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="BATTERIES INSIDE" HorizontalAlignment="Left" Margin="50,348,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox Text="{Binding Initialen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials" HorizontalAlignment="Left" Margin="233,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding Initialen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials" HorizontalAlignment="Left" Margin="233,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" IsEnabled="False">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -347,7 +347,7 @@
         <Image Name="ImageBarco" 
                Source="{Binding ImageBarco}"
                Width="200" Height="75" Margin="2,-7,700,762"/>
-        <TextBox Text="{Binding Division, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtDivision" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding Division, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtDivision" HorizontalAlignment="Left" Margin="233,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" IsEnabled="False">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -374,7 +374,7 @@
         <Button x:Name="btnHome" 
                 Command="{Binding HomeCommand}" CommandParameter="{Binding ElementName=AcceptJob}" 
                 Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="56" Margin="1,0,0,0" VerticalAlignment="Top" Width="202"/>
-        <TextBox Text="{Binding RequestDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials_Copy" HorizontalAlignment="Left" Margin="782,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding RequestDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials_Copy" HorizontalAlignment="Left" Margin="782,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" IsEnabled="False">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -385,7 +385,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox Text="{Binding Jr_Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtRequesterInitials_Copy1" HorizontalAlignment="Left" Margin="782,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White">
+        <TextBox Text="{Binding Jr_Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="txtJrNumber" HorizontalAlignment="Left" Margin="782,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF45494A" BorderBrush="#FF707070" RenderTransformOrigin="0.5,0.5" Foreground="White" IsEnabled="False">
 
             <TextBox.RenderTransform>
                 <TransformGroup>
