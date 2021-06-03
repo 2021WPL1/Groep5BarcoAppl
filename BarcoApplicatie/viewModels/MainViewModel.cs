@@ -21,27 +21,30 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        public ImageSource ImageBarco
-        {
-            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
-        }
-
         private RqRequest request = new RqRequest();
         private RqOptionel optionel = new RqOptionel();
         private RqTestDevision testDevision = new RqTestDevision();
-        private RqRequestDetail requestDetail;
-        private Eut eut;
-
         private BarcoApplicationDataService _dataservice;
-
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
 
-        private RqBarcoDivision _selectedDivision;
-        private RqJobNature _selectedJobNatures;
+        public MainViewModel(BarcoApplicationDataService dataService)
+        {
+            this._dataservice = dataService;
 
+            SendJobRequestCommand = new DelegateCommand(SendJobRequest);
+            HomeCommand = new RelayCommand<Window>(ShowHome);
+            AddCommand = new RelayCommand<Window>(ShowAdd);
+            ConfirmCommand = new RelayCommand<Window>(ShowConfirm);
+            ViewCommand = new RelayCommand<Window>(ShowView);
+
+            Divisions = new ObservableCollection<RqBarcoDivision>();
+            JobNatures = new ObservableCollection<RqJobNature>();
+        }
+
+        ///////////////////////////////////////////Registry///////////////////////////////////////////
+        //Robbe
         private string _registryDivision { get; set; }
-
         public string RegistryDivision
         {
             get
@@ -66,12 +69,22 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
+        //Koen
+        public ImageSource ImageBarco
+        {
+            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
+        }
+
+        private RqBarcoDivision _selectedDivision;
+        private RqJobNature _selectedJobNatures;
+
         public RqBarcoDivision SelectedDivision
         {
-            get 
+            get
             {
 
-                return _selectedDivision; 
+                return _selectedDivision;
             }
             set
             {
@@ -79,7 +92,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public RqJobNature SelectedJobNatures
         {
             get { return _selectedJobNatures; }
@@ -90,8 +102,6 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
-        ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
-        //Koen
         private string _requesterInitials;
         private string _projectNumber;
         private string _projectName;
@@ -1276,20 +1286,6 @@ namespace BarcoApplicatie.viewModels
                 _specialRemarks = value;
                 OnPropertyChanged();
             }
-        }
-
-        public MainViewModel(BarcoApplicationDataService dataService)
-        {
-            this._dataservice = dataService;
-
-            SendJobRequestCommand = new DelegateCommand(SendJobRequest);
-            HomeCommand = new RelayCommand<Window>(ShowHome);
-            AddCommand = new RelayCommand<Window>(ShowAdd);
-            ConfirmCommand = new RelayCommand<Window>(ShowConfirm);
-            ViewCommand = new RelayCommand<Window>(ShowView);
-
-            Divisions = new ObservableCollection<RqBarcoDivision>();
-            JobNatures = new ObservableCollection<RqJobNature>();
         }
 
         public void SendJobRequest()

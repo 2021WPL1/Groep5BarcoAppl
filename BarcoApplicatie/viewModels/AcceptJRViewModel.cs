@@ -37,8 +37,15 @@ namespace BarcoApplicatie.viewModels
             HomeCommand = new RelayCommand<Window>(ShowHome);
             openListWindowCommand = new RelayCommand<Window>(openListWindow);
         }
+
         ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
         //Koen
+        //link naar de image van het barcologo
+        public ImageSource ImageBarco
+        {
+            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
+        }
+
         private RqRequest _selectedRequest;
         private string _initialen;
         private string _emcEUT;
@@ -69,12 +76,6 @@ namespace BarcoApplicatie.viewModels
         private bool _SAF;
         private bool _PCK;
         private bool _ECO;
-
-        //link naar de image van het barcologo
-        public ImageSource ImageBarco
-        {
-            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
-        }
 
         public string Initialen
         {
@@ -511,6 +512,7 @@ namespace BarcoApplicatie.viewModels
         }
         public void JrNumber()
         {
+
             //counter komt uit database
             int counter = 1;
             //als database leeg is komt counter op 1

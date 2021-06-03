@@ -18,7 +18,6 @@ namespace BarcoApplicatie
 
         private MainViewModel viewModel;
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -28,6 +27,7 @@ namespace BarcoApplicatie
             DataContext = viewModel;
             viewModel.insertDivisionIntoComboBox();
             viewModel.insertJobNatureIntoComboBox();
+            //MessageBox.Show(viewModel.)
         }
 
         private void controlInitials()
