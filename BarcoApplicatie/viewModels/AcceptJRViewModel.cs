@@ -17,28 +17,13 @@ namespace BarcoApplicatie.viewModels
     /// </summary>
     class AcceptJRViewModel : ViewModelBase
     {
-        //link naar de image van het barcologo
-        public ImageSource ImageBarco
-        {
-            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
-        }
-
         private static readonly AcceptJRViewModel _acceptJrViewModel = new AcceptJRViewModel(BarcoApplicationDataService.Instance());
-
         public static AcceptJRViewModel Instance()
         {
             return _acceptJrViewModel;
         }
-
         private BarcoApplicationDataService _dataservice;
-
         public ObservableCollection<RqRequest> Requests { get; set; }
-
-        public ICommand OpenAcceptJrWindow { get; set; }
-        public ICommand RefuseJobRequestCommand { get; set; }
-        public ICommand RemoveJrCommand { get; set; }
-        public ICommand HomeCommand { get; set; }
-        public ICommand openListWindowCommand { get; set; }
 
         public AcceptJRViewModel(BarcoApplicationDataService barcoApplicationDataService)
         {
@@ -50,9 +35,10 @@ namespace BarcoApplicatie.viewModels
             RemoveJrCommand = new DelegateCommand(RemoveJobRequest);
             OpenAcceptJrWindow = new RelayCommand<Window>(OpenAcceptWindow);
             HomeCommand = new RelayCommand<Window>(ShowHome);
-            openListWindowCommand = new DelegateCommand(openListWindow);
+            openListWindowCommand = new RelayCommand<Window>(openListWindow);
         }
-
+        ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
+        //Koen
         private RqRequest _selectedRequest;
         private string _initialen;
         private string _emcEUT;
@@ -64,7 +50,6 @@ namespace BarcoApplicatie.viewModels
 
         private string _requestDate;
         private string _jr_Number;
-
 
         private string _division;
         private string _jobNature;
@@ -84,6 +69,12 @@ namespace BarcoApplicatie.viewModels
         private bool _SAF;
         private bool _PCK;
         private bool _ECO;
+
+        //link naar de image van het barcologo
+        public ImageSource ImageBarco
+        {
+            get { return new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../../Images/barcoLogo.png")); }
+        }
 
         public string Initialen
         {
@@ -303,7 +294,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public DateTime? Eut1Date
         {
             get
@@ -316,7 +306,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public string Jr_Number
         {
             get
@@ -329,8 +318,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
-
         public string TestPlan
         {
             get
@@ -417,6 +404,8 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        ///////////////////////////////////////////LoadDataInRequest///////////////////////////////////////////
+        //Koen
         public RqRequest SelectedRequest
         {
             get { return _selectedRequest; }
@@ -494,21 +483,18 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         private void RefuseJobRequest()
         {
             var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
             _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
             LoadJRIntoListbox();
         }
-
         private void RemoveJobRequest()
         {
             var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
             _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
             LoadJRIntoListbox();
         }
-
         public void LoadJRIntoListbox()
         {
             var requests = _dataservice.getAllRequests();
@@ -518,18 +504,6 @@ namespace BarcoApplicatie.viewModels
                 Requests.Add(request);
             }
         }
-
-        //public void OpenAcceptWindow()
-        //{
-        //    AcceptJobrequest acceptJobrequest = new AcceptJobrequest();
-        //    acceptJobrequest.Show();
-        //}
-
-        //public void OpenHomeWindow()
-        //{
-        //    HomeScreen homeScreen = new HomeScreen();
-        //    homeScreen.Show();
-        //}
 
         public string RqDate()
         {
@@ -553,7 +527,16 @@ namespace BarcoApplicatie.viewModels
             //0001
         }
 
-        private void RefuseJobRequest(Window window)
+        ///////////////////////////////////////////Commands///////////////////////////////////////////
+        //Nikki
+        public ICommand OpenAcceptJrWindow { get; set; }
+        public ICommand RefuseJobRequestCommand { get; set; }
+        public ICommand RemoveJrCommand { get; set; }
+        public ICommand HomeCommand { get; set; }
+        public ICommand openListWindowCommand { get; set; }
+
+        //Het window sluiten en het window van de homescreen openen
+        public void RefuseJobRequest(Window window)
         {
             var detail = _dataservice.GetRequestDetail(SelectedRequest.IdRequest);
             _dataservice.removeJobRequest(SelectedRequest.IdRequest, detail.IdRqDetail);
@@ -574,7 +557,6 @@ namespace BarcoApplicatie.viewModels
                 window.Close();
             }
         }
-        //Het window sluiten en het window van de homescreen openen
         public void ShowHome(Window window)
         {
             HomeScreen homeScreen = new HomeScreen();
@@ -584,11 +566,14 @@ namespace BarcoApplicatie.viewModels
                 window.Close();
             }
         }
-
-        public void openListWindow()
+        public void openListWindow(Window window)
         {
             ViewJobrequest viewJobrequest = new ViewJobrequest();
             viewJobrequest.Show();
+            if (window != null)
+            {
+                window.Close();
+            }
         }
     }
 }

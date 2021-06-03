@@ -90,12 +90,11 @@ namespace BarcoApplicatie.viewModels
             }
         }
 
+        ///////////////////////////////////////////Getters&Setters///////////////////////////////////////////
+        //Koen
         private string _requesterInitials;
-
         private string _projectNumber;
-
         private string _projectName;
-
         private string _linkToTestplan;
         private string _specialRemarks;
 
@@ -259,7 +258,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public string ProjectNumber
         {
             get
@@ -272,7 +270,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public string ProjectName
         {
             get
@@ -564,7 +561,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public bool Batteries_No
         {
             get
@@ -1269,7 +1265,6 @@ namespace BarcoApplicatie.viewModels
                 OnPropertyChanged();
             }
         }
-
         public string SpecialRemarks
         {
             get
