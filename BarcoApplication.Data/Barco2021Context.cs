@@ -1,7 +1,5 @@
-﻿using System;
-using BarcoApplicatie;
+﻿using BarcoApplicatie;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BarcoApplication.Data.BibModels
 {

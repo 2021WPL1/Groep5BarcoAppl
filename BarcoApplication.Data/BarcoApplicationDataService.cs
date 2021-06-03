@@ -96,7 +96,7 @@ namespace BarcoApplication.Data
             string partNumber, DateTime? date, string grossWeight, string netWeight,
             string division, string jobNature, bool battery)
         {
-            request.JrNumber = "0001";
+            request.JrNumber = (getJrNumber() + 1).ToString();
             request.HydraProjectNr = HydraProjectNr;
             request.Requester = initials;
             request.EutProjectname = projectName;
