@@ -9,15 +9,12 @@ namespace BarcoApplicatie
     /// </summary>
     public partial class ViewAcceptJobrequest : Window
     {
-        private MainViewModel viewModel;
 
         private static AcceptJRViewModel _viewModel = AcceptJRViewModel.Instance();
 
         public ViewAcceptJobrequest()
         {
             InitializeComponent();
-            viewModel = new MainViewModel(BarcoApplicationDataService.Instance());
-            DataContext = viewModel;
             DataContext = _viewModel;
         }        
     }

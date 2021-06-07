@@ -23,9 +23,10 @@ namespace BarcoApplicatie.viewModels
     {
         private RqRequest request = new RqRequest();
         private RqOptionel optionel = new RqOptionel();
-        private RqTestDevision testDevision = new RqTestDevision();
         private BarcoApplicationDataService _dataservice;
+
         public ObservableCollection<RqBarcoDivision> Divisions { get; set; }
+
         public ObservableCollection<RqJobNature> JobNatures { get; set; }
 
         public MainViewModel(BarcoApplicationDataService dataService)
@@ -33,6 +34,7 @@ namespace BarcoApplicatie.viewModels
             this._dataservice = dataService;
 
             SendJobRequestCommand = new DelegateCommand(SendJobRequest);
+
             HomeCommand = new RelayCommand<Window>(ShowHome);
             AddCommand = new RelayCommand<Window>(ShowAdd);
             ConfirmCommand = new RelayCommand<Window>(ShowConfirm);

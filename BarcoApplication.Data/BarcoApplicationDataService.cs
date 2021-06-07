@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using BarcoApplication.Data.BibModels;
-using Microsoft.EntityFrameworkCore;
 
 namespace BarcoApplication.Data
 {

@@ -14,13 +14,6 @@ namespace BarcoApplicatie
         {
             InitializeComponent();
             DataContext = _viewModel;
-
-            //need to add binding acceptJobrequest (btnSendJob)
-        }
-
-        private void btnSendJob_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
